@@ -45,7 +45,7 @@ class Chofer
             $error =  $conn->getError() . ' | Error a obtener el chofer: ' . $params[0];
             cargarLog(null, null, $error, get_class(), __FUNCTION__);
         }
-        return $chofer;
+        return json_encode($chofer);
     }
 
     public static function update($res, $id)
