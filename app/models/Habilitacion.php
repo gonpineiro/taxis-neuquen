@@ -45,7 +45,7 @@ class Habilitacion
             $error =  $conn->getError() . ' | Error a obtener el habilitacion: ' . $params[0];
             cargarLog(null, null, $error, get_class(), __FUNCTION__);
         }
-        return $habilitacion;
+        return json_encode($habilitacion);
     }
 
     public static function update($res, $id)
