@@ -32,6 +32,8 @@ define('DB_NAME',  PROD ? $_ENV['DB_NAME'] : 'infoprueba');
 define('DB_PORT',  PROD ? $_ENV['DB_PORT'] : '3306');
 define('DB_CHARSET',  PROD ? $_ENV['DB_CHARSET'] : 'utf8');
 
+define('API_URL',  PROD ? $_ENV['API_URL'] : $_ENV['API_URL']);
+
 /* Configuracion del path fIle */
 define('PATH_FILE_LOCAL', $_ENV['PATH_FILE_LOCAL'] == 'true' ? true : false);
 
@@ -45,7 +47,6 @@ define('CIUDADES', $_ENV['DB_CIUDADES_TABLE']);
 define('BARRIOS', $_ENV['DB_BARRIOS_TABLE']);
 define('ACTIVIDADES', $_ENV['DB_ACTIVIDADES_TABLE']);
 define('CATEGORIAS_ACTIVIDADES', $_ENV['DB_CATEGORIAS_ACTIVIDADES_TABLE']);
-define('SOLICITUDES_ACTIVIDADES', $_ENV['DB_SOLICITUDES_ACTIVIDADES_TABLE']);
 
 define('CHOFERES', $_ENV['DB_CHOFERES_TABLE']);
 define('HABILITACIONES', $_ENV['DB_HABILITACIONES_TABLE']);
