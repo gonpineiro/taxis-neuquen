@@ -1,4 +1,7 @@
 <?php
 include 'app/config/config.php';
-$hab = Habilitacion::list();
+$habilitacionController = new HabilitacionController();
+$habilitaciones = $habilitacionController->index();
+$choferesController = new ChoferController();
+$choferes = $choferesController->index();
 die();
