@@ -6,7 +6,7 @@
  */
 class Base
 {
-    public static $url = 'https://weblogin.muninqn.gov.ar/api/mnqn';
+    public static $url = API_URL;
     public static $headers = ['Content-type: application/json'];
 
     public static function callWebService($params, $method = 'POST')
