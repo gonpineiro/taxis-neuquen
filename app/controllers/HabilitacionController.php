@@ -3,9 +3,10 @@
 class HabilitacionController
 {
     /* Busca todas las habilitaciones */
-    public static function index($param = [], $ops = [])
+    public function index($param)
     {
-        return Habilitacion::list($param, $ops);
+        $habilitacion = new Habilitacion();
+        return $habilitacion->list($param);
     }
 
     /* Busca una habilitacion */
