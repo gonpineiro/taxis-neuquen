@@ -4,7 +4,7 @@
  * This is the model class for table "Habilitaciones".
  *  @property string $url
  */
-class Habilitacion extends BaseController
+class Habilitacion extends Base
 {
     public static function list($params)
     {
