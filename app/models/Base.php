@@ -9,7 +9,7 @@ class Base
     public static $url = 'https://weblogin.muninqn.gov.ar/api/mnqn';
     public static $headers = ['Content-type: application/json'];
 
-    public static function callWebService($params)
+    public static function callWebService($params, $method = 'POST')
     {
         try {
             $curl = curl_init();
@@ -22,11 +22,11 @@ class Base
                 CURLOPT_HTTPHEADER => self::$headers,
                 CURLOPT_POSTFIELDS => json_encode($params),
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "POST",
+                CURLOPT_CUSTOMREQUEST => $method,
             ));
             $response = curl_exec($curl);
             curl_close($curl);
-            return json_decode($response, false);
+            return json_decode($response, true);
         } catch (Exception $e) {
             return $e;
         }
