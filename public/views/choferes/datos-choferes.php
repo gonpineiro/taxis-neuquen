@@ -6,14 +6,9 @@ if (!isset($_SESSION['usuario'])) {
     header('Location: ' . WEBLOGIN);
     exit();
 }
-
 $usuarioController = new UsuarioController();
-
-
-/* datos de la sesion */
-include('session.php');
-
-
+/* datos de la sesión */
+include('../common/session.php');
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +26,7 @@ include('session.php');
 
 <body>
     <?PHP
-    include('./components/header.php');
+    include('../common/header.php');
     ?>
     <div class="body container" style="margin-bottom: 5em;">
         <div class="datos-perfil">
@@ -120,7 +115,7 @@ include('session.php');
                         <div class="col">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end pb-3">
                                 <div class="buttonsRow">
-                                    <button class="btn btn-primary submitBtn" onclick="alert('imprimir la habilitación');">Imprimir Habilitación</button>
+                                    <button class="btn btn-primary submitBtn" onclick="imprimirHabilitacionChofer()">Imprimir Habilitación</button>
                                 </div>
                             </div>
                         </div>
@@ -134,6 +129,7 @@ include('session.php');
 <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-<script src="../../js/formularios/inscripcion.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<script src="datos-choferes.js"></script>
 
 </html>

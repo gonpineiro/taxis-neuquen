@@ -104,7 +104,7 @@ $apellido = $nombreapellido[0];
     <div class="container pt-5">
         <div class="row pt-5">
             <div class='col-sm d-flex justify-content-center'>
-                <div class='opcion' onclick='window.location.href = "../choferes/inscripcion.php"'>
+                <div class='opcion' onclick='window.location.href = "../taxis/datos-taxis.php"'>
                     <table style='width: 100%;'>
                         <tbody>
                             <tr>
@@ -118,7 +118,7 @@ $apellido = $nombreapellido[0];
                         </tbody>
                     </table>
                 </div>
-                <div class='opcion' onclick='window.location.href = "../choferes/inscripcion.php"'>
+                <div class='opcion' onclick='window.location.href = "../choferes/datos-choferes.php"'>
                     <table style='width: 100%;'>
                         <tbody>
                             <tr>

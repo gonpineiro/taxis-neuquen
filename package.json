@@ -11,6 +11,7 @@
     "datatables.net": "^1.10.24",
     "datatables.net-dt": "^1.10.24",
     "jquery": "^3.6.0",
+    "jspdf": "^2.3.1",
     "popper.js": "^1.16.1",
     "selectize-bootstrap4-theme": "^2.0.2"
   },
