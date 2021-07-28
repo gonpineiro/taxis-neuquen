@@ -7,6 +7,8 @@ DB_NAME=
 DB_PORT=
 DB_CHARSET=utf8
 
+API_URL=https://weblogin.muninqn.gov.ar/api/mnqn
+
 DB_USUARIOS_TABLE=deportes_usuarios
 DB_SOLICITUDES_TABLE=deportes_solicitudes
 DB_TRABAJOS_TABLE=deportes_trabajos
