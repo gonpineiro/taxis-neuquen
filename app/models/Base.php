@@ -7,7 +7,7 @@
 class Base
 {
     private $url = API_URL;
-    private $headers = ['Content-type: application/json'];
+    private $headers = ["Content-type: application/json", "Authorization: Bearer " . API_TOKEN];
 
     public function callWebService(array $params, string $method = 'POST')
     {

@@ -33,6 +33,7 @@ define('DB_PORT',  PROD ? $_ENV['DB_PORT'] : '3306');
 define('DB_CHARSET',  PROD ? $_ENV['DB_CHARSET'] : 'utf8');
 
 define('API_URL',  PROD ? $_ENV['API_URL'] : $_ENV['API_URL']);
+define('API_TOKEN',  PROD ? $_ENV['API_TOKEN'] : $_ENV['API_TOKEN']);
 
 /* Configuracion del path fIle */
 define('PATH_FILE_LOCAL', $_ENV['PATH_FILE_LOCAL'] == 'true' ? true : false);
