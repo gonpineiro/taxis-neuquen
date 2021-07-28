@@ -8,6 +8,6 @@ class Chofer extends Base
     public function list(int $conductorID)
     {
         $params = ['action' => 1, 'conductorID' => $conductorID];
-        return $this->callWebService($params)[0];
+        return $this->callWebService($params);
     }
 }

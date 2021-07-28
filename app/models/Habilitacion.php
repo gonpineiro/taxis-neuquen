@@ -7,7 +7,7 @@ class Habilitacion extends Base
 {
     public function list(string $patente)
     {
-        $params = ['action' => 0, 'conductorID' => $patente];
-        return $this->callWebService($params)[0];
+        $params = ['action' => 0, 'patente' => $patente];
+        return $this->callWebService($params);
     }
 }
