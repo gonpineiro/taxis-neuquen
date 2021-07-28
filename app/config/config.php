@@ -41,18 +41,3 @@ define('PATH_FILE_LOCAL', $_ENV['PATH_FILE_LOCAL'] == 'true' ? true : false);
 /* Configuración de tablas */
 define('USUARIOS', $_ENV['DB_USUARIOS_TABLE']);
 define('LOG', $_ENV['DB_LOG_TABLE']);
-
-/* Limit Length columns */
-define('LT_USU_NOMBRE', $_ENV['LT_USU_NOMBRE']);
-define('LT_USU_APELLIDO', $_ENV['LT_USU_APELLIDO']);
-define('LT_USU_TELEFONO', $_ENV['LT_USU_TELEFONO']);
-define('LT_USU_EMAIL', $_ENV['LT_USU_EMAIL']);
-define('LT_USU_DIRRENAPER', $_ENV['LT_USU_DIRRENAPER']);
-
-define('LT_SOL_NRORECIBO', $_ENV['LT_SOL_NRORECIBO']);
-define('LT_SOL_OBS', $_ENV['LT_SOL_OBS']);
-
-define('LT_CAP_NOMBRE', $_ENV['LT_CAP_NOMBRE']);
-define('LT_CAP_APELLIDO', $_ENV['LT_CAP_APELLIDO']);
-define('LT_CAP_MATRICULA', $_ENV['LT_CAP_MATRICULA']);
-define('LT_CAP_LUCAPACITACION', $_ENV['LT_CAP_LUCAPACITACION']);
