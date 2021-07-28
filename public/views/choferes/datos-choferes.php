@@ -102,7 +102,7 @@ include('../common/session.php');
                                     <tbody>
                                         <tr class="d-flex" style="background-color:#fff">
                                             <td class="col-md-2 col-6 text-right">Persona:</td>
-                                            <td class="col-md-10 col-6" id="(ind_identificacion">CUIL: 20-26810704-6</td>
+                                            <td class="col-md-10 col-6" id="ind_identificacion">CUIL: 20-26810704-6</td>
                                         </tr>
                                         <tr class="d-flex">
                                             <td class="col-md-2 col-6 text-right">Nombre:</td>
@@ -142,7 +142,7 @@ include('../common/session.php');
                             <div class="col">
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end pb-3">
                                     <div class="buttonsRow">
-                                        <button class="btn btn-primary submitBtn" onclick="imprimirHabilitacionChofer()">Imprimir Habilitación</button>
+                                        <button class="btn btn-primary submitBtn" onclick="buscarDatosConductor()">Imprimir Habilitación</button>
                                     </div>
                                 </div>
                             </div>
