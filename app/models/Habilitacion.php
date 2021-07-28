@@ -5,9 +5,42 @@
  */
 class Habilitacion extends Base
 {
-    public function list(string $patente)
+    public $habilitacion;
+    public $tipo_documento;
+    public $documento;
+    public $documento_renaper;
+
+    public function __construct(string $patente)
     {
         $params = ['action' => 0, 'patente' => $patente];
-        return $this->callWebService($params);
+        $this->habilitacion = $this->callWebService($params);
+        $this->extractDoc();
+    }
+
+    public function get()
+    {
+        return $this;
+    }
+
+    private function extractDoc()
+    {
+        $arrayDoc = explode(":", $this->habilitacion[0]['titularEmpresa']);
+        $this->tipo_documento = $arrayDoc[0];
+        $this->documento = $arrayDoc[1];
+        switch ($arrayDoc[0]) {
+            case "DNI":
+            case "SC":
+            case 'LE':
+            case 'PQCNT':
+                $this->documento = $arrayDoc[1];
+                break;
+            case 'CUIL':
+                $this->documento_renaper = explode("-", $arrayDoc[1])[1];
+                break;
+
+            default:
+                # code...
+                break;
+        }
     }
 }

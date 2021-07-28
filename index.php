@@ -1,7 +1,7 @@
 <?php
 include 'app/config/config.php';
 $habilitacionController = new HabilitacionController();
-$habilitaciones = $habilitacionController->get('OPC-656');
+$habilitaciones = $habilitacionController->get('AE-168-AQ');
 
 $choferController = new ChoferController();
 $chofer = $choferController->get(3816);
