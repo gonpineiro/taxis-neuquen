@@ -1,8 +1,16 @@
 const d = document;
 
-function buscarConductor() {
-  document.getElementById("datos-conductor").style.display = "block";
-  document.getElementById("sin-datos").style.display = "none";
+async function buscarConductor() {
+  d.getElementById("datos-conductor").style.display = "block";
+  d.getElementById("sin-datos").style.display = "none";
+
+  const idChofer = d.getElementById("nro-conductor").value;
+  const response = await fetch("./getDatosChofer.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ id: idChofer }),
+  });
+  console.log(response.json().then((e) => console.log(e)));
 }
 
 function buscarDatosConductor() {
