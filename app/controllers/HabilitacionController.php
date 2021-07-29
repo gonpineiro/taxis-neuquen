@@ -2,17 +2,15 @@
 
 class HabilitacionController
 {
-    /* Busca todas las habilitaciones */
+    /* Busca todas una habilitacion */
     public function get($param)
     {
         $habilitacion = new Habilitacion($param);
-        return $habilitacion->get();
-    }
-
-    /* Busca todas las habilitaciones */
-    public function getDocumento($param)
-    {
-        $habilitacion = new Habilitacion($param);
-        return $habilitacion->documento;
+        return [
+            'habilitacion' => $habilitacion->getHabilitacion(),
+            'tipo_documento' => $habilitacion->getTipoDocumento(),
+            'documento' => $habilitacion->getDocumento(),
+            'documento_renaper' => $habilitacion->getDocumentoRenaper(),
+        ];
     }
 }
