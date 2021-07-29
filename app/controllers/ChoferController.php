@@ -5,12 +5,17 @@ class ChoferController
     /* Busca todas las choferes */
     public function get($param)
     {
-        $chofer = new Chofer($param);
+        $this->chofer = new Chofer($param);
         return [
-            'chofer' => $chofer->getChofer(),
-            'tipo_documento' => $chofer->getTipoDocumento(),
-            'documento' => $chofer->getDocumento(),
-            'documento_renaper' => $chofer->getDocumentoRenaper(),
+            'chofer' => $this->chofer->getChofer(),
+            'tipo_documento' => $this->chofer->getTipoDocumento(),
+            'documento' => $this->chofer->getDocumento(),
+            'documento_renaper' => $this->chofer->getDocumentoRenaper(),
         ];
+    }
+
+    public function getImagen()
+    {
+        return $this->chofer->getImagenRenaper();
     }
 }

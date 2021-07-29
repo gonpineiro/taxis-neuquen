@@ -91,8 +91,8 @@ function enviarMailRechazado($address, $solicitante, $observaciones, $idsolicitu
 function getDireccionesParaAdjunto($fileType, $idsolicitud, $adjuntoInputName, $tipo = null)
 {
     $path = null;
-
-    if (PATH_FILE_LOCAL) {
+    /* ANULADO PARA ESTE PROYECTO */
+    if ('') {
         $target_path_local = $tipo != null
             ? "../../../projects_files/formulario_deportes/" . $idsolicitud . "/" . $tipo . "/"
             : "../../../projects_files/formulario_deportes/" . $idsolicitud . "/";
@@ -268,8 +268,8 @@ spl_autoload_register(function ($class_name) {
 function getImageByRenaper($array, $jsonStr = true)
 {
     // busca la foto dni
-    $genero = $array['genero_te'];
-    $dni = $array['dni_te'];
+    $genero = $array['genero'];
+    $dni = $array['dni'];
 
     $response = file_get_contents('https://weblogin.muninqn.gov.ar/api/Renaper/waloBackdoor/' . $genero . $dni);
     $json = json_decode($response);
@@ -281,8 +281,9 @@ function getImageByRenaper($array, $jsonStr = true)
         $json = json_decode($response);
         $imagen = $json->{'docInfo'}->{'imagen'};
     }
-    $array['imagen'] = $imagen;
-    return utf8_converter($array, $jsonStr);
+    /* $array['imagen'] = $imagen;
+    return utf8_converter($array, $jsonStr); */
+    return $imagen;
 }
 
 function compararFechas($string, $get, $format = 'Y-m-d')

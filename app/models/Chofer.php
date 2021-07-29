@@ -6,6 +6,7 @@
 class Chofer extends Base
 {
     public $chofer;
+    public $imagen;
 
     public function __construct(int $conductorID)
     {
@@ -30,5 +31,14 @@ class Chofer extends Base
 
         $timestamp = strtotime($this->chofer[0]["fechaVencimientoLicencia"]);
         $this->chofer[0]["fechaVencimientoLicencia"] = date('d/m/Y', $timestamp);
+    }
+
+    public function getImagenRenaper()
+    {
+        $this->imagen = getImageByRenaper(['genero' => 'M', 'dni' => $this->documento_renaper]);
+        if ($this->imagen == null) {
+            $this->imagen = getImageByRenaper(['genero' => 'F', 'dni' => $this->documento_renaper]);
+        }
+        return $this->imagen;
     }
 }
