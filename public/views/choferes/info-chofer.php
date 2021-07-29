@@ -5,6 +5,7 @@ $choferController = new ChoferController();
 if ($_GET['numero']) {
     $dato = $_GET['numero'];
     $datosChofer = $choferController->get($dato);
+    $imagen = $choferController->getImagen();
     $nombre = $datosChofer['chofer'][0]['conductorRazonSocial'];
     $documento = $datosChofer['chofer'][0]['conductorIdentificacion'];
     $tipoDoc = $datosChofer['tipo_documento'];
@@ -36,21 +37,19 @@ if ($_GET['numero']) {
 </head>
 
 <body>
-
-    <h1><?= $tipoDoc ?></h1>
-    <h1><?= $numDoc ?></h1>
-
-    <h1><?= $nombre ?></h1>
-    <h1><?= $documento ?></h1>
-    <h1><?= $credencial ?></h1>
-    <h1><?= $tipoLicencia ?></h1>
-    <h1><?= $fechaOtorgamiento ?></h1>
-    <h1><?= $fechaVencimiento ?></h1>
-    <h1><?= $fechaVencimientoLicencia ?></h1>
-    <h1><?= $observaciones ?></h1>
-
-
-
+    <img style="width:100%" src="../../estilos/libreta/banner.jpeg" />
+    <!-- <h4 class="text-center mt-4">Datos del Chofer</h4> -->
+    <img class="rounded mx-auto d-block shadow-sm img-fluid m-3" style="max-width: 50%;" src="<?= $imagen ?>" alt="">
+    <div class="container text-center">
+        <h3 class=""><?= $nombre ?></h3>
+        <h4><?= $documento ?></h4>
+        <hr>
+        <h5>Credencial: <?= $credencial ?></h5>
+        <p>Fecha Otorgamiento: <?= $fechaOtorgamiento ?></p>
+        <p>Fecha Vencimiento: <?= $fechaVencimiento ?></p>
+        <h5>Licencia Conducir: <?= $tipoLicencia ?></h5>
+        <p>Fecha Vencimiento Licencia: <?= $fechaVencimientoLicencia ?></p>
+    </div>
 
 
 
