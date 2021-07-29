@@ -10,7 +10,17 @@ async function buscarConductor() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ id: idChofer }),
   });
-  console.log(response.json().then((e) => console.log(e)));
+  const chofer = await response.json();
+  d.getElementById("ind_identificacion").textContent =
+    chofer.conductorIdentificacion;
+  d.getElementById("nombrec").textContent = chofer.conductorRazonSocial;
+  d.getElementById("nro_conductor").textContent = chofer.conductorID;
+  d.getElementById("descripcion_lic").textContent = chofer.tipoLicencia;
+  d.getElementById("fecha_vencimiento_licencia").textContent =
+    chofer.fechaVencimientoLicencia;
+  d.getElementById("fecha_otorgada").textContent = chofer.fechaOtorgamiento;
+  d.getElementById("fecha_vencimiento").textContent = chofer.fechaVencimiento;
+  d.getElementById("observaciones").textContent = chofer.observaciones;
 }
 
 function buscarDatosConductor() {
