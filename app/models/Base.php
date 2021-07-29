@@ -8,8 +8,26 @@ class Base
 {
     private $url = API_URL;
     private $headers = ["Content-type: application/json", "Authorization: Bearer " . API_TOKEN];
+    protected $tipo_documento;
+    protected $documento;
+    protected $documento_renaper;
 
-    public function callWebService(array $params, string $method = 'POST')
+    public function getTipoDocumento()
+    {
+        return $this->tipo_documento;
+    }
+
+    public function getDocumento()
+    {
+        return $this->documento;
+    }
+
+    public function getDocumentoRenaper()
+    {
+        return $this->documento_renaper;
+    }
+
+    protected function callWebService(array $params, string $method = 'POST')
     {
         try {
             $curl = curl_init();
@@ -29,6 +47,33 @@ class Base
             return json_decode($response, true)['value'];
         } catch (Exception $e) {
             return $e;
+        }
+    }
+
+    /**
+     * Extrae del objeto, datos de la documentacion en función del tipo de documento que obtiene.
+     * 
+     *  $tipo_documento, $documento, $documento_renaper
+     */
+    protected function extractDoc($doc)
+    {
+        $arrayDoc = explode(":", $doc);
+        $this->tipo_documento = $arrayDoc[0];
+        $this->documento = $arrayDoc[1];
+        switch ($arrayDoc[0]) {
+            case "DNI":
+            case "SC":
+            case 'LE':
+            case 'PQCNT':
+                $this->documento = $arrayDoc[1];
+                break;
+            case 'CUIL':
+                $this->documento_renaper = explode("-", $arrayDoc[1])[1];
+                break;
+
+            default:
+                # code...
+                break;
         }
     }
 }

@@ -6,6 +6,11 @@ class ChoferController
     public function get($param)
     {
         $chofer = new Chofer($param);
-        return $chofer->getChofer();
+        return [
+            'chofer' => $chofer->getChofer(),
+            'tipo_documento' => $chofer->getTipoDocumento(),
+            'documento' => $chofer->getDocumento(),
+            'documento_renaper' => $chofer->getDocumentoRenaper(),
+        ];
     }
 }

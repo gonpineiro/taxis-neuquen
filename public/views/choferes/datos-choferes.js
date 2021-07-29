@@ -11,6 +11,7 @@ async function buscarConductor() {
     body: JSON.stringify({ id: idChofer }),
   });
   const chofer = await response.json();
+  console.log(chofer);
   d.getElementById("ind_identificacion").textContent =
     chofer.conductorIdentificacion;
   d.getElementById("nombrec").textContent = chofer.conductorRazonSocial;

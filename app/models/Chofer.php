@@ -11,6 +11,7 @@ class Chofer extends Base
     {
         $params = ['action' => 1, 'conductorID' => $conductorID];
         $this->chofer = $this->callWebService($params);
+        $this->extractDoc($this->chofer[0]['conductorIdentificacion']);
     }
 
     public function getChofer()
