@@ -62,7 +62,7 @@ include('../common/session.php');
             <div class="row">
                 <div class="form-group col">
                     <label for="nro-conductor">Número Conductor </label>
-                    <input type="number" id="nro-conductor" class="form-control" placeholder="3816" name="nro-conductor" required>
+                    <input type="number" id="nro-conductor" class="form-control" placeholder="3816" name="nro-conductor" value="1111" required>
                     <div class="invalid-feedback">
                         <strong>
                             Por favor ingrese la patente correctamente.
