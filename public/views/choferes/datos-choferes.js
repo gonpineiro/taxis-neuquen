@@ -100,10 +100,12 @@ function imprimirHabilitacionChofer(
   doc.text(15, 70, nombre);
   doc.text(15, 80, dni);
   doc.text(15, 90, "Credencial Nº: " + credencial);
-  doc.text(85, 90, renovacion);
+  doc.text(15, 100, renovacion);
   doc.setFontSize(15);
-  doc.text(15, 100, "Otorgada: " + otorgada);
-  doc.text(85, 100, "Vencimiento: " + vencimiento);
+  doc.text(85, 90, "Otorgada:");
+  doc.text(120, 90, otorgada);
+  doc.text(85, 100, "Vencimiento:");
+  doc.text(120, 100, vencimiento);
   doc.text(15, 110, "Chofer: " + tipoVehiculo);
   doc.setFontSize(14);
   doc.text(15, 139, subsecretaria);
