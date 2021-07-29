@@ -64,23 +64,22 @@ include('../common/session.php');
         <h1 class="titulo mb-5 mt-5">Taxis y Remises</h1>
         <h5>Administración de Habilitaciones de Transporte Público</h5>
         <!-- BÚSQUEDA DEL VEHÍCULO -->
-        <form class="pt-2" action="">
-            <div class="row">
-                <div class="form-group col">
-                    <label for="patente">Patente </label>
-                    <input type="text" id="patente" class="form-control" placeholder="AA123CD" name="patente" required>
-                    <div class="invalid-feedback">
-                        <strong>
-                            Por favor ingrese la patente correctamente.
-                        </strong>
-                    </div>
-                </div>
-                <div class="form-group col">
-                    <label for="fecha_hasta font-weight-bold" style="visibility: hidden;">Buscar </label>
-                    <input type="submit" value="Buscar Vehículo" id="buscar" class="form-control btn-primary" name="buscar" required style="background-color: #60C1DE;color:white;">
+        <div class="row">
+            <div class="form-group col">
+                <label for="patente">Patente </label>
+                <input type="text" id="patente" class="form-control" placeholder="AA123CD" value="AA123CD" name="patente" required>
+                <div class="invalid-feedback">
+                    <strong>
+                        Por favor ingrese la patente correctamente.
+                    </strong>
                 </div>
             </div>
-        </form>
+            <div class="form-group col">
+                <label for="fecha_hasta font-weight-bold" style="visibility: hidden;">Buscar </label>
+                <input onclick="buscarConductor()" type="submit" value="Buscar Vehículo" id="buscar-conductor" class="form-control btn-primary" name="buscar-conductor" required style="background-color: #60C1DE;color:white;">
+
+            </div>
+        </div>
         <!-- COMIENZO DE TABS/ PESTAÑAS -->
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
