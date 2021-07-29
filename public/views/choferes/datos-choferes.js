@@ -6,20 +6,18 @@ function buscarConductor() {
 }
 
 function buscarDatosConductor() {
-  // se traen los datos desde los divs
-  // hay que traer la fotodni y meterla en el pdf
-  // se llama a la impresión pdf
   const ind_identificacion = d.getElementById("ind_identificacion").textContent;
   const nombrec = d.getElementById("nombrec").textContent;
   const nro_conductor = d.getElementById("nro_conductor").textContent;
   const descripcion_lic = d.getElementById("descripcion_lic").textContent;
-  const fecha_vencimiento_licencia = d.getElementById(
+  const fecha_vencimiento_lic = d.getElementById(
     "fecha_vencimiento_licencia"
   ).textContent;
   const fecha_otorgada = d.getElementById("fecha_otorgada").textContent;
   const fecha_vencimiento = d.getElementById("fecha_vencimiento").textContent;
   const tipo_cambio = d.getElementById("tipo_cambio").textContent;
   const fecha_ultimo_cambio = d.getElementById("tipo_cambio").textContent;
+
   imprimirHabilitacionChofer(
     ind_identificacion,
     nombrec,
