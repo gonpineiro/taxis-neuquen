@@ -5,9 +5,16 @@
  */
 class Chofer extends Base
 {
-    public function list(int $conductorID)
+    public $chofer;
+
+    public function __construct(int $conductorID)
     {
         $params = ['action' => 1, 'conductorID' => $conductorID];
-        return $this->callWebService($params);
+        $this->chofer = $this->callWebService($params);
+    }
+
+    public function getChofer()
+    {
+        return $this->chofer;
     }
 }
