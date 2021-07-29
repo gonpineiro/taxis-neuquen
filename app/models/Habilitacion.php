@@ -2,6 +2,10 @@
 
 /**
  * This is the model class for table "Habilitaciones".
+ * @property array $habilitacion
+ * @property string $tipo_documento
+ * @property string $documento
+ * @property string $documento_renaper
  */
 class Habilitacion extends Base
 {
@@ -17,9 +21,24 @@ class Habilitacion extends Base
         $this->extractDoc();
     }
 
-    public function get()
+    public function getHabilitacion()
     {
-        return $this;
+        return $this->habilitacion;
+    }
+
+    public function getTipoDocumento()
+    {
+        return $this->tipo_documento;
+    }
+
+    public function getDocumento()
+    {
+        return $this->documento;
+    }
+
+    public function getDocumentoRenaper()
+    {
+        return $this->documento_renaper;
     }
 
     private function extractDoc()
