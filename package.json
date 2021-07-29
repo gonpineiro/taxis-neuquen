@@ -1,7 +1,7 @@
 {
   "name": "taxis",
   "version": "0.0.1",
-  "description": "Este proyecto esta basado en los formularios de Concursos y Boleto Esenciales.",
+  "description": "Generar las vistas de las habilitaciones para los taxis y choferes.",
   "main": "index.js",
   "dependencies": {
     "@popperjs/core": "^2.9.2",

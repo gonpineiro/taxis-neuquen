@@ -1,9 +1,17 @@
 const d = document;
 
 async function buscarConductor() {
-  d.getElementById("datos-conductor").style.display = "block";
-  d.getElementById("sin-datos").style.display = "none";
+  /* Reset de los datos */
+  d.getElementById("ind_identificacion").textContent = "";
+  d.getElementById("nombrec").textContent = "";
+  d.getElementById("nro_conductor").textContent = "";
+  d.getElementById("descripcion_lic").textContent = "";
+  d.getElementById("fecha_vencimiento_licencia").textContent = "";
+  d.getElementById("fecha_otorgada").textContent = "";
+  d.getElementById("fecha_vencimiento").textContent = "";
+  d.getElementById("observaciones").textContent = "";
 
+  /* fetch de los datos */
   const idChofer = d.getElementById("nro-conductor").value;
   const response = await fetch("./getDatosChofer.php", {
     method: "POST",
@@ -11,7 +19,13 @@ async function buscarConductor() {
     body: JSON.stringify({ id: idChofer }),
   });
   const chofer = await response.json();
+
+  /* Mostramos la vista */
+  d.getElementById("datos-conductor").style.display = "block";
+  d.getElementById("sin-datos").style.display = "none";
   console.log(chofer);
+
+  /* Insertamos los datos */
   d.getElementById("ind_identificacion").textContent =
     chofer.conductorIdentificacion;
   d.getElementById("nombrec").textContent = chofer.conductorRazonSocial;

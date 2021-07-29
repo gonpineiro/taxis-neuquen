@@ -68,6 +68,7 @@ class Base
                 $this->documento = $arrayDoc[1];
                 break;
             case 'CUIL':
+            case 'CUIT':
                 $this->documento_renaper = explode("-", $arrayDoc[1])[1];
                 break;
 
