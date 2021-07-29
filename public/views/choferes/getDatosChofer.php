@@ -11,8 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("HTTP/1.1 200 OK");
     $dato = json_decode(file_get_contents('php://input'));
     $choferController = new ChoferController();
-    $datosChofer = $choferController->get($dato);
-    
+    $datosChofer = $choferController->get($dato->id);
     echo (json_encode($datosChofer['chofer'][0]));
     exit();
 } else {
