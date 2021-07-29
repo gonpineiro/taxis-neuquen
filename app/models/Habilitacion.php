@@ -41,6 +41,11 @@ class Habilitacion extends Base
         return $this->documento_renaper;
     }
 
+    /**
+     * Extrae del objeto Habilitacion, datos de la documentacion en función del tipo de documento que obtiene.
+     * 
+     *  $tipo_documento, $documento, $documento_renaper
+     */
     private function extractDoc()
     {
         $arrayDoc = explode(":", $this->habilitacion[0]['titularEmpresa']);
