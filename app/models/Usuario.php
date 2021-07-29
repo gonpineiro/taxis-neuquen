@@ -55,10 +55,10 @@ class Usuario
     public function set($id_wappersonas = null, $nombre = null, $apellido = null, $telefono = null, $email = null, $nacionalidad = null, $id_ciudad = null, $id_barrio = null, $otro_barrio = null, $direccion_calle = null, $direccion_nro = null, $direccion_depto = null, $direccion_piso = null, $direccion_cp = null)
     {
         $this->id_wappersonas = $id_wappersonas;
-        $this->nombre = substr($nombre, 0, LT_USU_NOMBRE);
-        $this->apellido = substr($apellido, 0, LT_USU_APELLIDO);
-        $this->telefono = substr($telefono, 0, LT_USU_TELEFONO);
-        $this->email = substr($email, 0, LT_USU_EMAIL);
+        $this->nombre = $nombre;
+        $this->apellido = $apellido;
+        $this->telefono = $telefono;
+        $this->email = $email;
         $this->nacionalidad = $nacionalidad;
         $this->id_ciudad = $id_ciudad;
         $this->id_barrio = $id_barrio;
