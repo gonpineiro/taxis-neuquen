@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container border">
     <h4 class="pt-3 pb-3">Otros Datos</h4>
     <div class="row">
         <div class="form-group col-xs-12 col-md-4">
@@ -29,16 +29,16 @@
         </div>
     </div>
     <div class="row">
-        <div class="form-group col-xs-12 col-md-4">
+        <div class="form-group col-xs-12 col-md-6">
             <label>Fecha Habilitación</label>
             <input type="text" class="form-control" id="fecha-hab" readonly />
         </div>
-        <div class="form-group col-xs-12 col-md-4">
+        <div class="form-group col-xs-12 col-md-6">
             <label>Vto. Habilitación</label>
             <input type="text" class="form-control" id="vto-hab" readonly />
         </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
         <div class="form-group col-xs-12 col-md-4">
             <label>Fecha Ultimo Mov</label>
             <input type="text" class="form-control" id="fecha-utlimo-mov" readonly />
@@ -47,30 +47,30 @@
             <label>Tipo Cambio</label>
             <input type="text" class="form-control" id="tipo-cambio" readonly />
         </div>
-    </div>
+    </div> -->
     <div class="row">
-        <div class="form-group col-xs-12 col-md-4">
+        <div class="form-group col-xs-12 col-md-6">
             <label>Rto</label>
             <input type="text" class="form-control" id="rto" readonly />
         </div>
-        <div class="form-group col-xs-12 col-md-4">
+        <div class="form-group col-xs-12 col-md-6">
             <label>Vto Rto</label>
             <input type="text" class="form-control" id="vto-rto" readonly />
         </div>
     </div>
     <div class="row">
-        <div class="form-group col-xs-12 col-md-4">
+        <div class="form-group col-xs-12 col-md-6">
             <label>Poliza</label>
             <input type="text" class="form-control" id="poliza" readonly />
         </div>
-        <div class="form-group col-xs-12 col-md-4">
+        <div class="form-group col-xs-12 col-md-6">
             <label>Vto Poliza</label>
             <input type="text" class="form-control" id="vto-poliza" readonly />
         </div>
     </div>
     <div class="row">
         <div class="form-group col-xs-12 col-md-12">
-            <label>Poliza</label>
+            <label>Observaciones</label>
             <textarea type="text" class="form-control" id="observacion" readonly></textarea>
         </div>
     </div>
