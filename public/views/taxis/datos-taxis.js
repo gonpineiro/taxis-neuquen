@@ -46,6 +46,8 @@ async function buscarConductor() {
     d.getElementById("sin-datos").style.display = "none";
 
     /* Insertamos los datos - Transporte Público */
+    if (taxi.habTipo === "TAX") taxi.habTipo = "TAXI";
+    if (taxi.habTipo === "REM") taxi.habTipo = "REMIS";
     d.getElementById("tipo-hab").value = taxi.habTipo;
     d.getElementById("nro-hab").value = taxi.habNumero;
     d.getElementById("nro-empresa").value = taxi.habNumero;
