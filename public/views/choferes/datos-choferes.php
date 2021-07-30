@@ -120,6 +120,7 @@ include('../common/session.php');
             <div class="tab-content bg-light" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-choferes" role="tabpanel" aria-labelledby="nav-choferes-tab">
                     <div class="container">
+                        <img class="img-fluid" style="width: 200px;" id="foto_dni" src="" alt="">
                         <div class="row pt-5">
                             <div class="col-lg-12">
                                 <table class="table table-sm table-borderless">
@@ -137,17 +138,17 @@ include('../common/session.php');
                                             <td class="col-md-2 col-6 text-right">Nro Conductor:</td>
                                             <td class="col-md-10 col-6" id="nro_conductor">3816</td>
                                         </tr>
-                                        <tr class="d-flex">
-                                            <td class="col-md-2 col-3 text-right">Tipo Licencia:</td>
-                                            <td class="col-md-6 col-3" id="descripcion_lic">D2-Autom. de serv. de trans. mas 8 plazas</td>
-                                            <td class="col-md-2 col-3 text-right">Vencimiento Licencia:</td>
-                                            <td class="col-md-2 col-3" id="fecha_vencimiento_licencia">30/08/2021</td>
-                                        </tr>
                                         <tr class="d-flex" style="background-color:#fff">
                                             <td class="col-md-2 col-3 text-right">Otorgada:</td>
                                             <td class="col-md-6 col-3" id="fecha_otorgada">14/11/2019</td>
                                             <td class="col-md-2 col-3 text-right">Vencimiento:</td>
                                             <td class="col-md-2 col-3" id="fecha_vencimiento">12/11/2020</td>
+                                        </tr>
+                                        <tr class="d-flex">
+                                            <td class="col-md-2 col-3 text-right">Tipo Licencia:</td>
+                                            <td class="col-md-6 col-3" id="descripcion_lic">D2-Autom. de serv. de trans. mas 8 plazas</td>
+                                            <td class="col-md-2 col-3 text-right">Vencimiento Licencia:</td>
+                                            <td class="col-md-2 col-3" id="fecha_vencimiento_licencia">30/08/2021</td>
                                         </tr>
                                         <tr class="d-flex">
                                             <td class="col-md-2 col-3 text-right">Tipo cambio:</td>

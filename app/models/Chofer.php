@@ -41,4 +41,7 @@ class Chofer extends Base
         }
         return $this->imagen;
     }
+    public function getCodigoQr(){
+        
+    }
 }

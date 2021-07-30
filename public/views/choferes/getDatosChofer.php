@@ -12,7 +12,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dato = json_decode(file_get_contents('php://input'));
     $choferController = new ChoferController();
     $datosChofer = $choferController->get($dato->id);
-    echo (json_encode($datosChofer['chofer'][0]));
+
+    $imagen = $choferController->getImagen();
+    $datosChofer['imagen'] = $imagen;
+    echo (json_encode($datosChofer));
     exit();
 } else {
     header("HTTP/1.1 404");
