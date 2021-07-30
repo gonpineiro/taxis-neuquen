@@ -17,7 +17,15 @@ async function buscarConductor() {
   /* Mostramos la vista */
   d.getElementById("nav-tabContent").style.display = "block";
   d.getElementById("nav-tabDescription").style.display = "block";
+  d.getElementById("transporte-publico").style.display = "block";
+  d.getElementById("sin-datos").style.display = "none";
 
-  /* Insertamos los datos */
-  d.getElementById("titular-dni").textContent = taxi.titularEmpresa;
+  /* Insertamos los datos - Transporte Público */
+  d.getElementById("tipo-hab").value = taxi.habTipo;
+  d.getElementById("nro-hab").value = taxi.habNumero;
+  d.getElementById("estado-hab").value = "NO HAY DATOS";
+  d.getElementById("nro-empresa").value = taxi.habNumero;
+  d.getElementById("fecha-baja").value = "NO HAY DATOS";
+  d.getElementById("parada").value = "NO HAY DATOS";
+  d.getElementById("motivo").value = "NO HAY DATOS";
 }
