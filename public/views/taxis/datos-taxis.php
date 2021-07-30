@@ -79,14 +79,14 @@ include('../common/session.php');
             </div>
         </div>
         <!-- COMIENZO DE TABS/ PESTAÑAS -->
-        <nav>
+        <nav id="nav-tabDescription" style="display: none">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-link active" id="nav-titular-tab" data-toggle="tab" href="#nav-titular" role="tab" aria-controls="nav-titular" aria-selected="true">Titular/ Responsable</a>
                 <a class="nav-link" id="nav-datos-tab" data-toggle="tab" href="#nav-datos" role="tab" aria-controls="nav-datos" aria-selected="true">Otros Datos</a>
 
             </div>
         </nav>
-        <div class="tab-content bg-light" id="nav-tabContent">
+        <div class="tab-content bg-light" id="nav-tabContent" style="display: none">
             <div class="tab-pane fade show active" id="nav-titular" role="tabpanel" aria-labelledby="nav-titular-tab">
                 <div class="container">
                     <h4 class="pt-3 pb-3">Titular/ Responsable</h4>
@@ -97,21 +97,7 @@ include('../common/session.php');
                                 <tbody>
                                     <tr class="d-flex" style="background-color:#fff">
                                         <td class="col-md-2 col-6 text-right">Persona:</td>
-                                        <td class="col-md-10 col-6">CUIL:20-26810704-6</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <h5></h5>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <table class="table table-sm table-borderless">
-                                <!-- CREAR NUEVOS TR SOLO VISTA CELULAR PARA LAS FILAS QUE TIENEN 4 DATOS Y OCULTAR LAS COLUMNAS 3 Y 4 DE VISTA PC EN CELULAR-->
-                                <tbody>
-                                    <tr class="d-flex" style="background-color:#fff">
-                                        <td class="col-md-2 col-6 text-right">Persona:</td>
-                                        <td class="col-md-10 col-6">CUIL:20-26810704-6</td>
+                                        <td class="col-md-10 col-6" id="titular-dni"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -143,7 +129,7 @@ include('../common/session.php');
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-3">
                 <div class="col">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end pb-3 pr-3">
                         <div class="buttonsRow">
