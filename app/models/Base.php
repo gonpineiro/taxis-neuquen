@@ -11,6 +11,7 @@ class Base
     protected $tipo_documento;
     protected $documento;
     protected $documento_renaper;
+    public $imagen;
 
     public function getTipoDocumento()
     {
@@ -25,6 +26,15 @@ class Base
     public function getDocumentoRenaper()
     {
         return $this->documento_renaper;
+    }
+
+    public function getImagenRenaper()
+    {
+        $this->imagen = getImageByRenaper(['genero' => 'M', 'dni' => $this->documento_renaper]);
+        if ($this->imagen == null) {
+            $this->imagen = getImageByRenaper(['genero' => 'F', 'dni' => $this->documento_renaper]);
+        }
+        return $this->imagen;
     }
 
     protected function callWebService(array $params, string $method = 'POST')
