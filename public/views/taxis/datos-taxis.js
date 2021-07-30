@@ -6,6 +6,7 @@ async function buscarConductor() {
   d.getElementById("nro-hab").value = "";
   d.getElementById("nro-empresa").value = "";
   d.getElementById("parada").value = "";
+  d.getElementById("foto_dni").src = "";
 
   /* Reset de los datos - Titulas Responsable */
   d.getElementById("identificacion").value = "";
@@ -37,7 +38,8 @@ async function buscarConductor() {
   });
 
   try {
-    const taxi = await response.json();
+    const datosTaxi = await response.json();
+    const taxi = datosTaxi.habilitacion[0];
     console.log(taxi);
     /* Mostramos la vista */
     d.getElementById("nav-tabContent").style.display = "block";
@@ -52,6 +54,7 @@ async function buscarConductor() {
     d.getElementById("nro-hab").value = taxi.habNumero;
     d.getElementById("nro-empresa").value = taxi.habNumero;
     d.getElementById("parada").value = taxi.empresaNombre;
+    d.getElementById("foto_dni").src = datosTaxi.imagen;
 
     /* Insertamos los datos - Titulas Responsable */
     d.getElementById("identificacion").value = taxi.titularEmpresa;

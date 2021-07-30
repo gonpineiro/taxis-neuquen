@@ -6,7 +6,6 @@
 class Chofer extends Base
 {
     public $chofer;
-    public $imagen;
     public $codigoQr;
 
     public function __construct(int $conductorID)
@@ -34,15 +33,8 @@ class Chofer extends Base
         $this->chofer[0]["fechaVencimientoLicencia"] = date('d/m/Y', $timestamp);
     }
 
-    public function getImagenRenaper()
+    public function getQrChofer()
     {
-        $this->imagen = getImageByRenaper(['genero' => 'M', 'dni' => $this->documento_renaper]);
-        if ($this->imagen == null) {
-            $this->imagen = getImageByRenaper(['genero' => 'F', 'dni' => $this->documento_renaper]);
-        }
-        return $this->imagen;
-    }
-    public function getQrChofer(){
         $this->codigoQr = getCodigoQr($this->chofer[0]["conductorID"]);
         return $this->codigoQr;
     }
