@@ -82,6 +82,7 @@ include('../common/session.php');
             </div>
         </div>
         <h1 class="titulo mb-5 mt-5">Choferes </h1>
+
         <!-- BÚSQUEDA DEL VEHÍCULO -->
         <div class="pt-2">
             <div class="row">
@@ -120,8 +121,10 @@ include('../common/session.php');
             <div class="tab-content bg-light" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-choferes" role="tabpanel" aria-labelledby="nav-choferes-tab">
                     <div class="container">
-                        <img class="img-fluid" style="width: 200px;" id="cod_qr" src="" alt="">
-
+                        <!-- CODIGO QR -->
+                        <div hidden id="qr_code">
+                        </div>
+                        <!-- CODIGO QR -->
                         <img class="img-fluid" style="width: 200px;" id="foto_dni" src="" alt="">
                         <div class="row pt-5">
                             <div class="col-lg-12">
@@ -186,6 +189,9 @@ include('../common/session.php');
 <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+
 <script src="datos-choferes.js"></script>
 
 </html>
