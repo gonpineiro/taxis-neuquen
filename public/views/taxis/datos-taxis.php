@@ -85,7 +85,7 @@ include('../common/session.php');
         </div>
 
         <!-- Transporte Púiblico -->
-        <?php include('./transportePublico.php') ?>
+        <?php include('./components/transportePublico.php') ?>
     </div>
     <!-- COMIENZO DE TABS/ PESTAÑAS -->
     <nav id="nav-tabDescription" style="display: none">
@@ -98,7 +98,7 @@ include('../common/session.php');
 
     <div class="tab-content bg-light" id="nav-tabContent" style="display: none">
         <div class="tab-pane fade show active" id="nav-titular" role="tabpanel" aria-labelledby="nav-titular-tab">
-            <?php include('./titulas.php') ?>
+            <?php include('./components/titulas.php') ?>
         </div>
         <div class="tab-pane fade show" id="nav-datos" role="tabpanel" aria-labelledby="nav-datos-tab">
             <div class="container">
