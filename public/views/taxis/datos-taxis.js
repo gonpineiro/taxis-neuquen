@@ -86,3 +86,31 @@ async function buscarConductor() {
       "No se encuentra la patente: " + patente;
   }
 }
+
+function buscarDatosConductor() {
+  const ind_identificacion = d.getElementById("ind_identificacion").textContent;
+  const nombrec = d.getElementById("nombrec").textContent;
+  const nro_conductor = d.getElementById("nro_conductor").textContent;
+  const descripcion_lic = d.getElementById("descripcion_lic").textContent;
+  const fecha_vencimiento_lic = d.getElementById(
+    "fecha_vencimiento_licencia"
+  ).textContent;
+  const fecha_otorgada = d.getElementById("fecha_otorgada").textContent;
+  const fecha_vencimiento = d.getElementById("fecha_vencimiento").textContent;
+  const tipo_cambio = d.getElementById("tipo_cambio").textContent;
+  const fecha_ultimo_cambio = d.getElementById("tipo_cambio").textContent;
+  const foto_dni = d.getElementById("foto_dni").src;
+  const cod_qr = d.getElementById("cod_qr").src;
+
+  imprimirHabilitacionChofer(
+    ind_identificacion,
+    nombrec,
+    nro_conductor,
+    descripcion_lic,
+    fecha_vencimiento,
+    fecha_otorgada,
+    tipo_cambio,
+    foto_dni,
+    cod_qr
+  );
+}
