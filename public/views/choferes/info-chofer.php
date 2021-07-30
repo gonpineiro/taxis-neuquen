@@ -39,18 +39,22 @@ if ($_GET['numero']) {
 <body>
     <img style="width:100%" src="../../estilos/libreta/banner.jpeg" />
     <!-- <h4 class="text-center mt-4">Datos del Chofer</h4> -->
-        <img class="rounded mx-auto d-block shadow-sm img-fluid m-3" style="max-width: 50%;" src="<?= $imagen ?>" alt="">
-        <div class="container text-center">
-            <h3 class=""><?= $nombre ?></h3>
-            <h4><?= $documento ?></h4>
-            <hr>
-            <h5>Credencial: <?= $credencial ?></h5>
-            <p>Fecha Otorgamiento: <?= $fechaOtorgamiento ?></p>
-            <p>Fecha Vencimiento: <?= $fechaVencimiento ?></p>
-            <h5>Licencia Conducir: <?= $tipoLicencia ?></h5>
-            <p>Fecha Vencimiento Licencia: <?= $fechaVencimientoLicencia ?></p>
+    <div class="container mb-3">
+        <div class="datos-perfil">
+            <div class="card-body">
+                <img class="rounded mx-auto d-block shadow-sm img-fluid m-3" style="max-width: 40%;" src="<?= $imagen ?>" alt="">
+                <div class="container text-center">
+                    <h3 style="font-size:1.5rem"><?= $nombre ?></h3>
+                    <h4 style="font-size:1.2rem"><?= $documento ?></h4>
+                    <h5 style="font-size: 1rem;">Credencial: <?= $credencial ?></h5>
+                    <p class="text-dark" style="font-size: 0.8rem;">Fecha Otorgamiento: <?= $fechaOtorgamiento ?></p>
+                    <p class="text-dark" style="font-size: 0.8rem;">Fecha Vencimiento: <?= $fechaVencimiento ?></p>
+                    <h5 style="font-size: 1rem;">Licencia Conducir: <?= $tipoLicencia ?></h5>
+                    <p class="text-dark" style="font-size: 0.8rem;">Fecha Vencimiento Licencia: <?= $fechaVencimientoLicencia ?></p>
+                </div>
+            </div>
         </div>
-        
+    </div>
     <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>

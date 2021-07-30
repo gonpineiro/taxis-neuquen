@@ -2,14 +2,13 @@ const d = document;
 
 async function buscarConductor() {
   /* Reset de los datos */
-  d.getElementById("ind_identificacion").textContent = "";
-  d.getElementById("nombrec").textContent = "";
-  d.getElementById("nro_conductor").textContent = "";
-  d.getElementById("descripcion_lic").textContent = "";
-  d.getElementById("fecha_vencimiento_licencia").textContent = "";
-  d.getElementById("fecha_otorgada").textContent = "";
-  d.getElementById("fecha_vencimiento").textContent = "";
-  d.getElementById("observaciones").textContent = "";
+  d.getElementById("ind_identificacion").value = "";
+  d.getElementById("nombrec").value = "";
+  d.getElementById("descripcion_lic").value = "";
+  d.getElementById("fecha_vencimiento_licencia").value = "";
+  d.getElementById("fecha_otorgada").value = "";
+  d.getElementById("fecha_vencimiento").value = "";
+  d.getElementById("observaciones").value = "";
 
   /* fetch de los datos */
   const idChofer = d.getElementById("nro-conductor").value;
@@ -24,7 +23,7 @@ async function buscarConductor() {
   /* Mostramos la vista */
   d.getElementById("datos-conductor").style.display = "block";
   d.getElementById("sin-datos").style.display = "none";
-  //console.log(datoschofer.qr);
+  console.log(datoschofer);
   var qrcode = new QRCode("qr_code", {
     text: "https://www.google.com/search?q=hola" + chofer.conductorID,
     width: 128,
@@ -34,31 +33,31 @@ async function buscarConductor() {
     correctLevel: QRCode.CorrectLevel.H,
   });
   /* Insertamos los datos */
-  d.getElementById("ind_identificacion").textContent =
-    chofer.conductorIdentificacion;
-  d.getElementById("nombrec").textContent = chofer.conductorRazonSocial;
+  d.getElementById("ind_identificacion").value = chofer.conductorIdentificacion;
+  d.getElementById("nombrec").value = chofer.conductorRazonSocial;
   d.getElementById("foto_dni").src = datoschofer.imagen;
-  d.getElementById("nro_conductor").textContent = chofer.conductorID;
-  d.getElementById("descripcion_lic").textContent = chofer.tipoLicencia;
-  d.getElementById("fecha_vencimiento_licencia").textContent =
+  d.getElementById("nro_conductor").value = chofer.conductorID;
+  d.getElementById("descripcion_lic").value = chofer.tipoLicencia;
+  d.getElementById("fecha_vencimiento_licencia").value =
     chofer.fechaVencimientoLicencia;
-  d.getElementById("fecha_otorgada").textContent = chofer.fechaOtorgamiento;
-  d.getElementById("fecha_vencimiento").textContent = chofer.fechaVencimiento;
-  d.getElementById("observaciones").textContent = chofer.observaciones;
+  d.getElementById("tipo_cambio").value = "API SIN EL DATO";
+  d.getElementById("fecha_otorgada").value = chofer.fechaOtorgamiento;
+  d.getElementById("fecha_vencimiento").value = chofer.fechaVencimiento;
+  d.getElementById("observaciones").value = chofer.observaciones;
 }
 
 function buscarDatosConductor() {
-  const ind_identificacion = d.getElementById("ind_identificacion").textContent;
-  const nombrec = d.getElementById("nombrec").textContent;
-  const nro_conductor = d.getElementById("nro_conductor").textContent;
-  const descripcion_lic = d.getElementById("descripcion_lic").textContent;
+  const ind_identificacion = d.getElementById("ind_identificacion").value;
+  const nombrec = d.getElementById("nombrec").value;
+  const nro_conductor = d.getElementById("nro_conductor").value;
+  const descripcion_lic = d.getElementById("descripcion_lic").value;
   const fecha_vencimiento_lic = d.getElementById(
     "fecha_vencimiento_licencia"
-  ).textContent;
-  const fecha_otorgada = d.getElementById("fecha_otorgada").textContent;
-  const fecha_vencimiento = d.getElementById("fecha_vencimiento").textContent;
-  const tipo_cambio = d.getElementById("tipo_cambio").textContent;
-  const fecha_ultimo_cambio = d.getElementById("tipo_cambio").textContent;
+  ).value;
+  const fecha_otorgada = d.getElementById("fecha_otorgada").value;
+  const fecha_vencimiento = d.getElementById("fecha_vencimiento").value;
+  const tipo_cambio = d.getElementById("tipo_cambio").value;
+  const fecha_ultimo_cambio = d.getElementById("fecha_ultimo_cambio").value;
   const foto_dni = d.getElementById("foto_dni").src;
   const cod_qr = $("#qr_code img").attr("src");
 
@@ -149,5 +148,5 @@ function imprimirHabilitacionChofer(
   doc.autoPrint({
     variant: "javascript",
   });
-  doc.save("tashi.pdf");
+  doc.save("credencial-" + credencial + ".pdf");
 }

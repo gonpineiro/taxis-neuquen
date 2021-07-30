@@ -125,7 +125,56 @@ include('../common/session.php');
                         <div hidden id="qr_code">
                         </div>
                         <!-- CODIGO QR -->
-                        <img class="img-fluid" style="width: 200px;" id="foto_dni" src="" alt="">
+                        <div class="row pt-3">
+                            <div class="col-xs-12 col-md-2"> <img class="img-fluid" style="width: 200px;" id="foto_dni" src="" alt="">
+                            </div>
+                            <div class="col-xs-12 col-md-10">
+                                <div class="row">
+                                    <div class="form-group col-xs-12 col-md-4">
+                                        <label>Identificación</label>
+                                        <input type="text" class="form-control" id="nombrec" disabled readonly />
+                                    </div>
+                                    <div class="form-group col-xs-12 col-md-4">
+                                        <label>Persona</label>
+                                        <input type="text" class="form-control" id="ind_identificacion" disabled readonly />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-xs-12 col-md-4">
+                                        <label>Nro Conductor</label>
+                                        <input type="text" class="form-control" id="nro_conductor" disabled readonly />
+                                    </div>
+                                    <div class="form-group col-xs-12 col-md-4">
+                                        <label>Otorgada:</label>
+                                        <input type="text" class="form-control" id="fecha_otorgada" disabled readonly />
+                                    </div>
+                                    <div class="form-group col-xs-12 col-md-4">
+                                        <label>Vencimiento</label>
+                                        <input type="text" class="form-control" id="fecha_vencimiento" disabled readonly />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-xs-12 col-md-4">
+                                        <label>Tipo Licencia</label>
+                                        <input type="text" class="form-control" id="descripcion_lic" disabled readonly />
+                                    </div>
+                                    <div class="form-group col-xs-12 col-md-4">
+                                        <label>Tipo cambio</label>
+                                        <input type="text" class="form-control" id="tipo_cambio" disabled readonly />
+                                    </div>
+                                    <div class="form-group col-xs-12 col-md-4">
+                                        <label>Último cambio</label>
+                                        <input type="text" class="form-control" id="fecha_vencimiento_licencia" disabled readonly />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-xs-12">
+                                        <label>Observaciones</label>
+                                        <textarea type="text" class="form-control" id="observaciones" disabled readonly />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row pt-5">
                             <div class="col-lg-12">
                                 <table class="table table-sm table-borderless">
@@ -133,25 +182,25 @@ include('../common/session.php');
                                     <tbody>
                                         <tr class="d-flex" style="background-color:#fff">
                                             <td class="col-md-2 col-6 text-right">Persona:</td>
-                                            <td class="col-md-10 col-6" id="ind_identificacion">CUIL: 20-26810704-6</td>
+                                            <td class="col-md-10 col-6" id="z">CUIL: 20-26810704-6</td>
                                         </tr>
                                         <tr class="d-flex">
                                             <td class="col-md-2 col-6 text-right">Nombre:</td>
-                                            <td class="col-md-10 col-6" id="nombrec">BAEZA, SANTIAGO ANDRES</td>
+                                            <td class="col-md-10 col-6" id="z">BAEZA, SANTIAGO ANDRES</td>
                                         </tr>
                                         <tr class="d-flex" style="background-color:#fff">
                                             <td class="col-md-2 col-6 text-right">Nro Conductor:</td>
-                                            <td class="col-md-10 col-6" id="nro_conductor">3816</td>
+                                            <td class="col-md-10 col-6" id="z">3816</td>
                                         </tr>
                                         <tr class="d-flex" style="background-color:#fff">
                                             <td class="col-md-2 col-3 text-right">Otorgada:</td>
-                                            <td class="col-md-6 col-3" id="fecha_otorgada">14/11/2019</td>
+                                            <td class="col-md-6 col-3" id="z">14/11/2019</td>
                                             <td class="col-md-2 col-3 text-right">Vencimiento:</td>
-                                            <td class="col-md-2 col-3" id="fecha_vencimiento">12/11/2020</td>
+                                            <td class="col-md-2 col-3" id="z">12/11/2020</td>
                                         </tr>
                                         <tr class="d-flex">
                                             <td class="col-md-2 col-3 text-right">Tipo Licencia:</td>
-                                            <td class="col-md-6 col-3" id="descripcion_lic">D2-Autom. de serv. de trans. mas 8 plazas</td>
+                                            <td class="col-md-6 col-3" id="z">D2-Autom. de serv. de trans. mas 8 plazas</td>
                                             <td class="col-md-2 col-3 text-right">Vencimiento Licencia:</td>
                                             <td class="col-md-2 col-3" id="fecha_vencimiento_licencia">30/08/2021</td>
                                         </tr>

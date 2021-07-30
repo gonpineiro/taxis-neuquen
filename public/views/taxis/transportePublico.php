@@ -1,4 +1,4 @@
-<div class="container" id="transporte-publico" style="display: none">
+<div class="container bg-light rounded mb-5" id="transporte-publico" style="display: none">
     <h4 class="pt-3 pb-3">Transporte Público</h4>
     <div class="row">
         <div class="form-group col-xs-12 col-md-4">
