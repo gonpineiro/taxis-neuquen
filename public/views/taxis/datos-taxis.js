@@ -31,6 +31,7 @@ async function buscarConductor() {
 
   try {
     const taxi = await response.json();
+    console.log(taxi);
     /* Mostramos la vista */
     d.getElementById("nav-tabContent").style.display = "block";
     d.getElementById("nav-tabDescription").style.display = "block";
@@ -54,8 +55,25 @@ async function buscarConductor() {
     d.getElementById("cant-cotitulares").value = "NO HAY DATOS";
     d.getElementById("ing-brutos").value = "NO HAY DATOS";
     d.getElementById("imp-ganancias").value = "NO HAY DATOS";
-    d.getElementById("parada").value = "NO HAY DATOS";
+    d.getElementById("parada").value = taxi.empresaNombre;
     d.getElementById("motivo").value = "NO HAY DATOS";
+
+    /* Insertamos los datos - Otros Datos */
+    d.getElementById("lic-comercial").value = taxi.licenciaComercial;
+    d.getElementById("fecha-alta").value = taxi.habFechaAlta;
+    d.getElementById("telefono").value = "NO HAY DATOS";
+    d.getElementById("auto-patente").value = taxi.patente;
+    d.getElementById("auto-marca").value = taxi.marcaVehiculo;
+    d.getElementById("auto-modelo").value = taxi.modelo;
+    d.getElementById("fecha-hab").value = "NO HAY DATOS";
+    d.getElementById("vto-hab").value = taxi.habFechaVencimiento;
+    d.getElementById("fecha-utlimo-mov").value = "NO HAY DATOS";
+    d.getElementById("tipo-cambio").value = "NO HAY DATOS";
+    d.getElementById("rto").value = taxi.rtoID;
+    d.getElementById("vto-rto").value = taxi.rtoFechaVencimiento;
+    d.getElementById("poliza").value = taxi.poliza;
+    d.getElementById("vto-poliza").value = taxi.polizaFechaVencimiento;
+    d.getElementById("observacion").value = taxi.observacion;
   } catch (error) {
     d.getElementById("nav-tabContent").style.display = "none";
     d.getElementById("nav-tabDescription").style.display = "none";

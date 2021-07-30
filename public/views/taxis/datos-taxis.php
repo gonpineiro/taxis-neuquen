@@ -102,28 +102,7 @@ include('../common/session.php');
                     <?php include('./components/titulas.php') ?>
                 </div>
                 <div class="tab-pane fade show" id="nav-datos" role="tabpanel" aria-labelledby="nav-datos-tab">
-                    <div class="container">
-                        <h4 class="pt-3 pb-3">Otros Datos</h4>
-                        <div class="card">
-                            <div class="card-body">
-                                Datos del titular.
-                            </div>
-                        </div>
-                        <h5></h5>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <table class="table table-sm table-borderless">
-                                    <!-- CREAR NUEVOS TR SOLO VISTA CELULAR PARA LAS FILAS QUE TIENEN 4 DATOS Y OCULTAR LAS COLUMNAS 3 Y 4 DE VISTA PC EN CELULAR-->
-                                    <tbody>
-                                        <tr class="d-flex" style="background-color:#fff">
-                                            <td class="col-md-2 col-6 text-right">Persona:</td>
-                                            <td class="col-md-10 col-6">CUIL:20-26810704-6</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                    <?php include('./components/otrosDatos.php') ?>
                 </div>
                 <div class="row mt-3">
                     <div class="col">
