@@ -285,7 +285,12 @@ function getImageByRenaper($array, $jsonStr = true)
     return utf8_converter($array, $jsonStr); */
     return $imagen;
 }
-
+function getCodigoQr($conductorID){
+    $url = "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=hola";
+    $data = $url.$conductorID;
+    $codQr = base64_encode(file_get_contents($data));
+    return $codQr;
+}
 function compararFechas($string, $get, $format = 'Y-m-d')
 {
     $now = new DateTime();

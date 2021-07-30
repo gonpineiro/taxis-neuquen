@@ -14,6 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $datosChofer = $choferController->get($dato->id);
 
     $imagen = $choferController->getImagen();
+    $qr = $choferController->getQrChofer();
+    $datosChofer['qr'] = $qr;
     $datosChofer['imagen'] = $imagen;
     echo (json_encode($datosChofer));
     exit();

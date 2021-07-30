@@ -18,7 +18,8 @@ class ChoferController
     {
         return $this->chofer->getImagenRenaper();
     }
-    public function getQrChofer(){
-        
+    public function getQrChofer()
+    {
+        return $this->chofer->getQrChofer();
     }
 }
