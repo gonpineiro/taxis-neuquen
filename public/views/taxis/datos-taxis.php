@@ -98,41 +98,7 @@ include('../common/session.php');
 
     <div class="tab-content bg-light" id="nav-tabContent" style="display: none">
         <div class="tab-pane fade show active" id="nav-titular" role="tabpanel" aria-labelledby="nav-titular-tab">
-            <div class="container">
-                <h4 class="pt-3 pb-3">Titular/ Responsable</h4>
-                <div class="card">
-                    <div class="card-body">
-                        <table class="table table-sm table-borderless">
-                            cambioTipo: "REN"
-                            empresaID: 7
-                            empresaNombre: "PARADA Nº 7"
-                            habFechaAlta: "03/09/2014"
-                            habFechaVencimiento: "03/09/2024"
-                            habNumero: 64
-                            habTipo: "TAX"
-                            id: 1866
-                            licenciaComercial: "050822"
-                            marcaVehiculo: "T. ETIOS"
-                            modelo: 2014
-                            observacion: null
-                            patente: "NYU-067"
-                            poliza: "6395915"
-                            polizaFechaVencimiento: "08/11/2019"
-                            rtoFechaVencimiento: "04/12/2021"
-                            rtoID: "00020823"
-                            titularEmpresa: "CUIT:20-24477526-9"
-                            titularIdentificacion: "HERNANDEZ, DARIO FERNANDO
-                            <!-- CREAR NUEVOS TR SOLO VISTA CELULAR PARA LAS FILAS QUE TIENEN 4 DATOS Y OCULTAR LAS COLUMNAS 3 Y 4 DE VISTA PC EN CELULAR-->
-                            <tbody>
-                                <tr class="d-flex" style="background-color:#fff">
-                                    <td class="col-md-2 col-6 text-right">Persona:</td>
-                                    <td class="col-md-10 col-6" id="titular-dni"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+            <?php include('./titulas.php') ?>
         </div>
         <div class="tab-pane fade show" id="nav-datos" role="tabpanel" aria-labelledby="nav-datos-tab">
             <div class="container">

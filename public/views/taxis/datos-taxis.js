@@ -1,8 +1,14 @@
 const d = document;
 
 async function buscarConductor() {
-  /* Reset de los datos */
-  d.getElementById("titular-dni").textContent = "";
+  /* Reset de los datos - Transporte Público */
+  d.getElementById("tipo-hab").value = "";
+  d.getElementById("nro-hab").value = "";
+  d.getElementById("estado-hab").value = "";
+  d.getElementById("nro-empresa").value = "";
+  d.getElementById("fecha-baja").value = "";
+  d.getElementById("parada").value = "";
+  d.getElementById("motivo").value = "";
 
   /* fetch de los datos */
   const patente = d.getElementById("patente").value;
