@@ -39,21 +39,18 @@ if ($_GET['numero']) {
 <body>
     <img style="width:100%" src="../../estilos/libreta/banner.jpeg" />
     <!-- <h4 class="text-center mt-4">Datos del Chofer</h4> -->
-    <img class="rounded mx-auto d-block shadow-sm img-fluid m-3" style="max-width: 50%;" src="<?= $imagen ?>" alt="">
-    <div class="container text-center">
-        <h3 class=""><?= $nombre ?></h3>
-        <h4><?= $documento ?></h4>
-        <hr>
-        <h5>Credencial: <?= $credencial ?></h5>
-        <p>Fecha Otorgamiento: <?= $fechaOtorgamiento ?></p>
-        <p>Fecha Vencimiento: <?= $fechaVencimiento ?></p>
-        <h5>Licencia Conducir: <?= $tipoLicencia ?></h5>
-        <p>Fecha Vencimiento Licencia: <?= $fechaVencimientoLicencia ?></p>
-    </div>
-
-
-
-
+        <img class="rounded mx-auto d-block shadow-sm img-fluid m-3" style="max-width: 50%;" src="<?= $imagen ?>" alt="">
+        <div class="container text-center">
+            <h3 class=""><?= $nombre ?></h3>
+            <h4><?= $documento ?></h4>
+            <hr>
+            <h5>Credencial: <?= $credencial ?></h5>
+            <p>Fecha Otorgamiento: <?= $fechaOtorgamiento ?></p>
+            <p>Fecha Vencimiento: <?= $fechaVencimiento ?></p>
+            <h5>Licencia Conducir: <?= $tipoLicencia ?></h5>
+            <p>Fecha Vencimiento Licencia: <?= $fechaVencimientoLicencia ?></p>
+        </div>
+        
     <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>

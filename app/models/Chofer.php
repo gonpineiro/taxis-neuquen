@@ -7,6 +7,7 @@ class Chofer extends Base
 {
     public $chofer;
     public $imagen;
+    public $codigoQr;
 
     public function __construct(int $conductorID)
     {
@@ -41,7 +42,8 @@ class Chofer extends Base
         }
         return $this->imagen;
     }
-    public function getCodigoQr(){
-        
+    public function getQrChofer(){
+        $this->codigoQr = getCodigoQr($this->chofer[0]["conductorID"]);
+        return $this->codigoQr;
     }
 }

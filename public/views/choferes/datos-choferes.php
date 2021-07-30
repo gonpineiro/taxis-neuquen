@@ -120,6 +120,8 @@ include('../common/session.php');
             <div class="tab-content bg-light" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-choferes" role="tabpanel" aria-labelledby="nav-choferes-tab">
                     <div class="container">
+                        <img class="img-fluid" style="width: 200px;" id="cod_qr" src="" alt="">
+
                         <img class="img-fluid" style="width: 200px;" id="foto_dni" src="" alt="">
                         <div class="row pt-5">
                             <div class="col-lg-12">
