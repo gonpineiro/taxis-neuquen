@@ -11,7 +11,7 @@
         </div>
         <div class="form-group col-xs-12 col-md-4">
             <label>Estado</label>
-            <input type="text" class="form-control" id="estado-hab" readonly />
+            <input type="text" class="form-control" id="estado-hab" value="Definitivo" readonly />
         </div>
     </div>
     <div class="row">
@@ -19,19 +19,9 @@
             <label>Nro Empresa</label>
             <input type="text" class="form-control" id="nro-empresa" readonly />
         </div>
-        <div class="form-group col-xs-12 col-md-4" style="margin-left: auto;">
-            <label>Fecha Baja</label>
-            <input type="text" class="form-control" id="fecha-baja" readonly />
-        </div>
-    </div>
-    <div class="row">
         <div class="form-group col-xs-12 col-md-8">
             <label>Parada</label>
             <input type="text" class="form-control" id="parada" readonly />
-        </div>
-        <div class="form-group col-xs-12 col-md-4">
-            <label>Motivo</label>
-            <input type="text" class="form-control" id="motivo" readonly />
         </div>
     </div>
 </div>

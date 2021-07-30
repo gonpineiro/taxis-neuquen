@@ -12,7 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dato = json_decode(file_get_contents('php://input'));
     $habilitacionController = new HabilitacionController();
     $datosTaxi = $habilitacionController->get($dato->id);
-    echo (json_encode($datosTaxi['habilitacion'][0]));
+    $datosTaxi['imagen'] = $habilitacionController->getImagen();
+    echo (json_encode($datosTaxi));
     exit();
 } else {
     header("HTTP/1.1 404");
