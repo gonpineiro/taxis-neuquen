@@ -6,8 +6,12 @@ if ($_GET['patente']) {
     $dato = $_GET['patente'];
     $datosHabilitacion = $habilitaciónController->get($dato);
     // print_r($datosHabilitacion);
-    $imagen = $habilitaciónController->getImagen();
-
+    if ($datosHabilitacion['documento_renaper'] != null) {
+        $datosHabilitacion['imagen'] =
+            $habilitaciónController->getImagen();
+    } else {
+        $datosHabilitacion['imagen'] = null;
+    }
     $id = $datosHabilitacion['habilitacion'][0]['id'];
     $habTipo = $datosHabilitacion['habilitacion'][0]['habTipo'];
     $habNumero = $datosHabilitacion['habilitacion'][0]['habNumero'];
@@ -55,11 +59,26 @@ if ($_GET['patente']) {
     <div class="container mb-3">
         <div class="datos-perfil">
             <div class="card-body">
-                <div class="container text-center">
+                <div class="">
                     <h3>Datos Licencia</h3>
                     <h5>Habilitación Nº <?= $id ?></h5>
-                    <p class="text-dark">habTipo <?= $habTipo ?></p>
-                    <p class="text-dark">habNumero <?= $habNumero ?></p>
+                    <hr>
+                    <div class="row">
+                        <div class="form-group col-xs-6 col-md-4">
+                            <label class="text-dark">Tipo Habilitación</label>
+                            <input type="text" class="form-control" value="<?= $habTipo ?>" id="tipo-hab" disabled readonly />
+                        </div>
+                        <div class="form-group col-xs-6 col-md-4">
+                            <label class="text-dark">Tipo Habilitación</label>
+                            <input type="text" class="form-control" value="<?= $habTipo ?>" id="tipo-hab" disabled readonly />
+                        </div>
+                    </div>
+                    <p class="text-dark">habNumero <?PHP if ($habTipo == "TAX") {
+                                                        echo "TAXI";
+                                                    }
+                                                    if ($habTipo == "REM") {
+                                                        echo "REMISSE";
+                                                    } ?></p>
                     <p class="text-dark">licenciaComercial <?= $licenciaComercial ?></p>
                     <p class="text-dark">marcaVehiculo <?= $marcaVehiculo ?></p>
                     <p class="text-dark">modelo <?= $modelo ?></p>
@@ -67,8 +86,6 @@ if ($_GET['patente']) {
                     <p class="text-dark">habFechaVencimiento <?= $habFechaVencimiento ?></p>
                     <p class="text-dark">cambioTipo <?= $cambioTipo ?></p>
                     <p class="text-dark">rtoID <?= $rtoID ?></p>
-                    <p class="text-dark">marcaVehiculo <?= $marcaVehiculo ?></p>
-                    <p class="text-dark">modelo <?= $modelo ?></p>
                     <p class="text-dark">rtoFechaVencimiento <?= $rtoFechaVencimiento ?></p>
                     <p class="text-dark">poliza <?= $poliza ?></p>
                     <p class="text-dark">polizaFechaVencimiento <?= $polizaFechaVencimiento ?></p>
