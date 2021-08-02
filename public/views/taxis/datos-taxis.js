@@ -46,6 +46,7 @@ async function buscarConductor() {
     /* Insertamos los datos - Transporte Público */
     if (taxi.habTipo === "TAX") taxi.habTipo = "TAXI";
     if (taxi.habTipo === "REM") taxi.habTipo = "REMIS";
+    if (taxi.habTipo === "TES") taxi.habTipo = "TRANSPORTE ES";
     d.getElementById("tipo-hab").value = taxi.habTipo;
     d.getElementById("nro-hab").value = taxi.habNumero;
     d.getElementById("nro-empresa").value = taxi.habNumero;
@@ -135,30 +136,34 @@ function imprimirHabilitacionChofer({
   doc.text(15, 80, "Licencia Comercial:");
   doc.text(80, 80, licComercial);
   doc.text(15, 90, "Marca:");
-  doc.text(35, 90, autoMarca);
-  doc.text(80, 90, "Modelo:");
-  doc.text(104, 90, autoModelo);
-  doc.text(15, 100, "Patente:");
-  doc.text(80, 100, autoPatente);
-  doc.text(15, 110, "Fecha Habilitación:");
-  doc.text(80, 110, fechaAlta);
-  doc.text(15, 120, "Fecha Vencimiento:");
-  doc.text(80, 120, vtoHab);
+  doc.text(80, 90, autoMarca);
+  doc.text(15, 100, "Modelo:");
+  doc.text(80, 100, autoModelo);
+  doc.text(15, 110, "Patente:");
+  doc.text(80, 110, autoPatente);
+  doc.text(15, 120, "Fecha Habilitación:");
+  doc.text(80, 120, fechaAlta);
+  doc.text(15, 130, "Fecha Vencimiento:");
+  doc.text(80, 130, vtoHab);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(22);
-  doc.text(15, 140, "DATOS DEL TITULAR/RESPONSABLE");
-  doc.addImage(fotoDni, "PNG", 160, 150, 40, 40);
+  doc.text(15, 150, "DATOS DEL TITULAR/RESPONSABLE");
+
+  if (fotoDni.includes("data:image/jpg;base64")) {
+    doc.addImage(fotoDni, "PNG", 160, 160, 40, 40);
+  }
+
   doc.setFont("helvetica", "normal");
   doc.setFontSize(17);
-  doc.text(15, 150, "Titular");
-  doc.text(50, 150, nombre);
-  doc.text(15, 160, "DNI");
-  doc.text(50, 160, identificacion);
+  doc.text(15, 160, "Titular");
+  doc.text(50, 160, nombre);
+  doc.text(15, 170, "Identificación");
+  doc.text(50, 170, identificacion);
   doc.setFontSize(14);
-  doc.text(15, 200, subsecretaria);
-  doc.text(15, 210, direccion);
+  doc.text(15, 210, subsecretaria);
+  doc.text(15, 220, direccion);
   doc.setFontSize(7.7);
-  doc.text(160, 210, verificacion);
+  doc.text(160, 220, verificacion);
 
   doc.autoPrint({
     variant: "javascript",
