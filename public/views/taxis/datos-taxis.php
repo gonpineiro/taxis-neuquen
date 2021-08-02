@@ -65,7 +65,7 @@ include('../common/session.php');
         <div class="row">
             <div class="form-group col">
                 <label for="patente">Patente </label>
-                <input type="text" id="patente" class="form-control" placeholder="NYU-067" value="NYU-067" name="patente" required>
+                <input type="text" id="patente" class="form-control" placeholder="OPC-656" value="OPC-656" name="patente" required>
                 <div class="invalid-feedback">
                     <strong>
                         Por favor ingrese la patente correctamente.
@@ -74,7 +74,7 @@ include('../common/session.php');
             </div>
             <div class="form-group col">
                 <label for="fecha_hasta font-weight-bold" style="visibility: hidden;">Buscar </label>
-                <input onclick="buscarConductor()" type="submit" value="Buscar Vehículo" id="buscar-conductor" class="form-control btn-primary" name="buscar-conductor" required style="background-color: #60C1DE;color:white;">
+                <input onclick="buscarConductor();" type="submit" value="Buscar Vehículo" id="buscar-conductor" class="form-control btn-primary" name="buscar-conductor" required style="background-color: #60C1DE;color:white;">
 
             </div>
         </div>
@@ -123,6 +123,6 @@ include('../common/session.php');
 <script src="../../../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
-<script src="datos-taxis.js"></script>
+<script src="./datos-taxis.js"></script>
 
 </html>

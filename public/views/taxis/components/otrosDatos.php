@@ -5,14 +5,7 @@
             <label>Licencia Comercial</label>
             <input type="text" class="form-control" id="lic-comercial" readonly />
         </div>
-        <div class="form-group col-xs-12 col-md-4">
-            <label>Fecha Alta</label>
-            <input type="text" class="form-control" id="fecha-alta" readonly />
-        </div>
-        <div class="form-group col-xs-12 col-md-4">
-            <label>Télefono</label>
-            <input type="text" class="form-control" id="telefono" readonly />
-        </div>
+
     </div>
     <div class="row">
         <div class="form-group col-xs-12 col-md-4">
@@ -30,8 +23,8 @@
     </div>
     <div class="row">
         <div class="form-group col-xs-12 col-md-6">
-            <label>Fecha Habilitación</label>
-            <input type="text" class="form-control" id="fecha-hab" readonly />
+            <label>Fecha Alta</label>
+            <input type="text" class="form-control" id="fecha-alta" readonly />
         </div>
         <div class="form-group col-xs-12 col-md-6">
             <label>Vto. Habilitación</label>
