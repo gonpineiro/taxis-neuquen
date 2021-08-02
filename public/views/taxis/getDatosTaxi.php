@@ -12,7 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dato = json_decode(file_get_contents('php://input'));
     $habilitacionController = new HabilitacionController();
     $datosTaxi = $habilitacionController->get($dato->id);
-    $datosTaxi['imagen'] = $habilitacionController->getImagen();
+
+    if ($datosTaxi['documento_renaper'] != null) {
+        $datosTaxi['imagen'] = $habilitacionController->getImagen();
+    } else {
+        $datosTaxi['imagen'] = null;
+    }
     echo (json_encode($datosTaxi));
     exit();
 } else {

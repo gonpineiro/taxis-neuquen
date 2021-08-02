@@ -8,13 +8,13 @@
             <div class="row">
                 <div class="form-group col-xs-12 col-md-10">
                     <label>Identificación</label>
-                    <input type="text" class="form-control" id="identificacion" readonly />
+                    <input type="text" class="form-control" id="identificacion" readonly disabled />
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-xs-12 col-md-10">
                     <label>Nombre</label>
-                    <input type="text" class="form-control" id="nombre" readonly />
+                    <input type="text" class="form-control" id="nombre" readonly disabled />
                 </div>
             </div>
         </div>
