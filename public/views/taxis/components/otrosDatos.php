@@ -23,21 +23,21 @@
     </div>
     <div class="row">
         <div class="form-group col-xs-12 col-md-6">
-            <label>Fecha Alta</label>
+            <label>Fecha Habilitación</label>
             <input type="text" class="form-control" id="fecha-alta" readonly disabled />
         </div>
         <div class="form-group col-xs-12 col-md-6">
-            <label>Vto. Habilitación</label>
+            <label>Vencimiento Habilitación</label>
             <input type="text" class="form-control" id="vto-hab" readonly disabled />
         </div>
     </div>
     <div class="row">
         <div class="form-group col-xs-12 col-md-6">
-            <label>Rto</label>
+            <label>RTO</label>
             <input type="text" class="form-control" id="rto" readonly disabled />
         </div>
         <div class="form-group col-xs-12 col-md-6">
-            <label>Vto Rto</label>
+            <label>Vencimiento RTO</label>
             <input type="text" class="form-control" id="vto-rto" readonly disabled />
         </div>
     </div>
@@ -47,7 +47,7 @@
             <input type="text" class="form-control" id="poliza" readonly disabled />
         </div>
         <div class="form-group col-xs-12 col-md-6">
-            <label>Vto Poliza</label>
+            <label>Vencimiento Poliza</label>
             <input type="text" class="form-control" id="vto-poliza" readonly disabled />
         </div>
     </div>
