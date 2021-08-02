@@ -26,6 +26,7 @@ include('../common/session.php');
 </head>
 
 <body>
+
     <?PHP
     include('../common/header.php');
     ?>
@@ -122,107 +123,77 @@ include('../common/session.php');
                 <div class="tab-pane fade show active" id="nav-choferes" role="tabpanel" aria-labelledby="nav-choferes-tab">
                     <div class="container">
                         <!-- CODIGO QR -->
-                        <div hidden id="qr_code">
+                        <div style="display: none;" id="qr_code">
                         </div>
                         <!-- CODIGO QR -->
                         <div class="row pt-3">
-                            <div class="col-xs-12 col-md-2"> <img class="img-fluid" style="width: 200px;" id="foto_dni" src="" alt="">
+                            <div class="col-xs-12 col-md-2">
+                                <img class="img-fluid mb-3" style="width: 200px;" id="foto_dni" src="" alt="">
                             </div>
+
                             <div class="col-xs-12 col-md-10">
                                 <div class="row">
                                     <div class="form-group col-xs-12 col-md-4">
-                                        <label>Identificación</label>
+                                        <label>Apellido y Nombre</label>
                                         <input type="text" class="form-control" id="nombrec" disabled readonly />
                                     </div>
                                     <div class="form-group col-xs-12 col-md-4">
-                                        <label>Persona</label>
+                                        <label>DNI</label>
                                         <input type="text" class="form-control" id="ind_identificacion" disabled readonly />
+                                    </div>
+                                    <div class="form-group col-xs-12 col-md-4">
+                                        <label>Tipo Credencial</label>
+                                        <select class="custom-select" id="tipo_credencial">
+                                            <option value="TAXI" selected>Taxi</option>
+                                            <option value="REMISSE">Remisse</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-xs-12 col-md-4">
+                                    <div class="form-group col-xs-12 col-md-3">
                                         <label>Nro Conductor</label>
                                         <input type="text" class="form-control" id="nro_conductor" disabled readonly />
                                     </div>
-                                    <div class="form-group col-xs-12 col-md-4">
+                                    <div class="form-group col-xs-12 col-md-3">
                                         <label>Otorgada:</label>
                                         <input type="text" class="form-control" id="fecha_otorgada" disabled readonly />
                                     </div>
-                                    <div class="form-group col-xs-12 col-md-4">
+                                    <div class="form-group col-xs-12 col-md-3">
                                         <label>Vencimiento</label>
                                         <input type="text" class="form-control" id="fecha_vencimiento" disabled readonly />
                                     </div>
+                                    <div class="form-group col-xs-12 col-md-3">
+                                        <label>¿Es renovación?</label>
+                                        <select class="custom-select" id="renovacion">
+                                            <option value="1" selected>Sí</option>
+                                            <option value="0">No</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-xs-12 col-md-4">
-                                        <label>Tipo Licencia</label>
+                                        <label>Tipo Licencia Conducir</label>
                                         <input type="text" class="form-control" id="descripcion_lic" disabled readonly />
                                     </div>
                                     <div class="form-group col-xs-12 col-md-4">
-                                        <label>Tipo cambio</label>
-                                        <input type="text" class="form-control" id="tipo_cambio" disabled readonly />
-                                    </div>
-                                    <div class="form-group col-xs-12 col-md-4">
-                                        <label>Último cambio</label>
+                                        <label>Fecha Vencimiento Licencia Conducir</label>
                                         <input type="text" class="form-control" id="fecha_vencimiento_licencia" disabled readonly />
                                     </div>
                                 </div>
+
                                 <div class="row">
-                                    <div class="form-group col-xs-12">
+                                    <div class="form-group col-xs-12 col-md-12">
                                         <label>Observaciones</label>
-                                        <textarea type="text" class="form-control" id="observaciones" disabled readonly />
+                                        <textarea type="text" class="form-control" id="observaciones" disabled readonly></textarea>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row pt-5">
-                            <div class="col-lg-12">
-                                <table class="table table-sm table-borderless">
-                                    <!-- CREAR NUEVOS TR SOLO VISTA CELULAR PARA LAS FILAS QUE TIENEN 4 DATOS Y OCULTAR LAS COLUMNAS 3 Y 4 DE VISTA PC EN CELULAR-->
-                                    <tbody>
-                                        <tr class="d-flex" style="background-color:#fff">
-                                            <td class="col-md-2 col-6 text-right">Persona:</td>
-                                            <td class="col-md-10 col-6" id="z">CUIL: 20-26810704-6</td>
-                                        </tr>
-                                        <tr class="d-flex">
-                                            <td class="col-md-2 col-6 text-right">Nombre:</td>
-                                            <td class="col-md-10 col-6" id="z">BAEZA, SANTIAGO ANDRES</td>
-                                        </tr>
-                                        <tr class="d-flex" style="background-color:#fff">
-                                            <td class="col-md-2 col-6 text-right">Nro Conductor:</td>
-                                            <td class="col-md-10 col-6" id="z">3816</td>
-                                        </tr>
-                                        <tr class="d-flex" style="background-color:#fff">
-                                            <td class="col-md-2 col-3 text-right">Otorgada:</td>
-                                            <td class="col-md-6 col-3" id="z">14/11/2019</td>
-                                            <td class="col-md-2 col-3 text-right">Vencimiento:</td>
-                                            <td class="col-md-2 col-3" id="z">12/11/2020</td>
-                                        </tr>
-                                        <tr class="d-flex">
-                                            <td class="col-md-2 col-3 text-right">Tipo Licencia:</td>
-                                            <td class="col-md-6 col-3" id="z">D2-Autom. de serv. de trans. mas 8 plazas</td>
-                                            <td class="col-md-2 col-3 text-right">Vencimiento Licencia:</td>
-                                            <td class="col-md-2 col-3" id="fecha_vencimiento_licencia">30/08/2021</td>
-                                        </tr>
-                                        <tr class="d-flex">
-                                            <td class="col-md-2 col-3 text-right">Tipo cambio:</td>
-                                            <td class="col-md-6 col-3" id="tipo_cambio">Renovación</td>
-                                            <td class="col-md-2 col-3 text-right">Último cambio:</td>
-                                            <td class="col-md-2 col-3" id="fecha_ultimo_cambio">14/11/2019</td>
-                                        </tr>
-                                        <tr class="d-flex" style="background-color:#fff">
-                                            <td class="col-md-2 col-6 text-right">Observaciones:</td>
-                                            <td class="col-md-10 col-6" id="observaciones">CREDENCIAL DE TAXI OTORGADA HASTA 12/11/2020</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end pb-3">
-                                    <div class="buttonsRow">
-                                        <button class="btn btn-primary submitBtn" onclick="buscarDatosConductor()">Imprimir Habilitación</button>
+                                    <div class="">
+                                        <button class="btn btn-primary" onclick="buscarDatosConductor()">Imprimir Habilitación</button>
                                     </div>
                                 </div>
                             </div>
@@ -232,15 +203,15 @@ include('../common/session.php');
             </div>
         </div>
     </div>
+    <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+    <script src="./datos-choferes.js"></script>
 </body>
 
-<script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
-<script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../../../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
 
-<script src="datos-choferes.js"></script>
 
 </html>
