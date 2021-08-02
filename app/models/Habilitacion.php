@@ -14,6 +14,7 @@ class Habilitacion extends Base
         $this->habilitacion = $this->callWebService($params);
         $this->extractDoc($this->habilitacion[0]['titularEmpresa']);
         $this->formatDate();
+        $this->habilitacion = $this->limpiarHabilitacion();
     }
 
     public function getHabilitacion()
@@ -34,5 +35,28 @@ class Habilitacion extends Base
 
         $timestamp = strtotime($this->habilitacion[0]["polizaFechaVencimiento"]);
         $this->habilitacion[0]["polizaFechaVencimiento"] = date('d/m/Y', $timestamp);
+    }
+
+    private function limpiarHabilitacion()
+    {
+        if (count($this->habilitacion) > 1) {
+            return array_filter($this->habilitacion, function ($habilitacion) {
+                if ($this->existeTipoEnString($habilitacion['titularEmpresa'])) {
+                    return $habilitacion;
+                }
+            });
+        } else {
+            return $this->habilitacion;
+        }
+    }
+    private function existeTipoEnString($string)
+    {
+        $documentoTipos = array('CUIT:', 'CUIL:', 'PQCNT:', 'LE:', 'DNI:', 'SC:');
+        foreach ($documentoTipos as $token) {
+            if (stristr($string, $token) !== false) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -65,7 +65,7 @@ include('../common/session.php');
         <div class="row">
             <div class="form-group col">
                 <label for="patente">Patente </label>
-                <input type="text" id="patente" class="form-control" placeholder="NYU-067" value="NYU-067" name="patente" required>
+                <input type="text" id="patente" class="form-control" placeholder="OPC-656" value="OPC-656" name="patente" required>
                 <div class="invalid-feedback">
                     <strong>
                         Por favor ingrese la patente correctamente.
