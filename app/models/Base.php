@@ -71,19 +71,22 @@ class Base
         $this->tipo_documento = $arrayDoc[0];
         $this->documento = $arrayDoc[1];
         switch ($arrayDoc[0]) {
-            case "DNI":
             case "SC":
-            case 'LE':
+                $this->documento = $arrayDoc[1];
             case 'PQCNT':
                 $this->documento = $arrayDoc[1];
                 break;
+            case 'LE':
+                $this->documento_renaper = $this->documento;
+                break;
+            case "DNI":
+                $this->documento_renaper = $this->documento;
+                break;
             case 'CUIL':
-            case 'CUIT':
                 $this->documento_renaper = explode("-", $arrayDoc[1])[1];
                 break;
-
-            default:
-                # code...
+            case 'CUIT':
+                $this->documento_renaper = explode("-", $arrayDoc[1])[1];
                 break;
         }
     }
