@@ -14,15 +14,11 @@ async function buscarConductor() {
 
   /* Insertamos los datos - Otros Datos */
   d.getElementById("lic-comercial").value = "";
-  d.getElementById("fecha-alta").value = "";
-  d.getElementById("telefono").value = "";
   d.getElementById("auto-patente").value = "";
   d.getElementById("auto-marca").value = "";
   d.getElementById("auto-modelo").value = "";
-  d.getElementById("fecha-hab").value = "";
+  d.getElementById("fecha-alta").value = "";
   d.getElementById("vto-hab").value = "";
-  // d.getElementById("fecha-utlimo-mov").value = '';
-  // d.getElementById("tipo-cambio").value = '';
   d.getElementById("rto").value = "";
   d.getElementById("vto-rto").value = "";
   d.getElementById("poliza").value = "";
@@ -63,14 +59,10 @@ async function buscarConductor() {
     /* Insertamos los datos - Otros Datos */
     d.getElementById("lic-comercial").value = taxi.licenciaComercial;
     d.getElementById("fecha-alta").value = taxi.habFechaAlta;
-    d.getElementById("telefono").value = "NO HAY DATOS";
     d.getElementById("auto-patente").value = taxi.patente;
     d.getElementById("auto-marca").value = taxi.marcaVehiculo;
     d.getElementById("auto-modelo").value = taxi.modelo;
-    d.getElementById("fecha-hab").value = "NO HAY DATOS";
     d.getElementById("vto-hab").value = taxi.habFechaVencimiento;
-    // d.getElementById("fecha-utlimo-mov").value = "NO HAY DATOS";
-    // d.getElementById("tipo-cambio").value = "NO HAY DATOS";
     d.getElementById("rto").value = taxi.rtoID;
     d.getElementById("vto-rto").value = taxi.rtoFechaVencimiento;
     d.getElementById("poliza").value = taxi.poliza;
@@ -91,23 +83,14 @@ function buscarDatosHabilitacion() {
   const habilitacion = {
     tipoHab: d.getElementById("tipo-hab").value,
     nroHab: d.getElementById("nro-hab").value,
-    nroEmpresa: d.getElementById("nro-empresa").value,
-    parada: d.getElementById("parada").value,
     identificacion: d.getElementById("identificacion").value,
     nombre: d.getElementById("nombre").value,
     licComercial: d.getElementById("lic-comercial").value,
-    fechaAlta: d.getElementById("fecha-alta").value,
-    telefono: d.getElementById("telefono").value,
     autoPatente: d.getElementById("auto-patente").value,
     autoMarca: d.getElementById("auto-marca").value,
     autoModelo: d.getElementById("auto-modelo").value,
-    fechaHab: d.getElementById("fecha-hab").value,
+    fechaAlta: d.getElementById("fecha-alta").value,
     vtoHab: d.getElementById("vto-hab").value,
-    rto: d.getElementById("rto").value,
-    vtoRto: d.getElementById("vto-rto").value,
-    poliza: d.getElementById("poliza").value,
-    vtoPoliza: d.getElementById("vto-poliza").value,
-    observacion: d.getElementById("observacion").value,
     fotoDni: d.getElementById("foto_dni").src,
   };
   imprimirHabilitacionChofer(habilitacion);
@@ -116,23 +99,14 @@ function buscarDatosHabilitacion() {
 function imprimirHabilitacionChofer({
   tipoHab,
   nroHab,
-  nroEmpresa,
-  parada,
   identificacion,
   nombre,
   licComercial,
-  fechaAlta,
-  telefono,
   autoPatente,
   autoMarca,
   autoModelo,
-  fechaHab,
+  fechaAlta,
   vtoHab,
-  rto,
-  vtoRto,
-  poliza,
-  vtoPoliza,
-  observacion,
   fotoDni,
 }) {
   console.log(fotoDni);
@@ -167,13 +141,13 @@ function imprimirHabilitacionChofer({
   doc.text(15, 100, "Patente:");
   doc.text(80, 100, autoPatente);
   doc.text(15, 110, "Fecha Habilitación:");
-  doc.text(80, 110, fechaHab);
+  doc.text(80, 110, fechaAlta);
   doc.text(15, 120, "Fecha Vencimiento:");
   doc.text(80, 120, vtoHab);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(22);
   doc.text(15, 140, "DATOS DEL TITULAR/RESPONSABLE");
-  doc.addImage(fotoDni, "PNG", 160, 100, 40, 40);
+  doc.addImage(fotoDni, "PNG", 160, 150, 40, 40);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(17);
   doc.text(15, 150, "Titular");
