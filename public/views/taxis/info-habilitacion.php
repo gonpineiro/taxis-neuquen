@@ -5,14 +5,8 @@ $habilitaciónController = new HabilitacionController();
 if ($_GET['patente']) {
     $dato = $_GET['patente'];
     $datosHabilitacion = $habilitaciónController->get($dato);
-    // print_r($datosHabilitacion);
-    if ($datosHabilitacion['documento_renaper'] != null) {
-        $datosHabilitacion['imagen'] =
-            $habilitaciónController->getImagen();
-    } else {
-        $datosHabilitacion['imagen'] = null;
-    }
     $id = $datosHabilitacion['habilitacion'][0]['id'];
+    $patente = $datosHabilitacion['habilitacion'][0]['patente'];
     $habTipo = $datosHabilitacion['habilitacion'][0]['habTipo'];
     $habNumero = $datosHabilitacion['habilitacion'][0]['habNumero'];
     $licenciaComercial = $datosHabilitacion['habilitacion'][0]['licenciaComercial'];
@@ -25,13 +19,13 @@ if ($_GET['patente']) {
     $rtoFechaVencimiento = $datosHabilitacion['habilitacion'][0]['rtoFechaVencimiento'];
     $poliza = $datosHabilitacion['habilitacion'][0]['poliza'];
     $polizaFechaVencimiento = $datosHabilitacion['habilitacion'][0]['polizaFechaVencimiento'];
-    $observacion = $datosHabilitacion['habilitacion'][0]['observacion'];
-    $empresaID = $datosHabilitacion['habilitacion'][0]['empresaID'];
-    $empresaNombre = $datosHabilitacion['habilitacion'][0]['empresaNombre'];
-    $titularEmpresa = $datosHabilitacion['habilitacion'][0]['titularEmpresa'];
+
     $titularIdentificacion = $datosHabilitacion['habilitacion'][0]['titularIdentificacion'];
     $tipo_documento = $datosHabilitacion['tipo_documento'];
     $documento = $datosHabilitacion['documento'];
+
+    $empresaID = $datosHabilitacion['habilitacion'][0]['empresaID'];
+
     // documento_dni trae el dato cuando tipo_documento es dni
     $documento_dni = $datosHabilitacion['documento_renaper'];
 } else {
@@ -59,53 +53,119 @@ if ($_GET['patente']) {
     <div class="container mb-3">
         <div class="datos-perfil">
             <div class="card-body">
-                <div class="">
+                <div class="mt-3">
                     <h3>Datos Licencia</h3>
-                    <h5>Habilitación Nº <?= $id ?></h5>
                     <hr>
                     <div class="row">
-                        <div class="form-group col-xs-6 col-md-4">
-                            <label class="text-dark">Tipo Habilitación</label>
-                            <input type="text" class="form-control" value="<?= $habTipo ?>" id="tipo-hab" disabled readonly />
+                        <div class="form-group col-xs-6 col-sm-6 col-6 col-md-4">
+                            <label class="text-dark">ID Habilitación</label>
+                            <input type="text" class="form-control" value="<?= $id ?>" id="tipo-hab" disabled readonly />
                         </div>
-                        <div class="form-group col-xs-6 col-md-4">
+                        <div class="form-group col-xs-6 col-sm-6 col-6 col-md-4">
                             <label class="text-dark">Tipo Habilitación</label>
-                            <input type="text" class="form-control" value="<?= $habTipo ?>" id="tipo-hab" disabled readonly />
+                            <input type="text" class="form-control" value="<?PHP if ($habTipo == "TAX") {
+                                                                                echo "TAXI";
+                                                                            }
+                                                                            if ($habTipo == "REM") {
+                                                                                echo "REMISSE";
+                                                                            } ?>" id="tipo-hab" disabled readonly />
+                        </div>
+                        <div class="form-group col-xs-6 col-sm-6 col-6 col-md-4">
+                            <label class="text-dark">Patente</label>
+                            <input type="text" class="form-control" value="<?= $patente ?>" id="tipo-hab" disabled readonly />
+                        </div>
+                        <div class="col-6"></div>
+                        <div class="form-group col-xs-6 col-sm-6 col-6 col-md-4">
+                            <label class="text-dark">Marca Vehículo</label>
+                            <input type="text" class="form-control" value="<?= $marcaVehiculo ?>" id="tipo-hab" disabled readonly />
+                        </div>
+                        <div class="form-group col-xs-6 col-sm-6 col-6 col-md-4">
+                            <label class="text-dark">Modelo</label>
+                            <input type="text" class="form-control" value="<?= $modelo ?>" id="tipo-hab" disabled readonly />
+                        </div>
+                        <div class="form-group col-xs-6 col-sm-6 col-6 col-md-4">
+                            <label class="text-dark">Fecha Alta</label>
+                            <input type="text" class="form-control" value="<?= $habFechaAlta ?>" id="tipo-hab" disabled readonly />
+                        </div>
+                        <div class="form-group col-xs-6 col-sm-6 col-6 col-md-4">
+                            <label class="text-dark">Fecha Vencimiento</label>
+                            <input type="text" class="form-control" value="<?= $habFechaVencimiento ?>" id="tipo-hab" disabled readonly />
+                        </div>
+                        <div class="form-group col-xs-6 col-sm-6 col-6 col-md-4">
+                            <label class="text-dark">RTO ID</label>
+                            <input type="text" class="form-control" value="<?= $rtoID ?>" id="tipo-hab" disabled readonly />
+                        </div>
+                        <div class="form-group col-xs-6 col-sm-6 col-6 col-md-4">
+                            <label class="text-dark">RTO Vencimiento</label>
+                            <input type="text" class="form-control" value="<?= $rtoFechaVencimiento ?>" id="tipo-hab" disabled readonly />
+                        </div>
+                        <div class="form-group col-xs-6 col-sm-6 col-6 col-md-4">
+                            <label class="text-dark">Póliza</label>
+                            <input type="text" class="form-control" value="<?= $poliza ?>" id="tipo-hab" disabled readonly />
+                        </div>
+                        <div class="form-group col-xs-6 col-sm-6 col-6 col-md-4">
+                            <label class="text-dark">Póliza Vencimiento</label>
+                            <input type="text" class="form-control" value="<?= $polizaFechaVencimiento ?>" id="tipo-hab" disabled readonly />
                         </div>
                     </div>
-                    <p class="text-dark">habNumero <?PHP if ($habTipo == "TAX") {
-                                                        echo "TAXI";
-                                                    }
-                                                    if ($habTipo == "REM") {
-                                                        echo "REMISSE";
-                                                    } ?></p>
-                    <p class="text-dark">licenciaComercial <?= $licenciaComercial ?></p>
-                    <p class="text-dark">marcaVehiculo <?= $marcaVehiculo ?></p>
-                    <p class="text-dark">modelo <?= $modelo ?></p>
-                    <p class="text-dark">habFechaAlta <?= $habFechaAlta ?></p>
-                    <p class="text-dark">habFechaVencimiento <?= $habFechaVencimiento ?></p>
-                    <p class="text-dark">cambioTipo <?= $cambioTipo ?></p>
-                    <p class="text-dark">rtoID <?= $rtoID ?></p>
-                    <p class="text-dark">rtoFechaVencimiento <?= $rtoFechaVencimiento ?></p>
-                    <p class="text-dark">poliza <?= $poliza ?></p>
-                    <p class="text-dark">polizaFechaVencimiento <?= $polizaFechaVencimiento ?></p>
-                    <p class="text-dark">observacion <?= $observacion ?></p>
+
                     <h3>Responsable Licencia</h3>
+                    <hr>
+                    <div class="row">
+                        <img class="rounded mx-auto d-block shadow-sm img-fluid m-3" style="max-width: 40%;" src="<?= $foto_dni ?>" alt="">
+                        <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
+                            <label class="text-dark">Nombre Titular</label>
+                            <input type="text" class="form-control" value="<?= $titularIdentificacion ?>" id="tipo-hab" disabled readonly />
+                        </div>
+                        <div class="form-group col-xs-6 col-sm-6 col-6 col-md-4">
+                            <label class="text-dark">Tipo Documento</label>
+                            <input type="text" class="form-control" value="<?= $tipo_documento ?>" id="tipo-hab" disabled readonly />
+                        </div>
+                        <div class="form-group col-xs-6 col-sm-6 col-6 col-md-4">
+                            <label class="text-dark">Número</label>
+                            <input type="text" class="form-control" value="<?= $documento ?>" id="tipo-hab" disabled readonly />
+                        </div>
 
-                    <p class="text-dark">empresaID <?= $empresaID ?></p>
-                    <p class="text-dark">empresaNombre <?= $empresaNombre ?></p>
-                    <p class="text-dark">titularEmpresa <?= $titularEmpresa ?></p>
-                    <p class="text-dark">titularIdentificacion <?= $titularIdentificacion ?></p>
-                    <p class="text-dark">tipo_documento <?= $tipo_documento ?></p>
-                    <p class="text-dark">documento <?= $documento ?></p>
-                    <p class="text-dark">documento_dni <?= $documento_dni ?></p>
+                        <?PHP
+                        if (!is_null($documento_dni) && !empty($documento_dni)) {
+                            $foto_dni = $habilitaciónController->getImagen();
+
+                        ?>
+                            <img class="rounded mx-auto d-block shadow-sm img-fluid m-3" style="max-width: 40%;" src="<?= $foto_dni ?>" alt="">
+
+                        <?PHP
+                        } 
+                        else {
+                            $foto_dni = "https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg";
+                        }
+                        ?>
+
+                        <?PHP
+                        if (!is_null($empresaID) && !empty($empresaID)) {
+                            
+                            $empresaNombre = $datosHabilitacion['habilitacion'][0]['empresaNombre'];
+                            $titularEmpresa = $datosHabilitacion['habilitacion'][0]['titularEmpresa'];
 
 
-
+                        ?>
+                            <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
+                                <label class="text-dark">Nombre Empresa</label>
+                                <input type="text" class="form-control" value="<?= $empresaNombre ?>" id="tipo-hab" disabled readonly />
+                            </div>
+                            <div class="form-group col-xs-6 col-sm-6 col-6 col-md-4">
+                                <label class="text-dark">Empresa ID</label>
+                                <input type="text" class="form-control" value="<?= $empresaID ?>" id="tipo-hab" disabled readonly />
+                            </div>
+                            <div class="form-group col-xs-6 col-sm-6 col-6 col-md-4">
+                                <label class="text-dark">Titular Empresa</label>
+                                <input type="text" class="form-control" value="<?= $titularEmpresa ?>" id="tipo-hab" disabled readonly />
+                            </div>
+                        <?PHP
+                        }
+                        ?>
+                    </div>
                 </div>
                 <hr>
-                <img class="rounded mx-auto d-block shadow-sm img-fluid m-3" style="max-width: 40%;" src="<?= $imagen ?>" alt="">
-
             </div>
         </div>
     </div>
