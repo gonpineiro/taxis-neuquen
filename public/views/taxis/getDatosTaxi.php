@@ -13,6 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $habilitacionController = new HabilitacionController();
     $datosTaxi = $habilitacionController->get($dato->id);
 
+    if ($datosTaxi['habilitacion'] == null) {
+        echo (json_encode(null));
+        exit();
+    }
     if ($datosTaxi['documento_renaper'] != null) {
         $datosTaxi['imagen'] = $habilitacionController->getImagen();
     } else {

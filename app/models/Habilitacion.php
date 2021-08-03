@@ -12,9 +12,13 @@ class Habilitacion extends Base
     {
         $params = ['action' => 0, 'patente' => $patente];
         $this->habilitacion = $this->callWebService($params);
-        $this->habilitacion = array_values($this->limpiarHabilitacion());
-        $this->extractDoc($this->habilitacion[0]['titularEmpresa']);
-        $this->formatDate();
+        $this->habilitacion = array_values($this->limpiarHabilitacion())[0];
+        if ($this->habilitacion["habTipo"] === 'TAX' || $this->habilitacion["habTipo"] === 'REM') {
+            $this->extractDoc($this->habilitacion['titularEmpresa']);
+            $this->formatDate();
+        } else {
+            $this->habilitacion = null;
+        }
     }
 
     public function getHabilitacion()
@@ -24,17 +28,17 @@ class Habilitacion extends Base
 
     private function formatDate()
     {
-        $timestamp = strtotime($this->habilitacion[0]["habFechaAlta"]);
-        $this->habilitacion[0]["habFechaAlta"] = date('d/m/Y', $timestamp);
+        $timestamp = strtotime($this->habilitacion["habFechaAlta"]);
+        $this->habilitacion["habFechaAlta"] = date('d/m/Y', $timestamp);
 
-        $timestamp = strtotime($this->habilitacion[0]["habFechaVencimiento"]);
-        $this->habilitacion[0]["habFechaVencimiento"] = date('d/m/Y', $timestamp);
+        $timestamp = strtotime($this->habilitacion["habFechaVencimiento"]);
+        $this->habilitacion["habFechaVencimiento"] = date('d/m/Y', $timestamp);
 
-        $timestamp = strtotime($this->habilitacion[0]["rtoFechaVencimiento"]);
-        $this->habilitacion[0]["rtoFechaVencimiento"] = date('d/m/Y', $timestamp);
+        $timestamp = strtotime($this->habilitacion["rtoFechaVencimiento"]);
+        $this->habilitacion["rtoFechaVencimiento"] = date('d/m/Y', $timestamp);
 
-        $timestamp = strtotime($this->habilitacion[0]["polizaFechaVencimiento"]);
-        $this->habilitacion[0]["polizaFechaVencimiento"] = date('d/m/Y', $timestamp);
+        $timestamp = strtotime($this->habilitacion["polizaFechaVencimiento"]);
+        $this->habilitacion["polizaFechaVencimiento"] = date('d/m/Y', $timestamp);
     }
 
     private function limpiarHabilitacion()

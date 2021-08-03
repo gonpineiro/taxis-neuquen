@@ -11,8 +11,8 @@ class Chofer extends Base
     public function __construct(int $conductorID)
     {
         $params = ['action' => 1, 'conductorID' => $conductorID];
-        $this->chofer = $this->callWebService($params);
-        $this->extractDoc($this->chofer[0]['conductorIdentificacion']);
+        $this->chofer = $this->callWebService($params)[0];
+        $this->extractDoc($this->chofer['conductorIdentificacion']);
         $this->formatDate();
     }
 
@@ -23,19 +23,19 @@ class Chofer extends Base
 
     private function formatDate()
     {
-        $timestamp = strtotime($this->chofer[0]['fechaOtorgamiento']);
-        $this->chofer[0]['fechaOtorgamiento'] = date('d/m/Y', $timestamp);
+        $timestamp = strtotime($this->chofer['fechaOtorgamiento']);
+        $this->chofer['fechaOtorgamiento'] = date('d/m/Y', $timestamp);
 
-        $timestamp = strtotime($this->chofer[0]["fechaVencimiento"]);
-        $this->chofer[0]['fechaVencimiento'] = date('d/m/Y', $timestamp);
+        $timestamp = strtotime($this->chofer["fechaVencimiento"]);
+        $this->chofer['fechaVencimiento'] = date('d/m/Y', $timestamp);
 
-        $timestamp = strtotime($this->chofer[0]["fechaVencimientoLicencia"]);
-        $this->chofer[0]["fechaVencimientoLicencia"] = date('d/m/Y', $timestamp);
+        $timestamp = strtotime($this->chofer["fechaVencimientoLicencia"]);
+        $this->chofer["fechaVencimientoLicencia"] = date('d/m/Y', $timestamp);
     }
 
     public function getQrChofer()
     {
-        $this->codigoQr = getCodigoQr($this->chofer[0]["conductorID"]);
+        $this->codigoQr = getCodigoQr($this->chofer["conductorID"]);
         return $this->codigoQr;
     }
 }
