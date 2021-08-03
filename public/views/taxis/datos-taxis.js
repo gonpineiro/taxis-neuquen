@@ -127,25 +127,24 @@ function imprimirHabilitacionChofer({
   doc.text(80, 120, fechaAlta);
   doc.text(15, 130, "Fecha Vencimiento:");
   doc.text(80, 130, vtoHab);
+  doc.setFontSize(7.7);
+  doc.text(160, 130, verificacion);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(22);
   doc.text(15, 150, "DATOS DEL TITULAR/RESPONSABLE");
 
-  if (fotoDni.includes("data:image/jpg;base64")) {
+  if (fotoDni.includes("data:image/jpg;base64"))
     doc.addImage(fotoDni, "PNG", 160, 160, 40, 40);
-  }
 
   doc.setFont("helvetica", "normal");
-  doc.setFontSize(17);
+  doc.setFontSize(15);
   doc.text(15, 160, "Titular");
-  doc.text(50, 160, nombre);
+  doc.text(60, 160, nombre);
   doc.text(15, 170, "Identificación");
-  doc.text(50, 170, identificacion);
+  doc.text(60, 170, identificacion);
   doc.setFontSize(14);
-  doc.text(15, 210, subsecretaria);
-  doc.text(15, 220, direccion);
-  doc.setFontSize(7.7);
-  doc.text(160, 220, verificacion);
+  doc.text(15, 200, subsecretaria);
+  doc.text(15, 210, direccion);
 
   doc.autoPrint({
     variant: "javascript",
