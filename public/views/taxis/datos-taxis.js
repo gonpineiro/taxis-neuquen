@@ -1,29 +1,11 @@
 const d = document;
 
 async function buscarConductor() {
-  /* Reset de los datos - Transporte Público */
-  d.getElementById("tipo-hab").value = "";
-  d.getElementById("nro-hab").value = "";
-  d.getElementById("nro-empresa").value = "";
-  d.getElementById("parada").value = "";
-  d.getElementById("foto_dni").src = "";
-
-  /* Reset de los datos - Titulas Responsable */
-  d.getElementById("identificacion").value = "";
-  d.getElementById("nombre").value = "";
-
-  /* Insertamos los datos - Otros Datos */
-  d.getElementById("lic-comercial").value = "";
-  d.getElementById("auto-patente").value = "";
-  d.getElementById("auto-marca").value = "";
-  d.getElementById("auto-modelo").value = "";
-  d.getElementById("fecha-alta").value = "";
-  d.getElementById("vto-hab").value = "";
-  d.getElementById("rto").value = "";
-  d.getElementById("vto-rto").value = "";
-  d.getElementById("poliza").value = "";
-  d.getElementById("vto-poliza").value = "";
-  d.getElementById("observacion").value = "";
+  d.getElementById("sin-datos").style.display = "block";
+  d.getElementById("nav-tabContent").style.display = "none";
+  d.getElementById("nav-tabDescription").style.display = "none";
+  d.getElementById("transporte-publico").style.display = "none";
+  d.getElementById("sin-datos-descrip").textContent = "Buscando...";
 
   /* fetch de los datos */
   const patente = d.getElementById("patente").value;

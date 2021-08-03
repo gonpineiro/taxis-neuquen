@@ -61,7 +61,7 @@ include('../common/session.php');
         </nav>
         <div id="sin-datos">
             <div class="card-body text-center">
-                <span>Ingrese y busque por número de conductor para obtener la información de este. </span>
+                <span id="sin-datos-descrip">Ingrese y busque por número de conductor para obtener la información de este. </span>
             </div>
         </div>
         <div id="datos-conductor" style="display: none;">

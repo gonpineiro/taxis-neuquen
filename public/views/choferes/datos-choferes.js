@@ -1,16 +1,9 @@
 const d = document;
 
 async function buscarConductor() {
-  /* Reset de los datos */
-  d.getElementById("ind_identificacion").value = "";
-  d.getElementById("nombrec").value = "";
-  d.getElementById("descripcion_lic").value = "";
-  d.getElementById("fecha_vencimiento_licencia").value = "";
-  d.getElementById("fecha_otorgada").value = "";
-  d.getElementById("fecha_vencimiento").value = "";
-  d.getElementById("observaciones").value = "";
-  d.getElementById("foto_dni").src = "";
-
+  d.getElementById("datos-conductor").style.display = "none";
+  d.getElementById("sin-datos").style.display = "block";
+  d.getElementById("sin-datos-descrip").textContent = "Buscando...";
 
   /* fetch de los datos */
   const idChofer = d.getElementById("nro-conductor").value;
@@ -19,32 +12,43 @@ async function buscarConductor() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ id: idChofer }),
   });
-  let datoschofer = await response.json();
-  chofer = datoschofer.chofer[0];
+  try {
+    const datoschofer = await response.json();
+    const chofer = datoschofer.chofer[0];
 
-  /* Mostramos la vista */
-  d.getElementById("datos-conductor").style.display = "block";
-  d.getElementById("sin-datos").style.display = "none";
-  console.log(datoschofer);
-  var qrcode = new QRCode("qr_code", {
-    text: "https://www.google.com/search?q=hola" + chofer.conductorID,
-    width: 128,
-    height: 128,
-    colorDark: "#006BB1",
-    colorLight: "#ffffff",
-    correctLevel: QRCode.CorrectLevel.H,
-  });
-  /* Insertamos los datos */
-  d.getElementById("ind_identificacion").value = datoschofer.documento_renaper;
-  d.getElementById("nombrec").value = chofer.conductorRazonSocial;
-  d.getElementById("foto_dni").src = datoschofer.imagen;
-  d.getElementById("nro_conductor").value = chofer.conductorID;
-  d.getElementById("descripcion_lic").value = chofer.tipoLicencia;
-  d.getElementById("fecha_vencimiento_licencia").value =
-    chofer.fechaVencimientoLicencia;
-  d.getElementById("fecha_otorgada").value = chofer.fechaOtorgamiento;
-  d.getElementById("fecha_vencimiento").value = chofer.fechaVencimiento;
-  d.getElementById("observaciones").value = chofer.observaciones;
+    /* Mostramos la vista */
+    d.getElementById("datos-conductor").style.display = "block";
+    d.getElementById("sin-datos").style.display = "none";
+
+    console.log(datoschofer);
+    var qrcode = new QRCode("qr_code", {
+      text: "https://www.google.com/search?q=hola" + chofer.conductorID,
+      width: 128,
+      height: 128,
+      colorDark: "#006BB1",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H,
+    });
+
+    /* Insertamos los datos */
+    d.getElementById("ind_identificacion").value =
+      datoschofer.documento_renaper;
+    d.getElementById("nombrec").value = chofer.conductorRazonSocial;
+    d.getElementById("foto_dni").src = datoschofer.imagen;
+    d.getElementById("nro_conductor").value = chofer.conductorID;
+    d.getElementById("descripcion_lic").value = chofer.tipoLicencia;
+    d.getElementById("fecha_vencimiento_licencia").value =
+      chofer.fechaVencimientoLicencia;
+    d.getElementById("fecha_otorgada").value = chofer.fechaOtorgamiento;
+    d.getElementById("fecha_vencimiento").value = chofer.fechaVencimiento;
+    d.getElementById("observaciones").value = chofer.observaciones;
+  } catch (error) {
+    console.log(error);
+    d.getElementById("datos-conductor").style.display = "none";
+    d.getElementById("sin-datos").style.display = "block";
+    d.getElementById("sin-datos-descrip").textContent =
+      "No se encuentra el chofer: " + idChofer;
+  }
 }
 
 function buscarDatosConductor() {
@@ -121,7 +125,7 @@ function imprimirHabilitacionChofer(
   const nombre = nombrec;
   const dni = "DNI: " + ind_identificacion;
   const credencial = nro_conductor;
-  const esRenovacion = (renovacion == 1 ? "RENOVACIÓN" : "");
+  const esRenovacion = renovacion == 1 ? "RENOVACIÓN" : "";
   // const descLicencia = descripcion_lic; // no se usa en el cartel o sí?
   const otorgada = fecha_otorgada;
   const vencimiento = fecha_vencimiento;
