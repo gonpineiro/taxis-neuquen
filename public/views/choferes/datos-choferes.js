@@ -14,7 +14,7 @@ async function buscarConductor() {
   });
   try {
     const datoschofer = await response.json();
-    const chofer = datoschofer.chofer[0];
+    const chofer = datoschofer.chofer;
 
     /* Mostramos la vista */
     d.getElementById("datos-conductor").style.display = "block";
