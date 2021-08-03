@@ -12,9 +12,10 @@ class Habilitacion extends Base
     {
         $params = ['action' => 0, 'patente' => $patente];
         $this->habilitacion = $this->callWebService($params);
+        $this->habilitacion = $this->limpiarHabilitacion();
         $this->extractDoc($this->habilitacion[0]['titularEmpresa']);
         $this->formatDate();
-        $this->habilitacion = $this->limpiarHabilitacion();
+        die();
     }
 
     public function getHabilitacion()
