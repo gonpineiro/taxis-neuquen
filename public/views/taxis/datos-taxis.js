@@ -17,7 +17,7 @@ async function buscarConductor() {
 
   try {
     const datosTaxi = await response.json();
-    const taxi = datosTaxi.habilitacion[0];
+    const taxi = datosTaxi.habilitacion;
     console.log(taxi);
     /* Mostramos la vista */
     d.getElementById("nav-tabContent").style.display = "block";

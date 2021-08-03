@@ -11,8 +11,8 @@ class Chofer extends Base
     public function __construct(int $conductorID)
     {
         $params = ['action' => 1, 'conductorID' => $conductorID];
-        $this->chofer = $this->callWebService($params);
-        $this->extractDoc($this->chofer[0]['conductorIdentificacion']);
+        $this->chofer = $this->callWebService($params)[0];
+        $this->extractDoc($this->chofer['conductorIdentificacion']);
         $this->formatDate();
     }
 
