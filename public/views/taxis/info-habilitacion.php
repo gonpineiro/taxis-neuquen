@@ -114,7 +114,7 @@ if ($_GET['patente']) {
                     <div class="row">
                         <img class="rounded mx-auto d-block shadow-sm img-fluid m-3" style="max-width: 40%;" src="<?= $foto_dni ?>" alt="">
                         <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
-                            <label class="text-dark">Nombre Titular</label>
+                            <label class="text-dark">Nombre Titular/ Responsable</label>
                             <input type="text" class="form-control" value="<?= $titularIdentificacion ?>" id="tipo-hab" disabled readonly />
                         </div>
                         <div class="form-group col-xs-6 col-sm-6 col-6 col-md-4">
@@ -134,15 +134,14 @@ if ($_GET['patente']) {
                             <img class="rounded mx-auto d-block shadow-sm img-fluid m-3" style="max-width: 40%;" src="<?= $foto_dni ?>" alt="">
 
                         <?PHP
-                        } 
-                        else {
+                        } else {
                             $foto_dni = "https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg";
                         }
                         ?>
 
                         <?PHP
                         if (!is_null($empresaID) && !empty($empresaID)) {
-                            
+
                             $empresaNombre = $datosHabilitacion['habilitacion'][0]['empresaNombre'];
                             $titularEmpresa = $datosHabilitacion['habilitacion'][0]['titularEmpresa'];
 

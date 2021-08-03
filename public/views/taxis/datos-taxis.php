@@ -56,6 +56,10 @@ include('../common/session.php');
         </nav>
 
         <div class="tab-content bg-light rounded-bottom" id="nav-tabContent" style="display: none">
+            <!-- CODIGO QR -->
+            <div style="display: none;" id="qr_code">
+            </div>
+            <!-- CODIGO QR -->
             <div class="tab-pane fade show active" id="nav-titular" role="tabpanel" aria-labelledby="nav-titular-tab">
                 <?php include('./components/titular.php') ?>
             </div>

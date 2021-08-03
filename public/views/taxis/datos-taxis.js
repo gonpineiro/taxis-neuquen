@@ -19,6 +19,14 @@ async function buscarConductor() {
     const datosTaxi = await response.json();
     const taxi = datosTaxi.habilitacion[0];
     console.log(taxi);
+    var qrcode = new QRCode("qr_code", {
+      text: "https://www.google.com/search?q=hola" + taxi.patente,
+      width: 128,
+      height: 128,
+      colorDark: "#006BB1",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H,
+    });
     /* Mostramos la vista */
     d.getElementById("nav-tabContent").style.display = "block";
     d.getElementById("nav-tabDescription").style.display = "block";
@@ -75,6 +83,7 @@ function buscarDatosHabilitacion() {
     fechaAlta: d.getElementById("fecha-alta").value,
     vtoHab: d.getElementById("vto-hab").value,
     fotoDni: d.getElementById("foto_dni").src,
+    cod_qr: $("#qr_code img").attr("src"),
   };
   imprimirHabilitacionChofer(habilitacion);
 }
@@ -91,6 +100,7 @@ function imprimirHabilitacionChofer({
   fechaAlta,
   vtoHab,
   fotoDni,
+  cod_qr,
 }) {
   console.log(fotoDni);
   const banner =
@@ -128,13 +138,14 @@ function imprimirHabilitacionChofer({
   doc.text(15, 130, "Fecha Vencimiento:");
   doc.text(80, 130, vtoHab);
   doc.setFontSize(7.7);
-  doc.text(160, 130, verificacion);
+  doc.text(160, 100, verificacion);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(22);
   doc.text(15, 150, "DATOS DEL TITULAR/RESPONSABLE");
+  doc.addImage(cod_qr, "PNG", 160, 55, 40, 40);
 
   if (fotoDni.includes("data:image/jpg;base64"))
-    doc.addImage(fotoDni, "PNG", 160, 160, 40, 40);
+    doc.addImage(fotoDni, "PNG", 160, 160, 40, 48.9);
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(15);
@@ -144,10 +155,10 @@ function imprimirHabilitacionChofer({
   doc.text(60, 170, identificacion);
   doc.setFontSize(14);
   doc.text(15, 200, subsecretaria);
-  doc.text(15, 210, direccion);
+  doc.text(15, 206, direccion);
 
   doc.autoPrint({
     variant: "javascript",
   });
-  doc.save("tashi.pdf");
+  doc.save("habilitacion-" + autoPatente + ".pdf");
 }
