@@ -18,7 +18,7 @@ async function buscarConductor() {
   try {
     const datosTaxi = await response.json();
     if (datosTaxi) {
-      const taxi = datosTaxi.habilitacion[0];
+      const taxi = datosTaxi.habilitacion;
       console.log(taxi);
       var qrcode = new QRCode("qr_code", {
         text: "https://www.google.com/search?q=hola" + taxi.patente,

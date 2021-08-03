@@ -5,26 +5,26 @@ $habilitaciónController = new HabilitacionController();
 if ($_GET['patente']) {
     $dato = $_GET['patente'];
     $datosHabilitacion = $habilitaciónController->get($dato);
-    $id = $datosHabilitacion['habilitacion'][0]['id'];
-    $patente = $datosHabilitacion['habilitacion'][0]['patente'];
-    $habTipo = $datosHabilitacion['habilitacion'][0]['habTipo'];
-    $habNumero = $datosHabilitacion['habilitacion'][0]['habNumero'];
-    $licenciaComercial = $datosHabilitacion['habilitacion'][0]['licenciaComercial'];
-    $marcaVehiculo = $datosHabilitacion['habilitacion'][0]['marcaVehiculo'];
-    $modelo = $datosHabilitacion['habilitacion'][0]['modelo'];
-    $habFechaAlta = $datosHabilitacion['habilitacion'][0]['habFechaAlta'];
-    $habFechaVencimiento = $datosHabilitacion['habilitacion'][0]['habFechaVencimiento'];
-    $cambioTipo = $datosHabilitacion['habilitacion'][0]['cambioTipo'];
-    $rtoID = $datosHabilitacion['habilitacion'][0]['rtoID'];
-    $rtoFechaVencimiento = $datosHabilitacion['habilitacion'][0]['rtoFechaVencimiento'];
-    $poliza = $datosHabilitacion['habilitacion'][0]['poliza'];
-    $polizaFechaVencimiento = $datosHabilitacion['habilitacion'][0]['polizaFechaVencimiento'];
+    $id = $datosHabilitacion['habilitacion']['id'];
+    $patente = $datosHabilitacion['habilitacion']['patente'];
+    $habTipo = $datosHabilitacion['habilitacion']['habTipo'];
+    $habNumero = $datosHabilitacion['habilitacion']['habNumero'];
+    $licenciaComercial = $datosHabilitacion['habilitacion']['licenciaComercial'];
+    $marcaVehiculo = $datosHabilitacion['habilitacion']['marcaVehiculo'];
+    $modelo = $datosHabilitacion['habilitacion']['modelo'];
+    $habFechaAlta = $datosHabilitacion['habilitacion']['habFechaAlta'];
+    $habFechaVencimiento = $datosHabilitacion['habilitacion']['habFechaVencimiento'];
+    $cambioTipo = $datosHabilitacion['habilitacion']['cambioTipo'];
+    $rtoID = $datosHabilitacion['habilitacion']['rtoID'];
+    $rtoFechaVencimiento = $datosHabilitacion['habilitacion']['rtoFechaVencimiento'];
+    $poliza = $datosHabilitacion['habilitacion']['poliza'];
+    $polizaFechaVencimiento = $datosHabilitacion['habilitacion']['polizaFechaVencimiento'];
 
-    $titularIdentificacion = $datosHabilitacion['habilitacion'][0]['titularIdentificacion'];
+    $titularIdentificacion = $datosHabilitacion['habilitacion']['titularIdentificacion'];
     $tipo_documento = $datosHabilitacion['tipo_documento'];
     $documento = $datosHabilitacion['documento'];
 
-    $empresaID = $datosHabilitacion['habilitacion'][0]['empresaID'];
+    $empresaID = $datosHabilitacion['habilitacion']['empresaID'];
 
     // documento_dni trae el dato cuando tipo_documento es dni
     $documento_dni = $datosHabilitacion['documento_renaper'];
@@ -142,8 +142,8 @@ if ($_GET['patente']) {
                         <?PHP
                         if (!is_null($empresaID) && !empty($empresaID)) {
 
-                            $empresaNombre = $datosHabilitacion['habilitacion'][0]['empresaNombre'];
-                            $titularEmpresa = $datosHabilitacion['habilitacion'][0]['titularEmpresa'];
+                            $empresaNombre = $datosHabilitacion['habilitacion']['empresaNombre'];
+                            $titularEmpresa = $datosHabilitacion['habilitacion']['titularEmpresa'];
 
 
                         ?>

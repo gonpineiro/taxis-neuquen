@@ -6,17 +6,17 @@ if ($_GET['numero']) {
     $dato = $_GET['numero'];
     $datosChofer = $choferController->get($dato);
     $imagen = $choferController->getImagen();
-    $nombre = $datosChofer['chofer'][0]['conductorRazonSocial'];
-    $documento = $datosChofer['chofer'][0]['conductorIdentificacion'];
+    $nombre = $datosChofer['chofer']['conductorRazonSocial'];
+    $documento = $datosChofer['chofer']['conductorIdentificacion'];
     $tipoDoc = $datosChofer['tipo_documento'];
     $numDoc =  $datosChofer['documento'];
-    $credencial = $datosChofer['chofer'][0]['conductorID'];
-    $tipoLicencia = $datosChofer['chofer'][0]['tipoLicencia'];
-    $fechaOtorgamiento = $datosChofer['chofer'][0]['fechaOtorgamiento'];
-    $fechaVencimiento = $datosChofer['chofer'][0]['fechaVencimiento'];
-    $fechaVencimientoLicencia = $datosChofer['chofer'][0]['fechaVencimientoLicencia'];
-    $observaciones = $datosChofer['chofer'][0]['observaciones'];
-    $fechaVencimientoLicencia = $datosChofer['chofer'][0]['fechaVencimientoLicencia'];
+    $credencial = $datosChofer['chofer']['conductorID'];
+    $tipoLicencia = $datosChofer['chofer']['tipoLicencia'];
+    $fechaOtorgamiento = $datosChofer['chofer']['fechaOtorgamiento'];
+    $fechaVencimiento = $datosChofer['chofer']['fechaVencimiento'];
+    $fechaVencimientoLicencia = $datosChofer['chofer']['fechaVencimientoLicencia'];
+    $observaciones = $datosChofer['chofer']['observaciones'];
+    $fechaVencimientoLicencia = $datosChofer['chofer']['fechaVencimientoLicencia'];
 } else {
     echo "Error en la búsqueda de datos";
 }
