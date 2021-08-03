@@ -17,40 +17,50 @@ async function buscarConductor() {
 
   try {
     const datosTaxi = await response.json();
-    const taxi = datosTaxi.habilitacion;
-    console.log(taxi);
-    /* Mostramos la vista */
-    d.getElementById("nav-tabContent").style.display = "block";
-    d.getElementById("nav-tabDescription").style.display = "block";
-    d.getElementById("transporte-publico").style.display = "block";
-    d.getElementById("sin-datos").style.display = "none";
+    if (datosTaxi) {
+      const taxi = datosTaxi.habilitacion;
+      console.log(taxi);
+      /* Mostramos la vista */
+      d.getElementById("nav-tabContent").style.display = "block";
+      d.getElementById("nav-tabDescription").style.display = "block";
+      d.getElementById("transporte-publico").style.display = "block";
+      d.getElementById("sin-datos").style.display = "none";
 
-    /* Insertamos los datos - Transporte Público */
-    if (taxi.habTipo === "TAX") taxi.habTipo = "TAXI";
-    if (taxi.habTipo === "REM") taxi.habTipo = "REMIS";
-    if (taxi.habTipo === "TES") taxi.habTipo = "TRANSPORTE ES";
-    d.getElementById("tipo-hab").value = taxi.habTipo;
-    d.getElementById("nro-hab").value = taxi.habNumero;
-    d.getElementById("nro-empresa").value = taxi.habNumero;
-    d.getElementById("parada").value = taxi.empresaNombre;
-    d.getElementById("foto_dni").src = datosTaxi.imagen;
+      /* Insertamos los datos - Transporte Público */
+      if (taxi.habTipo === "TAX") taxi.habTipo = "TAXI";
+      if (taxi.habTipo === "REM") taxi.habTipo = "REMIS";
+      if (taxi.habTipo === "TES") taxi.habTipo = "TRANSPORTE ES";
+      d.getElementById("tipo-hab").value = taxi.habTipo;
+      d.getElementById("nro-hab").value = taxi.habNumero;
+      d.getElementById("nro-empresa").value = taxi.habNumero;
+      d.getElementById("parada").value = taxi.empresaNombre;
+      d.getElementById("foto_dni").src = datosTaxi.imagen;
 
-    /* Insertamos los datos - Titulas Responsable */
-    d.getElementById("identificacion").value = taxi.titularEmpresa;
-    d.getElementById("nombre").value = taxi.titularIdentificacion;
+      /* Insertamos los datos - Titulas Responsable */
+      d.getElementById("identificacion").value = taxi.titularEmpresa;
+      d.getElementById("nombre").value = taxi.titularIdentificacion;
 
-    /* Insertamos los datos - Otros Datos */
-    d.getElementById("lic-comercial").value = taxi.licenciaComercial;
-    d.getElementById("fecha-alta").value = taxi.habFechaAlta;
-    d.getElementById("auto-patente").value = taxi.patente;
-    d.getElementById("auto-marca").value = taxi.marcaVehiculo;
-    d.getElementById("auto-modelo").value = taxi.modelo;
-    d.getElementById("vto-hab").value = taxi.habFechaVencimiento;
-    d.getElementById("rto").value = taxi.rtoID;
-    d.getElementById("vto-rto").value = taxi.rtoFechaVencimiento;
-    d.getElementById("poliza").value = taxi.poliza;
-    d.getElementById("vto-poliza").value = taxi.polizaFechaVencimiento;
-    d.getElementById("observacion").value = taxi.observacion;
+      /* Insertamos los datos - Otros Datos */
+      d.getElementById("lic-comercial").value = taxi.licenciaComercial;
+      d.getElementById("fecha-alta").value = taxi.habFechaAlta;
+      d.getElementById("auto-patente").value = taxi.patente;
+      d.getElementById("auto-marca").value = taxi.marcaVehiculo;
+      d.getElementById("auto-modelo").value = taxi.modelo;
+      d.getElementById("vto-hab").value = taxi.habFechaVencimiento;
+      d.getElementById("rto").value = taxi.rtoID;
+      d.getElementById("vto-rto").value = taxi.rtoFechaVencimiento;
+      d.getElementById("poliza").value = taxi.poliza;
+      d.getElementById("vto-poliza").value = taxi.polizaFechaVencimiento;
+      d.getElementById("observacion").value = taxi.observacion;
+    } else {
+      d.getElementById("nav-tabContent").style.display = "none";
+      d.getElementById("nav-tabDescription").style.display = "none";
+      d.getElementById("transporte-publico").style.display = "none";
+      d.getElementById("sin-datos").style.display = "block";
+      d.getElementById(
+        "sin-datos-descrip"
+      ).textContent = `La patente ${patente} no corresponde a una habilitacion de Taxi o remis`;
+    }
   } catch (error) {
     console.log(error);
     d.getElementById("nav-tabContent").style.display = "none";
