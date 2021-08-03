@@ -10,5 +10,4 @@ DB_CHARSET=
 API_URL=https://weblogin.muninqn.gov.ar/api/mnqn
 API_TOKEN=12345
 
-DB_USUARIOS_TABLE=deportes_usuarios
 DB_LOG_TABLE=deportes_log
