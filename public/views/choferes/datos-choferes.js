@@ -22,7 +22,7 @@ async function buscarConductor() {
 
     console.log(datoschofer);
     var qrcode = new QRCode("qr_code", {
-      text: "https://www.google.com/search?q=hola" + chofer.conductorID,
+      text: "http://200.85.183.194:90/apps/Taxis/public/views/choferes/info-chofer.php?numero=" + chofer.conductorID,
       width: 128,
       height: 128,
       colorDark: "#006BB1",

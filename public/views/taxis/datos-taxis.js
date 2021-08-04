@@ -21,7 +21,8 @@ async function buscarConductor() {
       const taxi = datosTaxi.habilitacion;
       console.log(taxi);
       var qrcode = new QRCode("qr_code", {
-        text: "https://www.google.com/search?q=hola" + taxi.patente,
+        text: "http://200.85.183.194:90/apps/Taxis/public/views/taxis/info-habilitacion.php?patente=" +
+          taxi.patente,
         width: 128,
         height: 128,
         colorDark: "#006BB1",
