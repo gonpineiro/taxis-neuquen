@@ -15,7 +15,7 @@
                     </a>
                     <div class="dropdown-menu" style="background-color: transparent!important;border:none!important" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item whiteButton contacto-menu" target="_blank" href="mailto:soporte@muninqn.gov.ar">Soporte</a>
-                        <a class="dropdown-item whiteButton mt-2" href="https://weblogin.muninqn.gov.ar">Regresar</a>
+                        <a class="dropdown-item whiteButton mt-2" onclick="window.history.back()" href="#">Regresar</a>
                     </div>
                 </li>
             </ul>

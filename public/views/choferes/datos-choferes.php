@@ -18,7 +18,8 @@ include('../common/session.php');
 <div class="body container" style="margin-bottom: 5em;">
     <?php include('../common/datosPerfil.php'); ?>
 
-    <h1 class="titulo mb-5 mt-5">Choferes </h1>
+    <h1 class="titulo mb-5 mt-5">Credencial Choferes </h1>
+    <h4>Ingrese el número de conductor</h4>
     <!-- BÚSQUEDA DEL VEHÍCULO -->
     <div class="pt-2">
         <div class="row">
@@ -40,12 +41,12 @@ include('../common/session.php');
     <!-- COMIENZO DE TABS/ PESTAÑAS -->
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-link active" id="nav-choferes-tab" data-toggle="tab" href="#nav-choferes" role="tab" aria-controls="nav-choferes" aria-selected="true">Choferes</a>
+            <a class="nav-link active" id="nav-choferes-tab" data-toggle="tab" href="#nav-choferes" role="tab" aria-controls="nav-choferes" aria-selected="true">Chofer</a>
         </div>
     </nav>
     <div id="sin-datos">
         <div class="card-body text-center">
-            <span id="sin-datos-descrip">Ingrese y busque por número de conductor para obtener la información de este. </span>
+            <span id="sin-datos-descrip">Información del chofer. </span>
         </div>
     </div>
     <div id="datos-conductor" style="display: none;">
@@ -63,7 +64,7 @@ include('../common/session.php');
                     <!-- CODIGO QR -->
                     <div class="row pt-3">
                         <div class="col-xs-12 col-md-2">
-                            <img class="img-fluid mb-3" style="width: 200px;" id="foto_dni" src="" alt="">
+                            <img class="img-fluid mb-3 rounded mx-auto d-block" style="width: 200px;" id="foto_dni" src="" alt="">
                         </div>
 
                         <div class="col-xs-12 col-md-10">
