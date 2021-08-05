@@ -16,7 +16,6 @@ include('../common/session.php');
 <?php include('../common/header.php'); ?>
 
 <div class="body container" style="margin-bottom: 5em;">
-    <?php include('../common/datosPerfil.php'); ?>
 
     <h1 class="titulo mb-5 mt-5">Credencial Choferes </h1>
     <h4>Ingrese el número de conductor</h4>
@@ -68,7 +67,7 @@ include('../common/session.php');
                         </div>
 
                         <div class="col-xs-12 col-md-10">
-                            <div class="row">
+                            <div class="row form-group">
                                 <div class="form-group col-xs-12 col-md-4">
                                     <label>Apellido y Nombre</label>
                                     <input type="text" class="form-control" id="nombrec" disabled readonly />
@@ -85,7 +84,7 @@ include('../common/session.php');
                                     </select>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row form-group">
                                 <div class="form-group col-xs-12 col-md-3">
                                     <label>Nro Conductor</label>
                                     <input type="text" class="form-control" id="nro_conductor" disabled readonly />
@@ -106,7 +105,8 @@ include('../common/session.php');
                                     </select>
                                 </div>
                             </div>
-                            <div class="row">
+
+                            <div class="row form-group">
                                 <div class="form-group col-xs-12 col-md-4">
                                     <label>Tipo Licencia Conducir</label>
                                     <input type="text" class="form-control" id="descripcion_lic" disabled readonly />

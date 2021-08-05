@@ -151,13 +151,9 @@ if ($_GET['patente']) {
                                 <label class="text-dark">Nombre Empresa</label>
                                 <input type="text" class="form-control" value="<?= $empresaNombre ?>" id="tipo-hab" disabled readonly />
                             </div>
-                            <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
+                            <div class="form-group col-xs-6 col-sm-6 col-4 col-md-4">
                                 <label class="text-dark">Empresa ID</label>
                                 <input type="text" class="form-control" value="<?= $empresaID ?>" id="tipo-hab" disabled readonly />
-                            </div>
-                            <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
-                                <label class="text-dark">Titular Empresa</label>
-                                <input type="text" class="form-control" value="<?= $titularEmpresa ?>" id="tipo-hab" disabled readonly />
                             </div>
                         <?PHP
                         }

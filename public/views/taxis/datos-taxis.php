@@ -15,7 +15,6 @@ include('../common/session.php');
 
 <?php include('../common/header.php'); ?>
 <div class="body container" style="margin-bottom: 5em;">
-    <?php include('../common/datosPerfil.php'); ?>
 
     <h1 class="titulo mb-5 mt-5">Taxis y Remises</h1>
     <h5>Administración de Habilitaciones de Transporte Público</h5>
