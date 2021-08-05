@@ -2,8 +2,8 @@ const d = document;
 
 function checkPatente() {
   const pat = d.getElementById("patente").value;
-  var patron = /[a-zA-Z]{2}-[0-9]{3}-[a-zA-Z]{2}/;
-  patron2 = /[a-zA-Z]{3}-[0-9]{3}/;
+  var patron = /^([a-zA-Z]{2,2}-[0-9]{3}-[a-zA-Z]{2,2})?$/;
+  patron2 = /^([a-zA-Z]{3,3}-[0-9]{3})?$/;
   if (patron.test(pat) || patron2.test(pat)) {
     buscarConductor();
   } else {
