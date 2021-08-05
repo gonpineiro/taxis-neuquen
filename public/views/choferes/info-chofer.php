@@ -37,7 +37,7 @@ if ($_GET['numero']) {
 </head>
 
 <body>
-    <img style="width:100%" src="../../estilos/libreta/banner.jpeg" />
+    <img class="p-3" style="width:100%" src="../../estilos/libreta/banner.svg" />
     <!-- <h4 class="text-center mt-4">Datos del Chofer</h4> -->
     <div class="container mb-3">
         <div class="datos-perfil">
