@@ -273,16 +273,22 @@ function getImageByRenaper($array, $jsonStr = true)
 
     $response = file_get_contents('https://weblogin.muninqn.gov.ar/api/Renaper/waloBackdoor/' . $genero . $dni);
     $json = json_decode($response);
-    $imagen = $json->{'docInfo'}->{'imagen'};
 
-    // si la imagen retorna NULL fuerzo su búsqueda con @F al final de la url
-    if (is_null($imagen)) {
-        $response = file_get_contents('https://weblogin.muninqn.gov.ar/api/Renaper/waloBackdoor/' . $genero . $dni . "@F");
-        $json = json_decode($response);
+    if ($json->error == null) {
         $imagen = $json->{'docInfo'}->{'imagen'};
+        // si la imagen retorna NULL fuerzo su búsqueda con @F al final de la url
+        if (is_null($imagen)) {
+            $response = file_get_contents('https://weblogin.muninqn.gov.ar/api/Renaper/waloBackdoor/' . $genero . $dni . "@F");
+            $json = json_decode($response);
+            if ($json->error == null) {
+                $imagen = $json->{'docInfo'}->{'imagen'};
+            } else {
+                return null;
+            }
+        }
+    } else {
+        return null;
     }
-    /* $array['imagen'] = $imagen;
-    return utf8_converter($array, $jsonStr); */
     return $imagen;
 }
 function getCodigoQr($conductorID)

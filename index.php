@@ -1,8 +1,14 @@
 <?php
 include 'app/config/config.php';
 
+die();
 $habilitacionController = new HabilitacionController();
-$habilitaciones = $habilitacionController->get('OPC-656');
+$habilitaciones = $habilitacionController->get('AA-144-PM');
+if ($habilitaciones['documento_renaper'] != null) {
+    $datosTahabilitacionesxi['imagen'] = $habilitacionController->getImagen();
+} else {
+    $habilitaciones['imagen'] = null;
+}
 die();
 $choferController = new ChoferController();
 $chofer = $choferController->get(3816);
