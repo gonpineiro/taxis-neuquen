@@ -7,10 +7,12 @@
 class Habilitacion extends Base
 {
     public $habilitacion;
+    protected $patente;
 
     public function __construct(string $patente)
     {
         $params = ['action' => 0, 'patente' => $patente];
+        $this->patente = $patente;
         $this->habilitacion = $this->callWebService($params);
         $this->habilitacion = array_values($this->limpiarHabilitacion())[0];
         if ($this->habilitacion["habTipo"] === 'TAX' || $this->habilitacion["habTipo"] === 'REM') {
@@ -43,6 +45,15 @@ class Habilitacion extends Base
 
     private function limpiarHabilitacion()
     {
+
+        /* Controlamos que solamente traiga un arreglo con con esa patente */
+        $this->habilitacion = array_filter($this->habilitacion, function ($habilitacion) {
+            if ($habilitacion['patente'] == $this->patente) {
+                return $habilitacion;
+            }
+        });
+
+        /* Del arreglo obtenido anteriormente devolvemos el unico valor valido */
         if (count($this->habilitacion) > 1) {
             return array_filter($this->habilitacion, function ($habilitacion) {
                 if ($this->existeTipoEnString($habilitacion['titularEmpresa'])) {
@@ -53,6 +64,7 @@ class Habilitacion extends Base
             return $this->habilitacion;
         }
     }
+
     private function existeTipoEnString($string)
     {
         $documentoTipos = array('CUIT:', 'CUIL:', 'PQCNT:', 'LE:', 'DNI:', 'SC:');
