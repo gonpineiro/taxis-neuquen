@@ -15,14 +15,13 @@ include('../common/session.php');
 
 <?php include('../common/header.php'); ?>
 <div class="body container" style="margin-bottom: 5em;">
-    <?php include('../common/datosPerfil.php'); ?>
 
     <h1 class="titulo mb-5 mt-5">Taxis y Remises</h1>
     <h5>Administración de Habilitaciones de Transporte Público</h5>
     <!-- BÚSQUEDA DEL VEHÍCULO -->
     <div class="row">
         <div class="form-group col">
-            <label for="patente">Patente </label>
+            <label for="patente">Patente (Ej: OPC-656, AD-481-CF)</label>
             <input type="text" id="patente" class="form-control" placeholder="OPC-656" value="OPC-656" name="patente" required>
             <div class="invalid-feedback">
                 <strong>
@@ -32,7 +31,7 @@ include('../common/session.php');
         </div>
         <div class="form-group col">
             <label for="fecha_hasta font-weight-bold" style="visibility: hidden;">Buscar </label>
-            <input onclick="buscarConductor();" type="submit" value="Buscar Vehículo" id="buscar-conductor" class="form-control btn-primary" name="buscar-conductor" required style="background-color: #60C1DE;color:white;">
+            <input onclick="checkPatente();" type="submit" value="Buscar Vehículo" id="buscar-conductor" class="form-control btn-primary" name="buscar-conductor" required style="background-color: #60C1DE;color:white;">
 
         </div>
     </div>

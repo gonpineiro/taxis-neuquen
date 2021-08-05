@@ -1,5 +1,20 @@
 const d = document;
 
+function checkPatente() {
+  const pat = d.getElementById("patente").value;
+  var patron = /^([a-zA-Z]{2,2}-[0-9]{3}-[a-zA-Z]{2,2})?$/;
+  patron2 = /^([a-zA-Z]{3,3}-[0-9]{3})?$/;
+  if (patron.test(pat) || patron2.test(pat)) {
+    buscarConductor();
+  } else {
+    d.getElementById("nav-tabContent").style.display = "none";
+    d.getElementById("nav-tabDescription").style.display = "none";
+    d.getElementById("transporte-publico").style.display = "none";
+    d.getElementById("sin-datos").style.display = "block";
+    d.getElementById("sin-datos-descrip").textContent =
+      "Ingrese correctamente la patente. Ej: OPC-656, AD-481-CF";
+  }
+}
 async function buscarConductor() {
   d.getElementById("sin-datos").style.display = "block";
   d.getElementById("nav-tabContent").style.display = "none";
@@ -21,7 +36,8 @@ async function buscarConductor() {
       const taxi = datosTaxi.habilitacion;
       console.log(taxi);
       var qrcode = new QRCode("qr_code", {
-        text: "http://200.85.183.194:90/apps/Taxis/public/views/taxis/info-habilitacion.php?patente=" +
+        text:
+          "http://200.85.183.194:90/apps/Taxis/public/views/taxis/info-habilitacion.php?patente=" +
           taxi.patente,
         width: 128,
         height: 128,

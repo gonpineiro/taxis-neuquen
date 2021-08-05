@@ -48,7 +48,7 @@ if ($_GET['patente']) {
 </head>
 
 <body>
-    <img style="width:100%" src="../../estilos/libreta/banner.jpeg" />
+    <img class="p-3" style="width:100%" src="../../estilos/libreta/banner.svg" />
     <!-- <h4 class="text-center mt-4">Datos del Chofer</h4> -->
     <div class="container mb-3">
         <div class="datos-perfil">
@@ -151,13 +151,9 @@ if ($_GET['patente']) {
                                 <label class="text-dark">Nombre Empresa</label>
                                 <input type="text" class="form-control" value="<?= $empresaNombre ?>" id="tipo-hab" disabled readonly />
                             </div>
-                            <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
+                            <div class="form-group col-xs-6 col-sm-6 col-4 col-md-4">
                                 <label class="text-dark">Empresa ID</label>
                                 <input type="text" class="form-control" value="<?= $empresaID ?>" id="tipo-hab" disabled readonly />
-                            </div>
-                            <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
-                                <label class="text-dark">Titular Empresa</label>
-                                <input type="text" class="form-control" value="<?= $titularEmpresa ?>" id="tipo-hab" disabled readonly />
                             </div>
                         <?PHP
                         }

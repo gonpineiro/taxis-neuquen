@@ -1,5 +1,7 @@
 const d = document;
 
+
+
 async function buscarConductor() {
   d.getElementById("datos-conductor").style.display = "none";
   d.getElementById("sin-datos").style.display = "block";
