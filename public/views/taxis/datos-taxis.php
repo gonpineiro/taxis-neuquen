@@ -21,8 +21,8 @@ include('../common/session.php');
     <!-- BÚSQUEDA DEL VEHÍCULO -->
     <div class="row">
         <div class="form-group col">
-            <label for="patente">Patente (Ej: OPC-656, AD-481-CF)</label>
-            <input type="text" id="patente" class="form-control" placeholder="OPC-656" value="OPC-656" name="patente" required>
+            <label for="patente">Patente (Ej: AAA-111, AA-111-BB)</label>
+            <input type="text" id="patente" class="form-control text-uppercase" placeholder="OPC-656" value="OPC-656" name="patente" required>
             <div class="invalid-feedback">
                 <strong>
                     Por favor ingrese la patente correctamente.
