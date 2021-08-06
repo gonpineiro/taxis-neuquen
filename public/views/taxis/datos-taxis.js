@@ -16,7 +16,7 @@ function checkPatente() {
   }
 }
 async function buscarConductor() {
-  document.getElementById("qr_code").textContent = "";
+  d.getElementById("qr_code").textContent = "";
   d.getElementById("sin-datos").style.display = "block";
   d.getElementById("nav-tabContent").style.display = "none";
   d.getElementById("nav-tabDescription").style.display = "none";

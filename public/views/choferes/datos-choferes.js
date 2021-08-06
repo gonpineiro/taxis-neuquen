@@ -1,8 +1,7 @@
 const d = document;
 
-
-
 async function buscarConductor() {
+  d.getElementById("qr_code").textContent = "";
   d.getElementById("datos-conductor").style.display = "none";
   d.getElementById("sin-datos").style.display = "block";
   d.getElementById("sin-datos-descrip").textContent = "Buscando...";
@@ -24,7 +23,9 @@ async function buscarConductor() {
 
     console.log(datoschofer);
     var qrcode = new QRCode("qr_code", {
-      text: "http://200.85.183.194:90/apps/Taxis/public/views/choferes/info-chofer.php?numero=" + chofer.conductorID,
+      text:
+        "http://200.85.183.194:90/apps/Taxis/public/views/choferes/info-chofer.php?numero=" +
+        chofer.conductorID,
       width: 128,
       height: 128,
       colorDark: "#006BB1",
