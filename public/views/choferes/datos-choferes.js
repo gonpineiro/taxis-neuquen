@@ -112,7 +112,7 @@ function imprimirHabilitacionChofer(
   //doc.addImage(base64Image, "png", 0, 0, 40, 40);
 
   // banner
-  doc.addImage(banner, "JPEG", 5, 5, 200, 32.2);
+  doc.addImage(banner, "JPEG", 40, 7, 124.2, 20); 
   // foto dni
   doc.addImage(foto, "JPEG", 160, 45, 40, 48.9);
   // código qr

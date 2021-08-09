@@ -143,8 +143,7 @@ function imprimirHabilitacionChofer({
   var doc = new jsPDF("p", "mm", "a4");
   doc.setFillColor(247, 247, 247);
   doc.rect(5, 5, 200, 210, "F");
-  doc.addImage(banner, "JPEG", 5, 5, 200, 32.2);
-  //doc.addImage(codigoqr, "JPEG", 160, 85, 40, 40);
+  doc.addImage(banner, "JPEG", 40, 7, 124.2, 20); 
   doc.setFont("helvetica", "bold");
   doc.setFontSize(22);
   doc.text(15, 60, "DATOS DEL VEHICULO");

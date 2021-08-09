@@ -98,14 +98,6 @@ if ($_GET['patente']) {
                             <label class="text-dark">RTO Vencimiento</label>
                             <input type="text" class="form-control" value="<?= $rtoFechaVencimiento ?>" id="tipo-hab" disabled readonly />
                         </div>
-                        <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
-                            <label class="text-dark">Póliza</label>
-                            <input type="text" class="form-control" value="<?= $poliza ?>" id="tipo-hab" disabled readonly />
-                        </div>
-                        <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
-                            <label class="text-dark">Póliza Vencimiento</label>
-                            <input type="text" class="form-control" value="<?= $polizaFechaVencimiento ?>" id="tipo-hab" disabled readonly />
-                        </div>
                     </div>
 
                     <h3 class="mt-3">Responsable Habilitación</h3>

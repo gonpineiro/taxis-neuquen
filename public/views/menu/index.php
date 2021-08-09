@@ -77,7 +77,7 @@ $apellido = $nombreapellido[0];
                                 </td>
                             </tr>
                             <tr style='height: 60px;'>
-                                <td class='opcion-titulo text-center'>CREDENCIAL TAXIS/ REMISSES</td>
+                                <td class='opcion-titulo text-center'>CREDENCIAL TITULAR TAXI/ REMISSE</td>
                             </tr>
                         </tbody>
                     </table>
@@ -91,7 +91,7 @@ $apellido = $nombreapellido[0];
                                 </td>
                             </tr>
                             <tr style='height: 60px;'>
-                                <td class='opcion-titulo text-center'>CREDENCIAL CHOFERES</td>
+                                <td class='opcion-titulo text-center'>CREDENCIAL CHOFER</td>
                             </tr>
                         </tbody>
                     </table>
