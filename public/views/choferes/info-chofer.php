@@ -9,7 +9,7 @@ if ($_GET['numero']) {
     $nombre = $datosChofer['chofer']['conductorRazonSocial'];
     $documento = $datosChofer['chofer']['conductorIdentificacion'];
     $tipoDoc = $datosChofer['tipo_documento'];
-    $numDoc =  $datosChofer['documento'];
+    $numDoc =  $datosChofer['documento_renaper'];
     $credencial = $datosChofer['chofer']['conductorID'];
     $tipoLicencia = $datosChofer['chofer']['tipoLicencia'];
     $fechaOtorgamiento = $datosChofer['chofer']['fechaOtorgamiento'];
@@ -20,6 +20,7 @@ if ($_GET['numero']) {
 } else {
     echo "Error en la búsqueda de datos";
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +46,7 @@ if ($_GET['numero']) {
                 <img class="rounded mx-auto d-block shadow-sm img-fluid m-3" style="max-width: 40%;" src="<?= $imagen ?>" alt="">
                 <div class="container text-center">
                     <h3 style="font-size:1.5rem"><?= $nombre ?></h3>
-                    <h4 style="font-size:1.2rem"><?= $documento ?></h4>
+                    <h4 style="font-size:1.2rem">DNI: <?= $numDoc ?></h4>
                     <h5 style="font-size: 1rem;">Credencial: <?= $credencial ?></h5>
                     <p class="text-dark" style="font-size: 0.8rem;">Fecha Otorgamiento: <?= $fechaOtorgamiento ?></p>
                     <p class="text-dark" style="font-size: 0.8rem;">Fecha Vencimiento: <?= $fechaVencimiento ?></p>
