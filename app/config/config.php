@@ -23,6 +23,7 @@ define('APPID', PROD ? 53 : 55);
 
 /* Configuracion de URLs */
 define('WEBLOGIN', PROD ? 'https://weblogin.muninqn.gov.ar' : 'http://200.85.183.194:90');
+define('QR_URL', PROD ? $_ENV['QR_URL_PROD'] : $_ENV['QR_URL_DEV']);
 
 /* Configuracion base de datos */
 define('DB_HOST', PROD ? $_ENV['DB_HOST'] : '128.53.15.3');
