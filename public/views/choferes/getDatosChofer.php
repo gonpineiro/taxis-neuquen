@@ -12,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dato = json_decode(file_get_contents('php://input'));
     $choferController = new ChoferController();
     $datosChofer = $choferController->get($dato->id);
+    $datosChofer['qr_url'] = QR_URL;
 
     $imagen = $choferController->getImagen();
     $qr = $choferController->getQrChofer();

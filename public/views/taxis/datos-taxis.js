@@ -36,9 +36,10 @@ async function buscarConductor() {
     const datosTaxi = await response.json();
     if (datosTaxi) {
       const taxi = datosTaxi.habilitacion;
-      var qrcode = new QRCode("qr_code", {
-        text:
-          "http://200.85.183.194:90/apps/Taxis/public/views/taxis/info-habilitacion.php?patente=" +
+      console.log(datosTaxi);
+      new QRCode("qr_code", {
+        text: datosTaxi.qr_url +
+          "Taxis/public/views/taxis/info-habilitacion.php?patente=" +
           taxi.patente,
         width: 128,
         height: 128,

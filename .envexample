@@ -7,6 +7,9 @@ DB_NAME=
 DB_PORT=
 DB_CHARSET=
 
+QR_URL_PROD=https://weblogin.muninqn.gov.ar/apps/
+QR_URL_DEV=http://200.85.183.194:90/apps/
+
 API_URL=https://weblogin.muninqn.gov.ar/api/mnqn
 API_TOKEN=12345
 
