@@ -73,7 +73,7 @@ $apellido = $nombreapellido[0];
                         <tbody>
                             <tr>
                                 <td>
-                                    <div class='icono' style='background-image: url(../../estilos/menu/icono-admin.png);'></div>
+                                    <div class='icono' style='background-image: url(../../estilos/menu/icono_credencial.svg);'></div>
                                 </td>
                             </tr>
                             <tr style='height: 60px;'>
@@ -87,7 +87,7 @@ $apellido = $nombreapellido[0];
                         <tbody>
                             <tr>
                                 <td>
-                                    <div class='icono' style='background-image: url(../../estilos/menu/icono-admin.png);'></div>
+                                    <div class='icono' style='background-image: url(../../estilos/menu/icono_credencial.svg);'></div>
                                 </td>
                             </tr>
                             <tr style='height: 60px;'>
