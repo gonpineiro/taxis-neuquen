@@ -16,7 +16,7 @@
 
 <div class="header container">
     <div class="card-header">
-        <img src="../../estilos/libreta/header.png" />
+        <img src="../../estilos/libreta/banner-taxis-remisses.svg" />
     </div>
 </div>
 
