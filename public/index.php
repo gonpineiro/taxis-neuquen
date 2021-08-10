@@ -1,6 +1,6 @@
 <?php
 include_once '../app/config/config.php';
-
+session_unset();
 if (isset($_GET['SESSIONKEY'])) {
     $_SESSION['app'] = $_GET['APP'];
     $_SESSION['token'] = $_GET['SESSIONKEY'];
@@ -21,8 +21,7 @@ if (isset($_GET['SESSIONKEY'])) {
     if (!PROD) $_SESSION['userProfiles'] = 3;
 
     if ($_SESSION['userProfiles'] != 3) {
-        header('Location: views/formularios/inscripcion.php');
-        exit();
+        header('Location: ' . WEBLOGIN);
     } else {
         header('Location: views/menu/index.php');
         exit();

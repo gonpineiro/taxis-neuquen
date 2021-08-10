@@ -1,7 +1,7 @@
 <?php
 include '../../../app/config/config.php';
 
-if (!isset($_SESSION['usuario'])) {
+if (!isset($_SESSION['usuario']) || $_SESSION['userProfiles'] != 3) {
     header('HTTP/1.1 301 Moved Permanently');
     header('Location: ' . WEBLOGIN);
     exit();
