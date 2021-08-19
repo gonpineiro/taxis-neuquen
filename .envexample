@@ -11,6 +11,7 @@ QR_URL_PROD=https://weblogin.muninqn.gov.ar/apps/
 QR_URL_DEV=http://200.85.183.194:90/apps/
 
 API_URL=https://weblogin.muninqn.gov.ar/api/mnqn
-API_TOKEN=12345
+API_URL_LIC=https://weblogin.muninqn.gov.ar/api_v1/mnqn
+API_TOKEN=
 
 DB_LOG_TABLE=deportes_log
