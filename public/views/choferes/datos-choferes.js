@@ -41,9 +41,16 @@ async function buscarConductor() {
     d.getElementById("nombrec").value = chofer.conductorRazonSocial;
     d.getElementById("foto_dni").src = datoschofer.imagen;
     d.getElementById("nro_conductor").value = chofer.conductorID;
-    d.getElementById("descripcion_lic").value = licencia.subclaseID;
+
+    d.getElementById("descripcion_lic").value =
+      typeof licencia === "object"
+        ? licencia.subclaseID
+        : "Momentáneamente sin datos. Intente nuevamente.";
     d.getElementById("fecha_vencimiento_licencia").value =
-      licencia.fechaVigencia;
+      typeof licencia === "object"
+        ? licencia.fechaVigencia
+        : "Momentáneamente sin datos. Intente nuevamente.";
+
     d.getElementById("fecha_otorgada").value = chofer.fechaOtorgamiento;
     d.getElementById("fecha_vencimiento").value = chofer.fechaVencimiento;
     d.getElementById("observaciones").value = chofer.observaciones;

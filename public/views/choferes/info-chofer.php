@@ -3,22 +3,27 @@ include '../../../app/config/config.php';
 $choferController = new ChoferController();
 
 if ($_GET['numero']) {
-    $dato = $_GET['numero'];
-    $datosChofer = $choferController->get($dato);
+    $habilitacion = $_GET['numero'];
+    $datosChofer = $choferController->get($habilitacion);
     $imagen = $choferController->getImagen();
     $nombre = $datosChofer['chofer']['conductorRazonSocial'];
     $documento = $datosChofer['chofer']['conductorIdentificacion'];
     $tipoDoc = $datosChofer['tipo_documento'];
     $numDoc =  $datosChofer['documento_renaper'];
     $credencial = $datosChofer['chofer']['conductorID'];
-    $tipoLicencia = $datosChofer['datos_licencia']['subclaseID'];
     $fechaOtorgamiento = $datosChofer['chofer']['fechaOtorgamiento'];
     $fechaVencimiento = $datosChofer['chofer']['fechaVencimiento'];
-    $fechaVencimientoLicencia = $datosChofer['datos_licencia']['fechaVigencia'];
     $observaciones = $datosChofer['chofer']['observaciones'];
     $fechaVencimientoLicencia = $datosChofer['chofer']['fechaVencimientoLicencia'];
+    if ($datosChofer['datos_licencia'] == "error_api_licencia") {
+        $tipoLicencia = "Sin datos por el momento.";
+        $fechaVencimientoLicencia = "Sin datos por el momento.";
+    } else {
+        $tipoLicencia = $datosChofer['datos_licencia']['subclaseID'];
+        $fechaVencimientoLicencia = $datosChofer['datos_licencia']['fechaVigencia'];
+    }
 } else {
-    echo "Error en la búsqueda de datos";
+    echo "Error";
 }
 
 ?>
