@@ -11,10 +11,10 @@ if ($_GET['numero']) {
     $tipoDoc = $datosChofer['tipo_documento'];
     $numDoc =  $datosChofer['documento_renaper'];
     $credencial = $datosChofer['chofer']['conductorID'];
-    $tipoLicencia = $datosChofer['chofer']['tipoLicencia'];
+    $tipoLicencia = $datosChofer['datos_licencia']['subclaseID'];
     $fechaOtorgamiento = $datosChofer['chofer']['fechaOtorgamiento'];
     $fechaVencimiento = $datosChofer['chofer']['fechaVencimiento'];
-    $fechaVencimientoLicencia = $datosChofer['chofer']['fechaVencimientoLicencia'];
+    $fechaVencimientoLicencia = $datosChofer['datos_licencia']['fechaVigencia'];
     $observaciones = $datosChofer['chofer']['observaciones'];
     $fechaVencimientoLicencia = $datosChofer['chofer']['fechaVencimientoLicencia'];
 } else {

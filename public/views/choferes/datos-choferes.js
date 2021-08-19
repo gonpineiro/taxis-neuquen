@@ -16,6 +16,7 @@ async function buscarConductor() {
   try {
     const datoschofer = await response.json();
     const chofer = datoschofer.chofer;
+    const licencia = datoschofer.datos_licencia;
 
     /* Mostramos la vista */
     d.getElementById("datos-conductor").style.display = "block";
@@ -23,7 +24,8 @@ async function buscarConductor() {
 
     console.log(datoschofer);
     var qrcode = new QRCode("qr_code", {
-      text: datoschofer.qr_url +
+      text:
+        datoschofer.qr_url +
         "Taxis/public/views/choferes/info-chofer.php?numero=" +
         chofer.conductorID,
       width: 128,
@@ -39,9 +41,9 @@ async function buscarConductor() {
     d.getElementById("nombrec").value = chofer.conductorRazonSocial;
     d.getElementById("foto_dni").src = datoschofer.imagen;
     d.getElementById("nro_conductor").value = chofer.conductorID;
-    d.getElementById("descripcion_lic").value = chofer.tipoLicencia;
+    d.getElementById("descripcion_lic").value = licencia.subclaseID;
     d.getElementById("fecha_vencimiento_licencia").value =
-      chofer.fechaVencimientoLicencia;
+      licencia.fechaVigencia;
     d.getElementById("fecha_otorgada").value = chofer.fechaOtorgamiento;
     d.getElementById("fecha_vencimiento").value = chofer.fechaVencimiento;
     d.getElementById("observaciones").value = chofer.observaciones;
@@ -112,7 +114,7 @@ function imprimirHabilitacionChofer(
   //doc.addImage(base64Image, "png", 0, 0, 40, 40);
 
   // banner
-  doc.addImage(banner, "JPEG", 40, 7, 124.2, 20); 
+  doc.addImage(banner, "JPEG", 40, 7, 124.2, 20);
   // foto dni
   doc.addImage(foto, "JPEG", 160, 45, 40, 48.9);
   // código qr
