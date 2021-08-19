@@ -88,9 +88,10 @@ class Chofer extends Base
             CURLOPT_CUSTOMREQUEST => $method,
         ));
 
+        $intentos = 0;
         do {
             try {
-                $response = curl_exec($curl);                
+                $response = curl_exec($curl);
 
                 /* Verificamos que no haya error de conexion */
                 if (!is_null(json_decode($response, true)['error'])) {
@@ -98,7 +99,6 @@ class Chofer extends Base
                 }
 
                 $response = json_decode($response, true)['value'];
-                $response[0]['status'] = "Licencia en cola de consulta, intente nuevamente!";
                 switch ($response[0]['status']) {
                     case null:
                         curl_close($curl);
@@ -113,6 +113,7 @@ class Chofer extends Base
                         break;
                 }
             } catch (Exception $e) {
+                curl_close($curl);
                 return $e;
             }
         } while ($intentos < 3);
@@ -120,3 +121,9 @@ class Chofer extends Base
         return $this->errores['cola_api'];
     }
 }
+
+$errores = [
+    'cola_api' => "Licencia en cola de consulta, intente nuevamente!",
+    'documento_ine' => "No hay registros con ese número de DNI",
+    'api_licencia' => 'error_api_licencia'
+];
