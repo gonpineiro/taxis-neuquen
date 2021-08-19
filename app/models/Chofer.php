@@ -16,7 +16,7 @@ class Chofer extends Base
     public function __construct(int $conductorID)
     {
         $params = ['action' => 1, 'conductorID' => $conductorID];
-        $this->chofer = $this->callWebService($params)[0];
+        $this->chofer = $this->callWebService($params, API_URL)['value'][0];
         $this->extractDoc($this->chofer['conductorIdentificacion']);
         $this->formatDate();
     }
@@ -121,9 +121,3 @@ class Chofer extends Base
         return $this->errores['cola_api'];
     }
 }
-
-$errores = [
-    'cola_api' => "Licencia en cola de consulta, intente nuevamente!",
-    'documento_ine' => "No hay registros con ese número de DNI",
-    'api_licencia' => 'error_api_licencia'
-];

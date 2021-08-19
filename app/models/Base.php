@@ -6,7 +6,6 @@
  */
 class Base
 {
-    private $url = API_URL;
     protected $headers = ["Content-type: application/json", "Authorization: Bearer " . API_TOKEN];
     protected $tipo_documento;
     protected $documento;
@@ -37,12 +36,12 @@ class Base
         return $this->imagen;
     }
 
-    protected function callWebService(array $params, string $method = 'POST')
+    protected function callWebService(array $params, string $url, string $method = 'POST')
     {
         try {
             $curl = curl_init();
             curl_setopt_array($curl, array(
-                CURLOPT_URL => $this->url,
+                CURLOPT_URL => $url,
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => "",
                 CURLOPT_MAXREDIRS => 10,
@@ -54,7 +53,7 @@ class Base
             ));
             $response = curl_exec($curl);
             curl_close($curl);
-            return json_decode($response, true)['value'];
+            return json_decode($response, true);
         } catch (Exception $e) {
             return $e;
         }

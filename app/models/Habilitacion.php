@@ -13,7 +13,7 @@ class Habilitacion extends Base
     {
         $params = ['action' => 0, 'patente' => $patente];
         $this->patente = $patente;
-        $this->habilitacion = $this->callWebService($params);
+        $this->habilitacion = $this->callWebService($params, API_URL)['value'];
         $this->habilitacion = array_values($this->limpiarHabilitacion())[0];
         if ($this->habilitacion["habTipo"] === 'TAX' || $this->habilitacion["habTipo"] === 'REM') {
             $this->extractDoc($this->habilitacion['titularEmpresa']);
