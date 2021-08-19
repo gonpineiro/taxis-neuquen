@@ -38,4 +38,51 @@ class Chofer extends Base
         $this->codigoQr = getCodigoQr($this->chofer["conductorID"]);
         return $this->codigoQr;
     }
+
+    public function getDatosLicencia()
+    {
+        /* Filtramos el arreglo para traiga a la persona correspondiente */
+        $licencia = array_filter($this->getDatosLicenciaApi(), function ($array) {
+            $apellidoLicencia = explode(',', $array['razonSocial'])[0];
+            $apellidoChofer = explode(',', $this->chofer["conductorRazonSocial"])[0];
+            return $apellidoLicencia == $apellidoChofer;
+        })[0]['licencia'];
+
+        if (is_array($licencia['subclaseID'])) {
+            $licencia['subclaseID'] = implode(' - ', $licencia['subclaseID']);
+        }
+
+        $timestamp = strtotime($licencia["fechaEmision"]);
+        $licencia["fechaEmision"] = date('d/m/Y', $timestamp);
+
+        $timestamp = strtotime($licencia["fechaVigencia"]);
+        $licencia["fechaVigencia"] = date('d/m/Y', $timestamp);
+
+        return $licencia;
+    }
+
+    private function getDatosLicenciaApi(string $method = 'POST')
+    {
+        $params = ['action' => 2, 'documento' => $this->documento_renaper];
+
+        try {
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => API_URL_LIC,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_HTTPHEADER => $this->headers,
+                CURLOPT_POSTFIELDS => json_encode($params),
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => $method,
+            ));
+            $response = curl_exec($curl);
+            curl_close($curl);
+            return json_decode($response, true)['value'];
+        } catch (Exception $e) {
+            return $e;
+        }
+    }
 }

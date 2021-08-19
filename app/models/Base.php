@@ -7,7 +7,7 @@
 class Base
 {
     private $url = API_URL;
-    private $headers = ["Content-type: application/json", "Authorization: Bearer " . API_TOKEN];
+    protected $headers = ["Content-type: application/json", "Authorization: Bearer " . API_TOKEN];
     protected $tipo_documento;
     protected $documento;
     protected $documento_renaper;
