@@ -337,3 +337,17 @@ function mostrarError($tipo, $detalle = null)
         return "Hubo un error en la carga de los archivos, porfavor intente nuevamente mas tarde.";
     }
 }
+
+function cargarLogFile($tipo, $msg, $class, $function)
+{
+
+    $path = LOG_PATH . $tipo . "/";
+
+    if (!file_exists($path)) mkdir($path, 0755, true);
+
+    $msg = " | $msg | Clase: $class | Function: $function";
+    
+    $logFile = fopen($path . date("Ymd") . ".log", 'a') or die("Error creando archivo");
+    fwrite($logFile, "\n" . date("d/m/Y H:i:s") . "$msg") or die("Error escribiendo en el archivo");
+    fclose($logFile);
+}

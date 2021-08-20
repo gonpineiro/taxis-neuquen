@@ -7,11 +7,6 @@ class Chofer extends Base
 {
     public $chofer;
     public $codigoQr;
-    private $errores = [
-        'cola_api' => "Licencia en cola de consulta, intente nuevamente!",
-        'documento_ine' => "No hay registros con ese número de DNI",
-        'api_licencia' => 'error_api_licencia'
-    ];
 
     public function __construct(int $conductorID)
     {
@@ -64,7 +59,10 @@ class Chofer extends Base
 
             if ($response[0]['status'] == $obs['documento_ine']) return $obs['documento_ine'];
 
-            if ($response[0]['status'] == $obs['cola_api']) $intentos++;
+            if ($response[0]['status'] == $obs['cola_api']) {
+                $intentos++;
+                continue;
+            };
 
             if (is_null($response[0]['status'])) {
                 /* Filtramos el arreglo para traiga a la persona correspondiente */
@@ -84,9 +82,17 @@ class Chofer extends Base
                 $timestamp = strtotime($licencia["fechaVigencia"]);
                 $licencia["fechaVigencia"] = date('d/m/Y', $timestamp);
 
+                if ($intentos > 0) {
+                    $logMsg = "[Intentos] : Se obtuvo los datos despues de $intentos intentos | Documento: $this->documento_renaper";
+                    cargarLogFile('api_lic', $logMsg, get_class(), __FUNCTION__);
+                }
                 return $licencia;
             }
         } while ($intentos < 3);
+
+        $logMsg = "[Intentos] : Exedio limite de tres intentos | Documento: $this->documento_renaper";
+        cargarLogFile('api_lic', $logMsg, get_class(), __FUNCTION__);
+
         return $obs['api_licencia'];
     }
 }

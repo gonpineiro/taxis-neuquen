@@ -7,3 +7,4 @@ define('VIEW_PATH', ROOT_PATH . 'public/views');
 define('APP_PATH', ROOT_PATH . 'app');
 define('CON_PATH', ROOT_PATH . 'app/connections');
 define('UTIL_PATH', ROOT_PATH . 'app/utils');
+define('LOG_PATH', ROOT_PATH . 'logs/');
