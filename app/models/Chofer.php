@@ -65,12 +65,17 @@ class Chofer extends Base
             };
 
             if (is_null($response[0]['status'])) {
-                /* Filtramos el arreglo para traiga a la persona correspondiente */
-                $licencia = array_filter($response, function ($array) {
-                    $apellidoLicencia = explode(',', $array['razonSocial'])[0];
-                    $apellidoChofer = explode(',', $this->chofer["conductorRazonSocial"])[0];
-                    return $apellidoLicencia == $apellidoChofer;
-                })[0]['licencia'];
+
+                if (count($response) > 1) {
+                    /* Filtramos el arreglo para traiga a la persona correspondiente */
+                    $licencia = array_filter($response, function ($array) {
+                        $apellidoLicencia = explode(',', $array['razonSocial'])[0];
+                        $apellidoChofer = explode(',', $this->chofer["conductorRazonSocial"])[0];
+                        return $apellidoLicencia == $apellidoChofer;
+                    });
+                } else {
+                    $licencia = $response[0]['licencia'];
+                }
 
                 if (is_array($licencia['subclaseID'])) {
                     $licencia['subclaseID'] = implode(' - ', $licencia['subclaseID']);
