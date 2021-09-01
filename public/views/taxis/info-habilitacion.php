@@ -5,7 +5,7 @@ $habilitaciónController = new HabilitacionController();
 if ($_GET['patente']) {
     $dato = $_GET['patente'];
     $datosHabilitacion = $habilitaciónController->get($dato);
-    $id = $datosHabilitacion['habilitacion']['id'];
+    $numHabilitacion = $datosHabilitacion['habilitacion']['habNumero'];
     $patente = $datosHabilitacion['habilitacion']['patente'];
     $habTipo = $datosHabilitacion['habilitacion']['habTipo'];
     $habNumero = $datosHabilitacion['habilitacion']['habNumero'];
@@ -58,8 +58,8 @@ if ($_GET['patente']) {
                     <hr>
                     <div class="row">
                         <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
-                            <label class="text-dark">ID Habilitación</label>
-                            <input type="text" class="form-control" value="<?= $id ?>"  disabled readonly />
+                            <label class="text-dark">Número Habilitación</label>
+                            <input type="text" class="form-control" value="<?= $numHabilitacion ?>" disabled readonly />
                         </div>
                         <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
                             <label class="text-dark">Tipo Habilitación</label>
@@ -68,35 +68,35 @@ if ($_GET['patente']) {
                                                                             }
                                                                             if ($habTipo == "REM") {
                                                                                 echo "REMISSE";
-                                                                            } ?>"  disabled readonly />
+                                                                            } ?>" disabled readonly />
                         </div>
                         <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
                             <label class="text-dark">Patente</label>
-                            <input type="text" class="form-control" value="<?= $patente ?>"  disabled readonly />
+                            <input type="text" class="form-control" value="<?= $patente ?>" disabled readonly />
                         </div>
                         <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
                             <label class="text-dark">Marca Vehículo</label>
-                            <input type="text" class="form-control" value="<?= $marcaVehiculo ?>"  disabled readonly />
+                            <input type="text" class="form-control" value="<?= $marcaVehiculo ?>" disabled readonly />
                         </div>
                         <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
                             <label class="text-dark">Modelo</label>
-                            <input type="text" class="form-control" value="<?= $modelo ?>"  disabled readonly />
+                            <input type="text" class="form-control" value="<?= $modelo ?>" disabled readonly />
                         </div>
                         <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
                             <label class="text-dark">Fecha Alta</label>
-                            <input type="text" class="form-control" value="<?= $habFechaAlta ?>"  disabled readonly />
+                            <input type="text" class="form-control" value="<?= $habFechaAlta ?>" disabled readonly />
                         </div>
                         <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
                             <label class="text-dark">Fecha Vencimiento</label>
-                            <input type="text" class="form-control" value="<?= $habFechaVencimiento ?>"  disabled readonly />
+                            <input type="text" class="form-control" value="<?= $habFechaVencimiento ?>" disabled readonly />
                         </div>
                         <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
                             <label class="text-dark">RTO ID</label>
-                            <input type="text" class="form-control" value="<?= $rtoID ?>"  disabled readonly />
+                            <input type="text" class="form-control" value="<?= $rtoID ?>" disabled readonly />
                         </div>
                         <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
                             <label class="text-dark">RTO Vencimiento</label>
-                            <input type="text" class="form-control" value="<?= $rtoFechaVencimiento ?>"  disabled readonly />
+                            <input type="text" class="form-control" value="<?= $rtoFechaVencimiento ?>" disabled readonly />
                         </div>
                     </div>
 
@@ -106,15 +106,15 @@ if ($_GET['patente']) {
                         <img class="rounded mx-auto d-block shadow-sm img-fluid m-3" style="max-width: 40%;" src="<?= $foto_dni ?>" alt="">
                         <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
                             <label class="text-dark">Nombre Titular/ Responsable</label>
-                            <input type="text" class="form-control" value="<?= $titularIdentificacion ?>"  disabled readonly />
+                            <input type="text" class="form-control" value="<?= $titularIdentificacion ?>" disabled readonly />
                         </div>
                         <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
                             <label class="text-dark">Tipo Documento</label>
-                            <input type="text" class="form-control" value="<?= $tipo_documento ?>"  disabled readonly />
+                            <input type="text" class="form-control" value="<?= $tipo_documento ?>" disabled readonly />
                         </div>
                         <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
                             <label class="text-dark">Número</label>
-                            <input type="text" class="form-control" value="<?= $documento ?>"  disabled readonly />
+                            <input type="text" class="form-control" value="<?= $documento ?>" disabled readonly />
                         </div>
 
                         <?PHP
@@ -141,11 +141,11 @@ if ($_GET['patente']) {
                         ?>
                             <div class="form-group col-xs-6 col-sm-6 col-12 col-md-4">
                                 <label class="text-dark">Nombre Empresa</label>
-                                <input type="text" class="form-control" value="<?= $empresaNombre ?>"  disabled readonly />
+                                <input type="text" class="form-control" value="<?= $empresaNombre ?>" disabled readonly />
                             </div>
                             <div class="form-group col-xs-6 col-sm-6 col-4 col-md-4">
                                 <label class="text-dark">Empresa ID</label>
-                                <input type="text" class="form-control" value="<?= $empresaID ?>"  disabled readonly />
+                                <input type="text" class="form-control" value="<?= $empresaID ?>" disabled readonly />
                             </div>
                         <?PHP
                         }

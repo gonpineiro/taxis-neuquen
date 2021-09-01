@@ -116,16 +116,16 @@ function imprimirHabilitacionChofer(
   //color
   doc.setFillColor(247, 247, 247);
   // borde. quitar F si no se quiere el color de fondo
-  doc.rect(5, 5, 200, 148, "F");
+  doc.rect(5, 5, 200, 140, "F");
 
   //doc.addImage(base64Image, "png", 0, 0, 40, 40);
 
   // banner
   doc.addImage(banner, "JPEG", 40, 7, 124.2, 20);
   // foto dni
-  doc.addImage(foto, "JPEG", 160, 45, 40, 48.9);
+  doc.addImage(foto, "JPEG", 160, 38, 40, 48.9);
   // código qr
-  doc.addImage(codigoqr, "PNG", 160, 100, 40, 40);
+  doc.addImage(codigoqr, "PNG", 160, 93, 40, 40);
 
   // definición de constantes
   const subsecretaria = "Subsecretaría de Transporte";
@@ -146,25 +146,25 @@ function imprimirHabilitacionChofer(
   // posisionamiento de los datos
   doc.setFont("helvetica", "bold");
   doc.setFontSize(22);
-  doc.text(15, 60, "DATOS DEL CONDUCTOR");
+  doc.text(15, 50, "DATOS DEL CONDUCTOR");
   doc.setFont("helvetica", "normal");
   doc.setFontSize(18);
-  doc.text(15, 70, nombre);
-  doc.text(15, 80, dni);
-  doc.text(15, 90, "Credencial Nº: " + credencial);
-  doc.text(15, 100, esRenovacion);
+  doc.text(15, 60, nombre);
+  doc.text(15, 70, dni);
+  doc.text(15, 80, "Credencial Nº: " + credencial);
+  doc.text(15, 90, esRenovacion);
   doc.setFontSize(15);
-  doc.text(85, 90, "Otorgada:");
-  doc.text(120, 90, otorgada);
-  doc.text(85, 100, "Vencimiento:");
-  doc.text(120, 100, vencimiento);
+  doc.text(85, 80, "Otorgada:");
+  doc.text(120, 80, otorgada);
+  doc.text(85, 90, "Vencimiento:");
+  doc.text(120, 90, vencimiento);
   doc.setFontSize(14);
-  doc.text(15, 139, subsecretaria);
-  doc.text(15, 145, direccion);
+  doc.text(15, 129, subsecretaria);
+  doc.text(15, 135, direccion);
   doc.setFontSize(7.7);
-  doc.text(160, 145, verificacion);
+  doc.text(160, 138, verificacion);
   doc.setFontSize(20);
-  doc.text(15, 110, tipoCredencial);
+  doc.text(15, 100, tipoCredencial);
 
   doc.autoPrint({
     variant: "javascript",
