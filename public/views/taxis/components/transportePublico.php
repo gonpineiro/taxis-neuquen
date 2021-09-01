@@ -6,7 +6,7 @@
             <input type="text" class="form-control" id="tipo-hab" readonly disabled />
         </div>
         <div class="form-group col-xs-12 col-md-4">
-            <label>Tipo Habilitación</label>
+            <label>Número Habilitación</label>
             <input type="text" class="form-control" id="nro-hab" readonly disabled />
         </div>
         <div class="form-group col-xs-12 col-md-4">
@@ -16,11 +16,11 @@
     </div>
     <div class="row">
         <div class="form-group col-xs-12 col-md-4">
-            <label>Nro Empresa</label>
+            <label>ID Empresa</label>
             <input type="text" class="form-control" id="nro-empresa" readonly disabled />
         </div>
         <div class="form-group col-xs-12 col-md-8">
-            <label>Parada</label>
+            <label>Nombre Empresa</label>
             <input type="text" class="form-control" id="parada" readonly disabled />
         </div>
     </div>
