@@ -128,7 +128,7 @@ function imprimirHabilitacionChofer(
   doc.addImage(codigoqr, "PNG", 160, 100, 40, 40);
 
   // definición de constantes
-  const subsecretaria = "Subsecretaría de Transporte y Tránsito";
+  const subsecretaria = "Subsecretaría de Transporte";
   const municipalidad = "Municipalidad de Neuquén";
   const direccion = "Dirección General de Transporte";
   const verificacion = "Escanear QR para verificar datos.";
