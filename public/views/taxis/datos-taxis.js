@@ -152,37 +152,39 @@ function imprimirHabilitacionChofer({
   doc.setFontSize(17);
   doc.text(15, 70, "Tipo de habilitación:");
   doc.text(80, 70, tipoHab);
+  doc.text(15, 80, "Nro. de habilitación:");
+  doc.text(80, 80, nroHab);
   //doc.text(15, 80, "Licencia Comercial:");
   //doc.text(80, 80, licComercial);
-  doc.text(15, 80, "Marca:");
-  doc.text(80, 80, autoMarca);
-  doc.text(15, 90, "Modelo:");
-  doc.text(80, 90, autoModelo);
-  doc.text(15, 100, "Patente:");
-  doc.text(80, 100, autoPatente);
-  doc.text(15, 110, "Fecha Habilitación:");
-  doc.text(80, 110, fechaAlta);
-  doc.text(15, 120, "Fecha Vencimiento:");
-  doc.text(80, 120, vtoHab);
+  doc.text(15, 90, "Marca:");
+  doc.text(80, 90, autoMarca);
+  doc.text(15, 100, "Modelo:");
+  doc.text(80, 100, autoModelo);
+  doc.text(15, 110, "Patente:");
+  doc.text(80, 110, autoPatente);
+  doc.text(15, 120, "Fecha Habilitación:");
+  doc.text(80, 120, fechaAlta);
+  doc.text(15, 130, "Fecha Vencimiento:");
+  doc.text(80, 130, vtoHab);
   doc.setFontSize(7.7);
-  doc.text(160, 100, verificacion);
+  doc.text(160, 110, verificacion);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(22);
-  doc.text(15, 150, "DATOS DEL TITULAR/RESPONSABLE");
-  doc.addImage(cod_qr, "PNG", 160, 55, 40, 40);
+  doc.text(15, 160, "DATOS DEL TITULAR/RESPONSABLE");
+  doc.addImage(cod_qr, "PNG", 160, 65, 40, 40);
 
   if (fotoDni.includes("data:image/jpg;base64"))
-    doc.addImage(fotoDni, "PNG", 160, 160, 40, 48.9);
+    doc.addImage(fotoDni, "PNG", 160, 170, 40, 48.9);
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(15);
-  doc.text(15, 160, "Titular");
-  doc.text(60, 160, nombre);
-  doc.text(15, 170, "Identificación");
-  doc.text(60, 170, identificacion);
+  doc.text(15, 170, "Titular");
+  doc.text(60, 170, nombre);
+  doc.text(15, 180, "Identificación");
+  doc.text(60, 180, identificacion);
   doc.setFontSize(14);
-  doc.text(15, 200, subsecretaria);
-  doc.text(15, 206, direccion);
+  doc.text(15, 210, subsecretaria);
+  doc.text(15, 216, direccion);
 
   doc.autoPrint({
     variant: "javascript",
