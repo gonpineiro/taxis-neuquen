@@ -143,48 +143,48 @@ function imprimirHabilitacionChofer({
   // posisionamiento de los datos
   var doc = new jsPDF("p", "mm", "a4");
   doc.setFillColor(247, 247, 247);
-  doc.rect(5, 5, 200, 210, "F");
+  doc.rect(5, 5, 200, 200, "F");
   doc.addImage(banner, "JPEG", 40, 7, 124.2, 20);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(22);
-  doc.text(15, 60, "DATOS DEL VEHICULO");
+  doc.text(15, 50, "DATOS DEL VEHÍCULO");
   doc.setFont("helvetica", "normal");
   doc.setFontSize(17);
-  doc.text(15, 70, "Tipo de habilitación:");
-  doc.text(80, 70, tipoHab);
-  doc.text(15, 80, "Nro. de habilitación:");
-  doc.text(80, 80, nroHab);
+  doc.text(15, 60, "Tipo de habilitación:");
+  doc.text(80, 60, tipoHab);
+  doc.text(15, 70, "Nro. de habilitación:");
+  doc.text(80, 70, nroHab);
   //doc.text(15, 80, "Licencia Comercial:");
   //doc.text(80, 80, licComercial);
-  doc.text(15, 90, "Marca:");
-  doc.text(80, 90, autoMarca);
-  doc.text(15, 100, "Modelo:");
-  doc.text(80, 100, autoModelo);
-  doc.text(15, 110, "Patente:");
-  doc.text(80, 110, autoPatente);
-  doc.text(15, 120, "Fecha Habilitación:");
-  doc.text(80, 120, fechaAlta);
-  doc.text(15, 130, "Fecha Vencimiento:");
-  doc.text(80, 130, vtoHab);
+  doc.text(15, 80, "Marca:");
+  doc.text(80, 80, autoMarca);
+  doc.text(15, 90, "Modelo:");
+  doc.text(80, 90, autoModelo);
+  doc.text(15, 100, "Patente:");
+  doc.text(80, 100, autoPatente);
+  doc.text(15, 110, "Fecha Habilitación:");
+  doc.text(80, 110, fechaAlta);
+  doc.text(15, 120, "Fecha Vencimiento:");
+  doc.text(80, 120, vtoHab);
   doc.setFontSize(7.7);
-  doc.text(160, 110, verificacion);
+  doc.text(160, 90, verificacion);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(22);
-  doc.text(15, 160, "DATOS DEL TITULAR/RESPONSABLE");
-  doc.addImage(cod_qr, "PNG", 160, 65, 40, 40);
+  doc.text(15, 140, "DATOS DEL TITULAR/ RESPONSABLE");
+  doc.addImage(cod_qr, "PNG", 160, 45, 40, 40);
 
   if (fotoDni.includes("data:image/jpg;base64"))
-    doc.addImage(fotoDni, "PNG", 160, 170, 40, 48.9);
+    doc.addImage(fotoDni, "PNG", 160, 150, 40, 48.9);
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(15);
-  doc.text(15, 170, "Titular");
-  doc.text(60, 170, nombre);
-  doc.text(15, 180, "Identificación");
-  doc.text(60, 180, identificacion);
+  doc.text(15, 150, "Titular");
+  doc.text(60, 150, nombre);
+  doc.text(15, 160, "Identificación");
+  doc.text(60, 160, identificacion);
   doc.setFontSize(14);
-  doc.text(15, 210, subsecretaria);
-  doc.text(15, 216, direccion);
+  doc.text(15, 190, subsecretaria);
+  doc.text(15, 196, direccion);
 
   doc.autoPrint({
     variant: "javascript",
