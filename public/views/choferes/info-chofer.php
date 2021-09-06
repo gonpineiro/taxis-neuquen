@@ -61,15 +61,22 @@ if ($_GET['numero']) {
                     <h5 style="font-size: 1rem;">Licencia Conducir: <?= $tipoLicencia ?></h5>
                     <p class="text-dark" style="font-size: 0.8rem;">Fecha Vencimiento Licencia: <?= $fechaVencimientoLicencia ?></p>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mb-3">
+        <div class="datos-perfil">
+            <div class="card-body">
                 <?PHP
                 if ($datosChofer['autos_habilitados'] != null) {
                 ?>
                     <div class="container">
-                        <h5 class="pt-3" style="font-size: 1.2rem;">Autos Habilitados</h5>
+                        <h5 class="pb-3 text-center" style="font-size: 1.2rem;">Autos Habilitados</h5>
                         <div class="table-responsive">
                             <table class="table table-sm">
                                 <thead>
                                     <tr>
+                                        <th scope="col">Tipo</th>
                                         <th scope="col">Dominio</th>
                                         <th scope="col">Marca</th>
                                         <th scope="col">Modelo</th>
@@ -81,6 +88,7 @@ if ($_GET['numero']) {
                                     foreach ($datosChofer['autos_habilitados'] as $habilitacion) {
                                     ?>
                                         <tr>
+                                            <td><?= $habilitacion['habilitacionTipo'] ?></td>
                                             <td><?= $habilitacion['vehiculoDominio'] ?></td>
                                             <td><?= $habilitacion['vehiculoMarca'] ?></td>
                                             <td><?= $habilitacion['vehiculoModelo'] ?></td>
