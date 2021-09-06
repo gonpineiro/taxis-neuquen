@@ -179,7 +179,7 @@ function imprimirHabilitacionChofer({
   doc.setFont("helvetica", "normal");
   doc.setFontSize(15);
   doc.text(15, 150, "Titular");
-  doc.text(60, 150, nombre);
+  doc.text(60, 150, nombre.slice(0, 30));
   doc.text(15, 160, "Identificación");
   doc.text(60, 160, identificacion);
   doc.setFontSize(14);

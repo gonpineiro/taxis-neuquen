@@ -22,6 +22,9 @@ if ($_GET['numero']) {
         $tipoLicencia = $datosChofer['datos_licencia']['subclaseID'];
         $fechaVencimientoLicencia = $datosChofer['datos_licencia']['fechaVigencia'];
     }
+    if ($datosChofer['autos_habilitados'] != null) {
+        $habilitacionesAutos = $datosChofer['autos_habilitados'];
+    }
 } else {
     echo "Error";
 }
@@ -58,6 +61,40 @@ if ($_GET['numero']) {
                     <h5 style="font-size: 1rem;">Licencia Conducir: <?= $tipoLicencia ?></h5>
                     <p class="text-dark" style="font-size: 0.8rem;">Fecha Vencimiento Licencia: <?= $fechaVencimientoLicencia ?></p>
                 </div>
+                <?PHP
+                if ($datosChofer['autos_habilitados'] != null) {
+                ?>
+                    <div class="container">
+                        <h5 class="pt-3" style="font-size: 1.2rem;">Autos Habilitados</h5>
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Dominio</th>
+                                        <th scope="col">Marca</th>
+                                        <th scope="col">Modelo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <?PHP
+                                    foreach ($datosChofer['autos_habilitados'] as $habilitacion) {
+                                    ?>
+                                        <tr>
+                                            <td><?= $habilitacion['vehiculoDominio'] ?></td>
+                                            <td><?= $habilitacion['vehiculoMarca'] ?></td>
+                                            <td><?= $habilitacion['vehiculoModelo'] ?></td>
+                                        </tr>
+                                    <?PHP
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                <?PHP
+                }
+                ?>
             </div>
         </div>
     </div>
