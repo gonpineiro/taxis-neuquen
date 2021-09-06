@@ -108,6 +108,11 @@ class Chofer extends Base
         $params = ['action' => 4, 'conductorID' => $this->conductorID];
 
         $response = $this->callWebService($params, API_URL_LIC);
+
+        if ($response['error'] == 'Sin información') {
+            return null;
+        }
+
         $response = $response['value'];
         $autos = [];
         $allowed = ['habilitacionNumero', 'habilitacionTipo', 'vehiculoDominio', 'vehiculoMarca', 'vehiculoModelo'];
