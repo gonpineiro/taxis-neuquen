@@ -12,6 +12,7 @@ class ChoferController
             'documento' => $this->chofer->getDocumento(),
             'documento_renaper' => $this->chofer->getDocumentoRenaper(),
             'datos_licencia' => $this->chofer->getDatosLicencia(),
+            'autos_habilitados' => $this->chofer->getAutosHabilitados()
         ];
     }
 

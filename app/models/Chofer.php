@@ -7,9 +7,11 @@ class Chofer extends Base
 {
     public $chofer;
     public $codigoQr;
+    private $conductorID;
 
     public function __construct(int $conductorID)
     {
+        $this->conductorID = $conductorID;
         $params = ['action' => 1, 'conductorID' => $conductorID];
         $this->chofer = $this->callWebService($params, API_URL)['value'][0];
         $this->extractDoc($this->chofer['conductorIdentificacion']);
@@ -99,5 +101,26 @@ class Chofer extends Base
         cargarLogFile('api_lic', $logMsg, get_class(), __FUNCTION__);
 
         return $obs['api_licencia'];
+    }
+
+    public function getAutosHabilitados()
+    {
+        $params = ['action' => 4, 'conductorID' => $this->conductorID];
+
+        $response = $this->callWebService($params, API_URL_LIC);
+        $response = $response['value'];
+        $autos = [];
+        $allowed = ['habilitacionNumero', 'habilitacionTipo', 'vehiculoDominio', 'vehiculoMarca', 'vehiculoModelo'];
+        foreach ($response as $auto) {
+            $filtered = array_filter(
+                $auto,
+                function ($key) use ($allowed) {
+                    return in_array($key, $allowed);
+                },
+                ARRAY_FILTER_USE_KEY
+            );
+            array_push($autos, $filtered);
+        }
+        return $autos;
     }
 }
