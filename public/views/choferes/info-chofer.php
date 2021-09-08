@@ -76,10 +76,9 @@ if ($_GET['numero']) {
                             <table class="table table-sm">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Tipo</th>
                                         <th scope="col">Dominio</th>
                                         <th scope="col">Marca</th>
-                                        <th scope="col">Modelo</th>
+                                        <th scope="col" class="text-center" style="width:50px">Modelo</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -88,10 +87,9 @@ if ($_GET['numero']) {
                                     foreach ($datosChofer['autos_habilitados'] as $habilitacion) {
                                     ?>
                                         <tr>
-                                            <td><?= $habilitacion['habilitacionTipo'] ?></td>
                                             <td><?= $habilitacion['vehiculoDominio'] ?></td>
                                             <td><?= $habilitacion['vehiculoMarca'] ?></td>
-                                            <td><?= $habilitacion['vehiculoModelo'] ?></td>
+                                            <td class="text-center" style="width:50px"><?= $habilitacion['vehiculoModelo'] ?></td>
                                         </tr>
                                     <?PHP
                                     }
