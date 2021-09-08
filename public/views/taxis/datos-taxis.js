@@ -2,8 +2,8 @@ const d = document;
 
 function checkPatente() {
   const pat = d.getElementById("patente").value.toUpperCase();
-  var patron = /^([a-zA-Z]{2,2}-[0-9]{3}-[a-zA-Z]{2,2})?$/;
-  patron2 = /^([a-zA-Z]{3,3}-[0-9]{3})?$/;
+  const patron = /^([a-zA-Z]{2,2}-[0-9]{3}-[a-zA-Z]{2,2})?$/;
+  const patron2 = /^([a-zA-Z]{3,3}-[0-9]{3})?$/;
   if (patron.test(pat) || patron2.test(pat)) {
     buscarConductor();
   } else {
@@ -34,11 +34,8 @@ async function buscarConductor() {
   });
   try {
     const datosTaxi = await response.json();
-    console.log("aca" + datosTaxi);
-
     if (datosTaxi) {
       const taxi = datosTaxi.habilitacion;
-      console.log(datosTaxi);
       new QRCode("qr_code", {
         text:
           datosTaxi.qr_url +
