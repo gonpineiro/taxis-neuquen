@@ -30,7 +30,7 @@ async function buscarConductor() {
   const response = await fetch("./getDatosTaxi.php", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ habTipo: habTipo, habilitacionID: habilitacionID }),
+    body: JSON.stringify({ habilitacionID: habilitacionID, habTipo: habTipo }),
   });
   try {
     const datosTaxi = await response.json();

@@ -3,9 +3,9 @@
 class HabilitacionController
 {
     /* Busca todas una habilitacion */
-    public function get($habTipo, $habilitacionID)
+    public function get($habilitacionID, $habTipo)
     {
-        $this->habilitacion = new Habilitacion($habTipo, $habilitacionID);
+        $this->habilitacion = new Habilitacion($habilitacionID, $habTipo);
         return [
             'habilitacion' => $this->habilitacion->getHabilitacion(),
             'tipo_documento' => $this->habilitacion->getTipoDocumento(),

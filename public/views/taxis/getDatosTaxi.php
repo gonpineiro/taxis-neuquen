@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("HTTP/1.1 200 OK");
     $dato = json_decode(file_get_contents('php://input'));
     $habilitacionController = new HabilitacionController();
-    $datosTaxi = $habilitacionController->get($dato->habTipo, $dato->habilitacionID);
+    $datosTaxi = $habilitacionController->get($dato->habilitacionID, $dato->habTipo);
     $datosTaxi['qr_url'] = QR_URL;
     if ($datosTaxi['habilitacion'] == null) {
         echo (json_encode(null));
