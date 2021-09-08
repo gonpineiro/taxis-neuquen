@@ -2,9 +2,10 @@
 include '../../../app/config/config.php';
 $habilitaciónController = new HabilitacionController();
 
-if ($_GET['patente']) {
-    $dato = $_GET['patente'];
-    $datosHabilitacion = $habilitaciónController->get($dato);
+if ($_GET['habid'] && $_GET['habtipo']) {
+    $habID = $_GET['habid'];
+    $habTipo = $_GET['habtipo'];
+    $datosHabilitacion = $habilitaciónController->get($habID, $habTipo);
     $numHabilitacion = $datosHabilitacion['habilitacion']['habNumero'];
     $patente = $datosHabilitacion['habilitacion']['patente'];
     $habTipo = $datosHabilitacion['habilitacion']['habTipo'];

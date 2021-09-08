@@ -24,24 +24,28 @@ async function buscarConductor() {
   d.getElementById("sin-datos-descrip").textContent = "Buscando...";
 
   /* fetch de los datos */
-  const patente = d.getElementById("patente").value.toUpperCase();
-  console.log(patente);
+  //const patente = d.getElementById("patente").value.toUpperCase();
+  const habTipo = d.getElementById("habTipo").value.toUpperCase();
+  const habilitacionID = d.getElementById("habilitacionID").value.toUpperCase();
   const response = await fetch("./getDatosTaxi.php", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ id: patente }),
+    body: JSON.stringify({ habTipo: habTipo, habilitacionID: habilitacionID }),
   });
-
   try {
     const datosTaxi = await response.json();
+    console.log("aca" + datosTaxi);
+
     if (datosTaxi) {
       const taxi = datosTaxi.habilitacion;
       console.log(datosTaxi);
       new QRCode("qr_code", {
         text:
           datosTaxi.qr_url +
-          "Taxis/public/views/taxis/info-habilitacion.php?patente=" +
-          taxi.patente,
+          "Taxis/public/views/taxis/info-habilitacion.php?habid=" +
+          taxi.habNumero +
+          "&habtipo=" +
+          taxi.habTipo,
         width: 128,
         height: 128,
         colorDark: "#006BB1",
@@ -86,16 +90,15 @@ async function buscarConductor() {
       d.getElementById("sin-datos").style.display = "block";
       d.getElementById(
         "sin-datos-descrip"
-      ).textContent = `La patente ${patente} no corresponde a una habilitacion de Taxi o remis`;
+      ).textContent = `La patente ${patente} no corresponde a una habilitacion de taxi o remis`;
     }
   } catch (error) {
-    console.log(error);
     d.getElementById("nav-tabContent").style.display = "none";
     d.getElementById("nav-tabDescription").style.display = "none";
     d.getElementById("transporte-publico").style.display = "none";
     d.getElementById("sin-datos").style.display = "block";
     d.getElementById("sin-datos-descrip").textContent =
-      "No se encuentra la patente: " + patente;
+      "No se encuentra la habilitación: " + habilitacionID;
   }
 }
 
