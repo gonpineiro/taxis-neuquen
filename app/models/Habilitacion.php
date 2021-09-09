@@ -26,7 +26,7 @@ class Habilitacion extends Base
             if ($habTipo === 'TAX' || $habTipo === 'REM') {
                 $this->habilitacion = $response['value'];
                 $this->patente = $this->habilitacion[0]['patente'];
-                $this->habilitacion = $this->limpiarHabilitacion()[0];
+                $this->habilitacion = array_values($this->limpiarHabilitacion())[0];
                 $this->extractDoc($this->habilitacion['titularEmpresa']);
                 $this->formatDate();
             } else {
