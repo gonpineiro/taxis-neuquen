@@ -7,23 +7,31 @@
 class Habilitacion extends Base
 {
     public $habilitacion;
-    protected $habTipo;
     protected $habilitacionID;
+    protected $habTipo;
     protected $patente;
+    protected $error;
 
     public function __construct(string $habilitacionID, string $habTipo)
     {
         $params = ['action' => 0, 'habilitacionID' => $habilitacionID, 'habTipo' => $habTipo];
         $this->habilitacionID = $habilitacionID;
         $this->habTipo = $habTipo;
-        $this->habilitacion = $this->callWebService($params, API_URL)['value'];
-        $this->patente = $this->habilitacion[0]['patente'];
-        $this->habilitacion = array_values($this->limpiarHabilitacion())[0];
-        if ($this->habilitacion["habTipo"] === 'TAX' || $this->habilitacion["habTipo"] === 'REM') {
-            $this->extractDoc($this->habilitacion['titularEmpresa']);
-            $this->formatDate();
+
+        $response = $this->callWebService($params, API_URL);
+
+        if ($response['error'] != null) {
+            $this->error = $response['error'];
         } else {
-            $this->habilitacion = null;
+            if ($habTipo === 'TAX' || $habTipo === 'REM') {
+                $this->habilitacion = $response['value'];
+                $this->patente = $this->habilitacion[0]['patente'];
+                $this->habilitacion = $this->limpiarHabilitacion()[0];
+                $this->extractDoc($this->habilitacion['titularEmpresa']);
+                $this->formatDate();
+            } else {
+                $this->habilitacion = null;
+            }
         }
     }
 
