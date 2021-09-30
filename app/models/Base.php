@@ -50,6 +50,7 @@ class Base
                 CURLOPT_POSTFIELDS => json_encode($params),
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => $method,
+                CURLOPT_SSL_VERIFYPEER => SSL_VERIFYPEER,
             ));
             $response = curl_exec($curl);
             curl_close($curl);

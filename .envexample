@@ -15,3 +15,5 @@ API_URL_LIC=https://weblogin.muninqn.gov.ar/api_v1/mnqn
 API_TOKEN=
 
 DB_LOG_TABLE=deportes_log
+
+SSL_VERIFYPEER=false

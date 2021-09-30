@@ -21,6 +21,9 @@ define('PROD', $_ENV['PROD'] == 'true' ? true : false);
 /* AppID */
 define('APPID', PROD ? 64 : 64);
 
+/* SSL */
+define('SSL_VERIFYPEER', $_ENV['SSL_VERIFYPEER'] == 'true' ? true : false);
+
 /* Configuracion de URLs */
 define('WEBLOGIN', PROD ? 'https://weblogin.muninqn.gov.ar' : 'http://200.85.183.194:90');
 define('QR_URL', PROD ? $_ENV['QR_URL_PROD'] : $_ENV['QR_URL_DEV']);
