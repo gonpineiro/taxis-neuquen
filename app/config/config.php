@@ -19,7 +19,7 @@ $dotenv->load();
 define('PROD', $_ENV['PROD'] == 'true' ? true : false);
 
 /* AppID */
-define('APPID', PROD ? 9999 : 63);
+define('APPID', PROD ? 64 : 64);
 
 /* Configuracion de URLs */
 define('WEBLOGIN', PROD ? 'https://weblogin.muninqn.gov.ar' : 'http://200.85.183.194:90');
