@@ -45,11 +45,11 @@ async function buscarConductor() {
     d.getElementById("descripcion_lic").value =
       typeof licencia === "object"
         ? licencia.subclaseID
-        : "Momentáneamente sin datos. Intente nuevamente.";
+        : "Intente nuevamente en unos minutos.";
     d.getElementById("fecha_vencimiento_licencia").value =
       typeof licencia === "object"
         ? licencia.fechaVigencia
-        : "Momentáneamente sin datos. Intente nuevamente.";
+        : "Intente nuevamente en unos minutos.";
 
     d.getElementById("fecha_otorgada").value = chofer.fechaOtorgamiento;
     d.getElementById("fecha_vencimiento").value = chofer.fechaVencimiento;
