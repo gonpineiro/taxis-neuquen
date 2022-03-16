@@ -54,8 +54,12 @@ async function buscarConductor() {
 
     if (licencia === "error_api_licencia") {
       d.getElementById("print-cred").style.display = "none";
-      d.getElementById("fecha_vencimiento_licencia").style.color = "red"
-      d.getElementById("descripcion_lic").style.color = "red"
+      d.getElementById("fecha_vencimiento_licencia").style.color = "red";
+      d.getElementById("descripcion_lic").style.color = "red";
+    } else {
+      d.getElementById("print-cred").style.display = "block";
+      d.getElementById("fecha_vencimiento_licencia").style.color = "black";
+      d.getElementById("descripcion_lic").style.color = "black";
     }
 
     d.getElementById("fecha_otorgada").value = chofer.fechaOtorgamiento;

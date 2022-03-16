@@ -271,7 +271,9 @@ function getImageByRenaper($array, $jsonStr = true)
     $genero = $array['genero'];
     $dni = $array['dni'];
 
-    $response = file_get_contents('https://weblogin.muninqn.gov.ar/api/Renaper/waloBackdoor/' . $genero . $dni);
+    $token = getTokenRenaper();
+
+    $response = file_get_contents("https://weblogin.muninqn.gov.ar/api/Renaper/$token/" . $genero . $dni);
     $json = json_decode($response);
 
     if ($json->error == null) {
@@ -350,4 +352,12 @@ function cargarLogFile($tipo, $msg, $class, $function)
     $logFile = fopen($path . date("Ymd") . ".log", 'a') or die("Error creando archivo");
     fwrite($logFile, "\n" . date("d/m/Y H:i:s") . "$msg") or die("Error escribiendo en el archivo");
     fclose($logFile);
+}
+
+function getTokenRenaper()
+{
+    $conn = new BaseDatos();
+    $token = $conn->search('RenaperAuthToken');
+    $token = $conn->fetch_assoc($token)['Token'];
+    return $token;
 }
