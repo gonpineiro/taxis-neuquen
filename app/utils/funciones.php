@@ -272,9 +272,16 @@ function getImageByRenaper($array, $jsonStr = true)
     $dni = $array['dni'];
 
     $token = getTokenRenaper();
+    $arrContextOptions = array(
+        "ssl" => array(
+            "verify_peer" => false,
+            "verify_peer_name" => false,
+        ),
+    );
 
-    $response = file_get_contents("https://weblogin.muninqn.gov.ar/api/Renaper/$token/" . $genero . $dni);
+    $response = file_get_contents("https://weblogin.muninqn.gov.ar/api/Renaper/$token/" . $genero . $dni, false, stream_context_create($arrContextOptions));
     $json = json_decode($response);
+    $imagen = $json->{'docInfo'}->{'imagen'};
 
     if ($json->error == null) {
         $imagen = $json->{'docInfo'}->{'imagen'};
@@ -348,7 +355,7 @@ function cargarLogFile($tipo, $msg, $class, $function)
     if (!file_exists($path)) mkdir($path, 0755, true);
 
     $msg = " | $msg | Clase: $class | Function: $function";
-    
+
     $logFile = fopen($path . date("Ymd") . ".log", 'a') or die("Error creando archivo");
     fwrite($logFile, "\n" . date("d/m/Y H:i:s") . "$msg") or die("Error escribiendo en el archivo");
     fclose($logFile);
