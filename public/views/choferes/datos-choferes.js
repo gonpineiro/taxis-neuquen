@@ -46,10 +46,17 @@ async function buscarConductor() {
       typeof licencia === "object"
         ? licencia.subclaseID
         : "Intente nuevamente en unos minutos.";
+
     d.getElementById("fecha_vencimiento_licencia").value =
       typeof licencia === "object"
         ? licencia.fechaVigencia
         : "Intente nuevamente en unos minutos.";
+
+    if (licencia === "error_api_licencia") {
+      d.getElementById("print-cred").style.display = "none";
+      d.getElementById("fecha_vencimiento_licencia").style.color = "red"
+      d.getElementById("descripcion_lic").style.color = "red"
+    }
 
     d.getElementById("fecha_otorgada").value = chofer.fechaOtorgamiento;
     d.getElementById("fecha_vencimiento").value = chofer.fechaVencimiento;

@@ -49,7 +49,11 @@ class Chofer extends Base
             'api_licencia' => 'error_api_licencia'
         ];
 
-        $params = ['action' => 2, 'documento' => $this->documento_renaper];
+        $params = [
+            'action' => 2,
+            'documento' => $this->documento_renaper,
+            'genero' => $this->chofer["conductorGenero"]
+        ];
 
         $intentos = 0;
         do {
