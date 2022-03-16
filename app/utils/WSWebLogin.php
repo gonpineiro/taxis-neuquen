@@ -18,6 +18,9 @@ try {
     $response = curl_exec($curl);
     curl_close($curl);
 
+    
+
+    
     $usuario = json_decode($response, true);
     if ($response && $usuario['error'] == null) {
         $datos_personales = $usuario['datosPersonales'];

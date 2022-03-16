@@ -56,7 +56,7 @@ class Base
             curl_close($curl);
             return json_decode($response, true);
         } catch (Exception $e) {
-            cargarLogFile('llamada_web_service', 'Hubo un error a la hora de llamar el webService', get_class(), __FUNCTION__);
+            cargarLogFile('llamada_web_service', 'Hubo un error a la hora de llamar el webService', get_class($this), __FUNCTION__);
             return $e;
         }
     }
