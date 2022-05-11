@@ -130,7 +130,10 @@ include('../common/session.php');
                         <div class="col">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end pb-3">
                                 <div class="">
-                                    <button class="btn btn-primary" id="print-cred" onclick="buscarDatosConductor()">Imprimir Habilitación</button>
+                                    <button class="btn btn-primary" id="print-cred" onclick="buscarDatosConductorCred()">Imprimir Carnet</button>
+                                </div>
+                                <div class="">
+                                    <button class="btn btn-primary" style="margin-left: 5px;" id="print-cred" onclick="buscarDatosConductor()">Imprimir Habilitación</button>
                                 </div>
                             </div>
                         </div>

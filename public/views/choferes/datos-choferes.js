@@ -104,6 +104,36 @@ function buscarDatosConductor() {
   );
 }
 
+function buscarDatosConductorCred() {
+  const ind_identificacion = d.getElementById("ind_identificacion").value;
+  const nombrec = d.getElementById("nombrec").value;
+  const nro_conductor = d.getElementById("nro_conductor").value;
+  const descripcion_lic = d.getElementById("descripcion_lic").value;
+  const tipo_credencial = d.getElementById("tipo_credencial").value;
+  const fecha_vencimiento_lic = d.getElementById(
+    "fecha_vencimiento_licencia"
+  ).value;
+  const fecha_otorgada = d.getElementById("fecha_otorgada").value;
+  const fecha_vencimiento = d.getElementById("fecha_vencimiento").value;
+  const renovacion = d.getElementById("renovacion").value;
+  //const fecha_ultimo_cambio = d.getElementById("fecha_ultimo_cambio").value;
+  const foto_dni = d.getElementById("foto_dni").src;
+  const cod_qr = $("#qr_code img").attr("src");
+
+  imprimirHabilitacionChoferCred(
+    ind_identificacion,
+    nombrec,
+    nro_conductor,
+    descripcion_lic,
+    fecha_vencimiento,
+    fecha_otorgada,
+    renovacion,
+    foto_dni,
+    cod_qr,
+    tipo_credencial
+  );
+}
+
 function imprimirHabilitacionChofer(
   ind_identificacion = null,
   nombrec = null,
@@ -181,4 +211,58 @@ function imprimirHabilitacionChofer(
     variant: "javascript",
   });
   doc.save("credencial-" + credencial + ".pdf");
+}
+
+function imprimirHabilitacionChoferCred(
+  ind_identificacion = null,
+  nombrec = null,
+  nro_conductor = null,
+  descripcion_lic = null,
+  fecha_vencimiento = null,
+  fecha_otorgada = null,
+  renovacion = null,
+  foto_dni = null,
+  cod_qr,
+  tipo_credencial
+) {
+
+  // const codigoqr = d.getElementById("#qr_code").getElementsByTagName('img').attr("src");
+  // con js arriba, pero no anda?
+  const codigoqr = cod_qr;
+  const foto = foto_dni;
+  var doc = new jsPDF("p", "mm", "a4");
+  doc.setFont("helvetica");
+
+  doc.addImage(foto, "JPEG", 2, 2, 20, 21.05);
+
+  doc.addImage(codigoqr, "PNG", 65, 27, 18, 18);
+
+  const global_line = 10;
+  let col = 25;
+  let line = global_line;
+  const CLine = () => {
+    line = line + 7;
+    return line;
+  }
+  doc.setFontSize(8);
+  doc.setFont("helvetica", "bold");
+  doc.text(col, line, 'Credencial N°: ');
+  doc.text(col, CLine(line), 'Documento: ');
+  doc.text(col, CLine(line), 'Nombre: ');
+  doc.text(col, CLine(line), 'Otorgado: ');
+  doc.text(col, CLine(line), 'Vencimiento: ');
+
+  col = col + 21
+  line = global_line
+  doc.setFont("helvetica", 'normal');
+  doc.text(col, line, nro_conductor);
+  doc.text(col, CLine(line), ind_identificacion);
+  doc.text(col, CLine(line), nombrec);
+  doc.text(col, CLine(line), fecha_otorgada);
+  doc.text(col, CLine(line), fecha_vencimiento)
+
+  doc.autoPrint({
+    variant: "javascript",
+  });
+  doc.save("credencial-" + nro_conductor + ".pdf");
 }
